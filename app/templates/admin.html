@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard — Bookings & Webhook Audit{% endblock %}
+
+{% block content %}
+<section class="bg-slate-50 py-8 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
+                    Captain's Choice Operations
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+                    Bookings & Webhook Management
+                </h1>
+                <p class="text-xs text-slate-500 mt-1">
+                    Real-time monitoring of speed boat reservations, Razorpay payments, and webhook payloads
+                </p>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1 rounded-lg text-xs font-mono font-semibold {% if is_mock %}bg-amber-100 text-amber-900 border border-amber-200{% else %}bg-emerald-100 text-emerald-900 border border-emerald-200{% endif %}">
+                    {% if is_mock %}Mode: SIMULATION (Mock Razorpay){% else %}Mode: LIVE RAZORPAY{% endif %}
+                </span>
+            </div>
+        </div>
+
+        <!-- Metric Cards (Clean Light) -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <span class="text-[11px] text-slate-400 font-bold uppercase block">Total Bookings</span>
+                <span class="text-2xl font-extrabold font-display text-slate-900 mt-1 block">{{ bookings|length }}</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <span class="text-[11px] text-sky-600 font-bold uppercase block">Confirmed Payments</span>
+                <span class="text-2xl font-extrabold font-display text-sky-700 mt-1 block">{{ payments|length }}</span>
+            </div>
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                <span class="text-[11px] text-emerald-600 font-bold uppercase block">Advance Revenue</span>
+                <span class="text-2xl font-extrabold font-display text-emerald-700 mt-1 block">₹{{ "{:,}".format(total_revenue|int) }}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="py-10 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+
+        <!-- LIVE BOOKINGS TABLE -->
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+            <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+                <div>
+                    <h2 class="font-bold text-ocean-900 text-lg font-display">Recent Speedboat Bookings</h2>
+                    <p class="text-xs text-slate-500">Live booking records and customer contact channels</p>
+                </div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                    <thead class="bg-slate-50 text-slate-500 uppercase font-bold border-b border-slate-200">
+                        <tr>
+                            <th class="px-5 py-3">Booking Ref</th>
+                            <th class="px-5 py-3">Customer</th>
+                            <th class="px-5 py-3">Vessel & Route</th>
+                            <th class="px-5 py-3">Date & Slot</th>
+                            <th class="px-5 py-3">Total / Advance</th>
+                            <th class="px-5 py-3">Payment</th>
+                            <th class="px-5 py-3 text-right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 text-slate-700">
+                        {% for b in bookings %}
+                        <tr class="hover:bg-slate-50/80 transition-colors">
+                            <td class="px-5 py-4 font-mono font-bold text-ocean-900">
+                                <a href="/booking/{{ b.booking_ref }}" class="hover:underline text-cyanAccent-600">
+                                    {{ b.booking_ref }}
+                                </a>
+                            </td>
+                            <td class="px-5 py-4">
+                                <strong class="block text-ocean-900">{{ b.customer_name }}</strong>
+                                <span class="text-slate-500">{{ b.customer_phone }}</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <strong class="block text-ocean-900">{{ b.boat_name }}</strong>
+                                <span class="text-slate-500 text-[11px]">{{ b.route_name }}</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <strong class="block text-ocean-900">{{ b.travel_date }}</strong>
+                                <span class="text-slate-500 text-[11px]">{{ b.time_slot }} ({{ b.passengers }} Pax)</span>
+                            </td>
+                            <td class="px-5 py-4">
+                                <div class="text-ocean-900 font-bold">₹{{ "{:,}".format(b.total_fare|int) }}</div>
+                                <div class="text-emerald-600 text-[11px]">Adv: ₹{{ "{:,}".format(b.advance_required|int) }}</div>
+                            </td>
+                            <td class="px-5 py-4">
+                                {% if b.payment_status == 'paid' %}
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                                    PAID
+                                </span>
+                                {% elif b.payment_status == 'pending' %}
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                                    PENDING
+                                </span>
+                                {% else %}
+                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-800">
+                                    {{ b.payment_status|upper }}
+                                </span>
+                                {% endif %}
+                            </td>
+                            <td class="px-5 py-4 text-right space-x-2">
+                                <a href="https://wa.me/{{ b.customer_phone }}?text=Hello%20{{ b.customer_name|urlencode }}!%20This%20is%20Gateway%20Speedboat%20regarding%20your%20booking%20{{ b.booking_ref }}." target="_blank" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-[11px] border border-emerald-300">
+                                    <span>WhatsApp</span>
+                                </a>
+                                <a href="/booking/{{ b.booking_ref }}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-[11px]">
+                                    <span>Ticket</span>
+                                </a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="7" class="px-5 py-8 text-center text-slate-400">
+                                No bookings recorded yet. Create a test booking from the <a href="/book" class="text-cyanAccent-600 font-bold underline">booking page</a>.
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- RAZORPAY WEBHOOK TEST SIMULATOR & AUDIT LOG -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Webhook Audit Log Table -->
+            <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+                <div class="p-5 border-b border-slate-100 flex items-center justify-between">
+                    <div>
+                        <h2 class="font-bold text-ocean-900 text-lg font-display">Razorpay Webhook Events Log</h2>
+                        <p class="text-xs text-slate-500">Incoming asynchronous webhook notifications from Razorpay</p>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs">
+                        <thead class="bg-slate-50 text-slate-500 uppercase font-bold border-b border-slate-200">
+                            <tr>
+                                <th class="px-5 py-3">Event Type</th>
+                                <th class="px-5 py-3">Signature Verified</th>
+                                <th class="px-5 py-3">Timestamp</th>
+                                <th class="px-5 py-3">Payload Preview</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700 font-mono">
+                            {% for e in events %}
+                            <tr class="hover:bg-slate-50">
+                                <td class="px-5 py-3 text-ocean-900 font-bold">{{ e.event_type }}</td>
+                                <td class="px-5 py-3">
+                                    {% if e.verified %}
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">✓ VALID HMAC</span>
+                                    {% else %}
+                                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800">✗ INVALID</span>
+                                    {% endif %}
+                                </td>
+                                <td class="px-5 py-3 text-slate-500 text-[11px]">{{ e.created_at.strftime("%Y-%m-%d %H:%M:%S") }}</td>
+                                <td class="px-5 py-3 text-slate-500 text-[10px] truncate max-w-xs">{{ e.payload }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="4" class="px-5 py-6 text-center text-slate-400">
+                                    No webhook events received yet. Use the simulator tool on the right to test webhook delivery!
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Webhook Dispatch Test Tool -->
+            <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200 shadow-md p-6 space-y-4">
+                <div>
+                    <h3 class="font-bold text-ocean-900 text-base font-display">Test Razorpay Webhook</h3>
+                    <p class="text-xs text-slate-500 mt-1">Dispatch a test simulated webhook payload to <code class="bg-slate-100 px-1 py-0.5 rounded text-[11px]">/api/payments/webhook</code></p>
+                </div>
+
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Select Event Type</label>
+                        <select id="webhookTestEvent" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-ocean-900">
+                            <option value="payment.captured">payment.captured (Success)</option>
+                            <option value="order.paid">order.paid</option>
+                            <option value="payment.failed">payment.failed</option>
+                        </select>
+                    </div>
+
+                    <button id="dispatchWebhookBtn" class="w-full bg-ocean-800 hover:bg-ocean-900 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition-colors flex items-center justify-center gap-2">
+                        <span>Dispatch Test Webhook</span>
+                    </button>
+                    <div id="webhookResult" class="text-xs text-slate-600 mt-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200 hidden"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const dispatchBtn = document.getElementById("dispatchWebhookBtn");
+    const webhookResult = document.getElementById("webhookResult");
+    const testEventSelect = document.getElementById("webhookTestEvent");
+
+    if (dispatchBtn) {
+        dispatchBtn.addEventListener("click", async () => {
+            dispatchBtn.disabled = true;
+            dispatchBtn.textContent = "Sending webhook...";
+
+            const eventType = testEventSelect.value;
+            const payload = {
+                "id": `evt_test_${Date.now()}`,
+                "entity": "event",
+                "event": eventType,
+                "contains": ["payment"],
+                "payload": {
+                    "payment": {
+                        "entity": {
+                            "id": `pay_test_${Date.now()}`,
+                            "order_id": "order_mock_test123",
+                            "amount": 200000,
+                            "currency": "INR",
+                            "status": eventType === "payment.failed" ? "failed" : "captured"
+                        }
+                    }
+                }
+            };
+
+            try {
+                const resp = await fetch("/api/payments/webhook", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-Razorpay-Signature": "simulated_webhook_test_sig"
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await resp.json();
+                webhookResult.classList.remove("hidden");
+                webhookResult.innerHTML = `<strong>Status:</strong> ${resp.status} OK<br><pre class="text-[10px] mt-1">${JSON.stringify(data, null, 2)}</pre>`;
+                setTimeout(() => window.location.reload(), 1200);
+
+            } catch (err) {
+                webhookResult.classList.remove("hidden");
+                webhookResult.textContent = `Error: ${err.message}`;
+            } finally {
+                dispatchBtn.disabled = false;
+                dispatchBtn.textContent = "Dispatch Test Webhook";
+            }
+        });
+    }
+</script>
+{% endblock %}

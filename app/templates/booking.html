@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+
+{% block title %}Book Speedboat & Yacht — Captain's Choice Sea Ventures{% endblock %}
+
+{% block content %}
+<!-- Light Minimalist Header -->
+<div class="bg-slate-50 border-b border-slate-200 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
+                    Captain's Choice Sea Ventures
+                </span>
+                <h1 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+                    Speedboat & Yacht Reservation
+                </h1>
+                <p class="text-xs text-slate-500 mt-1">
+                    Instant confirmation via Razorpay • Boarding at Jetty No. 5, Gateway of India
+                </p>
+            </div>
+            <!-- WhatsApp Captain Assist -->
+            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20Need%20assistance%20with%20booking" target="_blank" class="self-start md:self-auto flex items-center gap-2 bg-emerald-50 border border-emerald-500/30 text-emerald-800 hover:bg-emerald-100 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors">
+                <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                <span>WhatsApp Desk (+91 7506920614)</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="py-8 sm:py-12 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Main Form Grid (2-Columns on iPad & Desktop) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Left Side: Multi-Step Interactive Form -->
+            <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-8">
+                
+                <form id="bookingForm" class="space-y-8">
+                    
+                    <!-- STEP 1: ROUTE & TRIP TYPE -->
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">1</span>
+                            <h2 class="text-base font-bold font-display text-slate-900">Choose Route & Trip Type</h2>
+                        </div>
+
+                        <!-- Route Selection Dropdown -->
+                        <div class="space-y-2.5">
+                            <label class="block text-xs font-semibold text-slate-600">Travel Route</label>
+                            <div class="grid grid-cols-1 gap-2" id="routeSelector">
+                                {% for r in routes %}
+                                <label class="route-option flex items-start gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-slate-400 transition-all has-[:checked]:border-slate-900 has-[:checked]:bg-slate-50/70 has-[:checked]:ring-1 has-[:checked]:ring-slate-900">
+                                    <input type="radio" name="route_id" value="{{ r.id }}" class="mt-1 text-slate-900 focus:ring-slate-900" 
+                                           {% if preselect_route == r.id or (not preselect_route and loop.first) %}checked{% endif %}>
+                                    <div class="flex-1">
+                                        <div class="flex items-center justify-between">
+                                            <span class="font-bold text-xs text-slate-900">{{ r.name }}</span>
+                                            <span class="text-[11px] font-semibold px-2 py-0.5 rounded bg-slate-100 text-slate-700">⏱️ {{ r.duration }}</span>
+                                        </div>
+                                        <p class="text-[11px] text-slate-500 mt-0.5">{{ r.description }}</p>
+                                    </div>
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Trip Type: One Way vs Round Trip -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-1.5">Trip Type</label>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <label class="trip-type-label flex items-center justify-center p-2.5 rounded-xl border border-slate-200 cursor-pointer text-xs font-semibold transition-all text-center has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white">
+                                    <input type="radio" name="trip_type" value="one_way" class="hidden" {% if preselect_trip_type != 'round_trip' %}checked{% endif %}>
+                                    <span>One-Way Transfer</span>
+                                </label>
+                                <label class="trip-type-label flex items-center justify-center p-2.5 rounded-xl border border-slate-200 cursor-pointer text-xs font-semibold transition-all text-center has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white">
+                                    <input type="radio" name="trip_type" value="round_trip" class="hidden" {% if preselect_trip_type == 'round_trip' %}checked{% endif %}>
+                                    <span>Round-Trip (10% Off)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100">
+
+                    <!-- STEP 2: SELECT VESSEL -->
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center gap-2.5">
+                                <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">2</span>
+                                <h2 class="text-base font-bold font-display text-slate-900">Select Speedboat / Yacht</h2>
+                            </div>
+                            <span class="text-xs text-slate-400">Skipper & fuel included</span>
+                        </div>
+
+                        <div class="space-y-2.5" id="boatSelector">
+                            {% for b in boats %}
+                            <label class="boat-card-option flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-slate-400 transition-all has-[:checked]:border-slate-900 has-[:checked]:bg-slate-50/70 has-[:checked]:ring-1 has-[:checked]:ring-slate-900">
+                                <div class="flex items-center gap-3.5 flex-1">
+                                    <input type="radio" name="boat_id" value="{{ b.id }}" class="text-slate-900 focus:ring-slate-900"
+                                           {% if preselect_boat == b.id or (not preselect_boat and loop.first) %}checked{% endif %}>
+                                    <img src="{{ b.image }}" alt="{{ b.name }}" class="w-14 h-14 rounded-lg object-cover flex-shrink-0 bg-slate-100">
+                                    <div>
+                                        <div class="flex items-center gap-2">
+                                            <span class="font-bold text-xs text-slate-900">{{ b.name }}</span>
+                                            <span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-700">{{ b.category }}</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-[11px] text-slate-500 mt-0.5">
+                                            <span>👥 Max {{ b.capacity }} Pax</span>
+                                            <span>•</span>
+                                            <span>⚡ {{ b.speed_knots }} Knots</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right self-end sm:self-center">
+                                    <span class="text-[10px] text-slate-400 uppercase block">Base Rate</span>
+                                    <span class="font-extrabold text-sm text-slate-900 font-display">₹{{ "{:,}".format(b.price_gateway_mandwa) }}</span>
+                                </div>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100">
+
+                    <!-- STEP 3: SCHEDULE & GUESTS -->
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">3</span>
+                            <h2 class="text-base font-bold font-display text-slate-900">Date, Time Slot & Guests</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Travel Date</label>
+                                <input type="date" id="bookingDate" name="travel_date" required class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Departure Time</label>
+                                <select name="time_slot" id="timeSlotSelect" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                                    {% for slot in time_slots %}
+                                    <option value="{{ slot }}">{{ slot }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Passengers</label>
+                                <input type="number" id="passengerCount" name="passengers" value="4" min="1" max="25" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                        </div>
+
+                        <!-- Optional Add-ons -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-semibold text-slate-600 mb-2">Optional Services</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                {% for addon in addons %}
+                                <label class="addon-option flex items-start gap-2.5 p-3 rounded-xl border border-slate-200 cursor-pointer hover:bg-slate-50 has-[:checked]:border-slate-900 has-[:checked]:bg-slate-50">
+                                    <input type="checkbox" name="addons" value="{{ addon.id }}" class="mt-0.5 text-slate-900 focus:ring-slate-900 rounded">
+                                    <div class="text-xs">
+                                        <div class="font-bold text-slate-900 flex items-center justify-between">
+                                            <span>{{ addon.name }}</span>
+                                            <span class="text-slate-900 font-extrabold">+₹{{ "{:,}".format(addon.price) }}</span>
+                                        </div>
+                                        <span class="text-[11px] text-slate-500 block mt-0.5">{{ addon.description }}</span>
+                                    </div>
+                                </label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="border-slate-100">
+
+                    <!-- STEP 4: PASSENGER CONTACT DETAILS -->
+                    <div>
+                        <div class="flex items-center gap-2.5 mb-4">
+                            <span class="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xs">4</span>
+                            <h2 class="text-base font-bold font-display text-slate-900">Contact Details</h2>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Full Name *</label>
+                                <input type="text" id="custName" name="customer_name" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">WhatsApp Phone Number *</label>
+                                <input type="tel" id="custPhone" name="customer_phone" required placeholder="e.g. 9820012345" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-semibold text-slate-600 mb-1">Email Address (Optional)</label>
+                                <input type="email" id="custEmail" name="customer_email" placeholder="e.g. rahul@example.com" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT / TRIGGER PAYMENT -->
+                    <div class="pt-2 space-y-3">
+                        <button type="submit" id="payBtn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold py-3.5 rounded-xl shadow-sm hover:shadow transition-all text-sm flex items-center justify-center gap-2">
+                            <span id="payBtnText">Pay Advance & Confirm Speedboat</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+
+                        <div class="flex items-center justify-center gap-3 text-xs text-slate-400">
+                            <span>🔒 256-Bit SSL Encrypted</span>
+                            <span>•</span>
+                            <span>⚡ Razorpay</span>
+                            <span>•</span>
+                            <span>Jetty No. 5 Boarding</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Right Side: Sticky Live Boarding Pass Summary -->
+            <div class="lg:col-span-5 sticky top-28 space-y-4">
+                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+                    <!-- Ticket Header -->
+                    <div class="bg-slate-900 text-white p-5">
+                        <div class="flex items-center justify-between text-xs uppercase tracking-wider opacity-90">
+                            <span class="flex items-center gap-1.5 font-bold">
+                                <img src="/static/images/logo.jpg" alt="Logo" class="w-4 h-4 rounded-full bg-white object-contain">
+                                Captain's Choice
+                            </span>
+                            <span class="font-bold text-sky-400 text-[11px]">Pass Preview</span>
+                        </div>
+                        <h3 id="summaryRouteName" class="text-base font-bold font-display mt-2">Gateway of India ➔ Mandwa Jetty</h3>
+                        <div class="flex items-center gap-2 text-xs text-slate-300 mt-1">
+                            <span id="summaryTripType">One-Way Transfer</span>
+                            <span>•</span>
+                            <span id="summaryDateDisplay">Date Pending</span>
+                        </div>
+                    </div>
+
+                    <!-- Ticket Info -->
+                    <div class="p-5 space-y-4">
+                        <div class="flex items-center gap-3.5 pb-4 border-b border-slate-100">
+                            <img id="summaryBoatImg" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=400&q=80" class="w-16 h-14 rounded-lg object-cover border border-slate-200 bg-slate-100">
+                            <div>
+                                <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Vessel</span>
+                                <h4 id="summaryBoatName" class="font-bold text-slate-900 text-sm font-display">Speedster 24 Twin Yamaha</h4>
+                                <div class="flex items-center gap-2 text-xs text-slate-500 mt-0.5">
+                                    <span id="summaryPax">4 Guests</span>
+                                    <span>•</span>
+                                    <span id="summarySlot">07:00 AM Slot</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Price Breakdown -->
+                        <div class="space-y-2 text-xs">
+                            <div class="flex justify-between text-slate-500">
+                                <span>Charter Base Fare:</span>
+                                <span id="summaryBaseFare" class="font-semibold text-slate-900">₹6,500</span>
+                            </div>
+                            <div id="summaryRoundTripRow" class="flex justify-between text-sky-700 hidden">
+                                <span>Round-Trip Multiplier (1.9x):</span>
+                                <span id="summaryMultiplier">Applied</span>
+                            </div>
+                            <div class="flex justify-between text-slate-500">
+                                <span>Selected Add-ons:</span>
+                                <span id="summaryAddonsFare" class="font-semibold text-slate-900">₹0</span>
+                            </div>
+                            <div class="pt-2 border-t border-slate-100 flex justify-between text-xs font-bold text-slate-900">
+                                <span>Total Trip Fare:</span>
+                                <span id="summaryTotalFare" class="text-sm text-slate-900 font-display">₹6,500</span>
+                            </div>
+                        </div>
+
+                        <!-- Advance Breakdown Box (Clean Light) -->
+                        <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 space-y-1.5">
+                            <div class="flex items-center justify-between text-slate-900">
+                                <span class="text-xs font-bold">Pay Online (Advance):</span>
+                                <span id="summaryAdvanceFare" class="text-base font-extrabold font-display">₹2,000</span>
+                            </div>
+                            <div class="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-200/60">
+                                <span>Balance Payable at Jetty:</span>
+                                <span id="summaryBalanceFare" class="font-semibold">₹4,500</span>
+                            </div>
+                        </div>
+
+                        <!-- Real-time WhatsApp Link -->
+                        <div class="pt-1">
+                            <a id="contextWhatsAppBtn" href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="w-full py-2 px-3 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-xs flex items-center justify-center gap-1.5 transition-all">
+                                <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                                <span>Ask Captain on WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Mode Notice -->
+                {% if is_mock %}
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800">
+                    <strong class="font-bold">🧪 Simulation Sandbox Mode Active</strong>
+                    <p class="text-[11px] mt-0.5 text-amber-700">
+                        Razorpay keys are in simulation mode. Clicking "Pay Advance" will run an instant test checkout without real bank debits.
+                    </p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MOCK PAYMENT MODAL -->
+<div id="mockPaymentModal" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-xl border border-slate-200 text-slate-900 space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+            <h3 class="font-bold text-sm font-display">Razorpay Test Simulator</h3>
+            <span class="text-[10px] bg-slate-100 px-2 py-0.5 rounded font-mono text-slate-600">SANDBOX</span>
+        </div>
+
+        <p class="text-xs text-slate-600">
+            Simulate authorization for booking: <strong id="modalBookingRef" class="font-mono text-slate-900"></strong>
+        </p>
+
+        <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs space-y-1">
+            <div class="flex justify-between">
+                <span class="text-slate-500">Advance:</span>
+                <strong id="modalAmount" class="text-slate-900"></strong>
+            </div>
+            <div class="flex justify-between">
+                <span class="text-slate-500">Order ID:</span>
+                <span id="modalOrderId" class="font-mono text-[10px] text-slate-600"></span>
+            </div>
+        </div>
+
+        <div class="space-y-2 pt-2">
+            <button id="modalConfirmSuccessBtn" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs transition-colors">
+                Authorize Payment (Instant Verify)
+            </button>
+            <button id="modalCancelBtn" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold py-2.5 rounded-xl text-xs transition-colors">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Interactive JS Logic -->
+<script src="/static/js/booking.js"></script>
+{% endblock %}

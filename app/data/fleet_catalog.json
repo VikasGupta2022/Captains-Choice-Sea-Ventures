@@ -1,0 +1,185 @@
+{
+  "routes": [
+    {
+      "id": "gateway-mandwa",
+      "name": "Gateway of India ➔ Mandwa Jetty (Alibaug)",
+      "origin": "Jetty 5, Gateway of India, Mumbai",
+      "destination": "Mandwa Jetty, Alibaug",
+      "duration": "18 - 20 Mins",
+      "description": "Fastest and most popular transfer to Alibaug. Avoid 3 hours of highway traffic and arrive in style.",
+      "distance_km": 14,
+      "base_fare": 6500,
+      "badge": "⚡ Bestseller • 20 Mins",
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "mandwa-gateway",
+      "name": "Mandwa Jetty (Alibaug) ➔ Gateway of India",
+      "origin": "Mandwa Jetty, Alibaug",
+      "destination": "Jetty 5, Gateway of India, Mumbai",
+      "duration": "18 - 20 Mins",
+      "description": "Return transfer back to Mumbai city after your weekend or day trip in Alibaug.",
+      "distance_km": 14,
+      "base_fare": 6500,
+      "badge": "⚡ Express Return",
+      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "gateway-elephanta",
+      "name": "Gateway of India ➔ Elephanta Caves Tour",
+      "origin": "Jetty 5, Gateway of India, Mumbai",
+      "destination": "Elephanta Island Jetty",
+      "duration": "25 - 30 Mins",
+      "description": "Private speedboat ride to UNESCO World Heritage Elephanta Island with waiting options.",
+      "distance_km": 11,
+      "base_fare": 7500,
+      "badge": "🏛️ Heritage Tour",
+      "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "id": "mumbai-harbour-cruise",
+      "name": "Mumbai Harbour Sunset & Leisure Cruise",
+      "origin": "Jetty 5, Gateway of India, Mumbai",
+      "destination": "Harbour Circuit (Return to Gateway)",
+      "duration": "45 - 60 Mins",
+      "description": "Breathtaking views of the Mumbai skyline, Taj Mahal Palace, lighthouse, and naval ships at golden hour.",
+      "distance_km": 8,
+      "base_fare": 4500,
+      "badge": "🌅 Golden Hour Special",
+      "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "boats": [
+    {
+      "id": "speedboat-yamaha-8",
+      "name": "Speedster 24 Twin Yamaha",
+      "category": "Speedboat",
+      "capacity": 8,
+      "speed_knots": 35,
+      "pricing_type": "charter",
+      "price_gateway_mandwa": 6500,
+      "price_elephanta": 7500,
+      "price_harbour_cruise": 4500,
+      "advance_deposit": 2000,
+      "badge": "⚡ Fastest Transfer",
+      "featured": true,
+      "engine": "Twin Yamaha 150HP Four Stroke",
+      "amenities": ["Twin High-Power Engines", "Cushioned Bucket Seats", "Bluetooth Sound System", "Life Jackets For All", "First Aid Onboard"],
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80",
+      "description": "Sleek, twin-engine speedboat engineered for top acceleration and smooth wave cutting across Mumbai harbour to Mandwa in 18 minutes."
+    },
+    {
+      "id": "speedboat-gulfcraft-12",
+      "name": "Gulfcraft 31 Touring Speed Cruiser",
+      "category": "Speedboat",
+      "capacity": 12,
+      "speed_knots": 30,
+      "pricing_type": "charter",
+      "price_gateway_mandwa": 9500,
+      "price_elephanta": 11000,
+      "price_harbour_cruise": 7000,
+      "advance_deposit": 3000,
+      "badge": "⭐ Most Popular",
+      "featured": true,
+      "engine": "Twin Suzuki 250HP",
+      "amenities": ["Full Weather Canopy", "Luggage Storage Bay", "Premium Marine Audio", "Coast Guard Approved", "USB Charging"],
+      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1000&q=80",
+      "description": "Ideal for families and weekend villa groups travelling with luggage to Alibaug. Spacious covered deck with marine sound system."
+    },
+    {
+      "id": "speedboat-vip-18",
+      "name": "Majestic Sea-Rider 38 VIP",
+      "category": "Speedboat",
+      "capacity": 18,
+      "speed_knots": 28,
+      "pricing_type": "charter",
+      "price_gateway_mandwa": 14500,
+      "price_elephanta": 16000,
+      "price_harbour_cruise": 10500,
+      "advance_deposit": 4000,
+      "badge": "👥 Large Group Favorite",
+      "featured": false,
+      "engine": "Twin Inboard Volvo Penta 300HP",
+      "amenities": ["U-Shaped Leather Lounge", "Ample Luggage Capacity", "Bimini Sun Top", "High-End Sound Rig", "Captain + 2 Deckhands"],
+      "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1000&q=80",
+      "description": "Perfect for corporate transfers, wedding parties, and group travel to Alibaug villas. Supreme comfort and high capacity."
+    },
+    {
+      "id": "sailboat-seabird-6",
+      "name": "Seabird Classic Sail Yacht",
+      "category": "Sailboat",
+      "capacity": 6,
+      "speed_knots": 10,
+      "pricing_type": "charter",
+      "price_gateway_mandwa": 7000,
+      "price_elephanta": 8000,
+      "price_harbour_cruise": 3500,
+      "advance_deposit": 1500,
+      "badge": "⛵ Romantic & Proposals",
+      "featured": true,
+      "engine": "Wind-Powered with Auxiliary Motor",
+      "amenities": ["Teak Wood Decking", "Romantic Sunset Setting", "Experienced Skipper", "Life Buoys", "Proposal Setup Available"],
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80",
+      "description": "The quintessential Mumbai sailing experience. Drift quietly past the Taj Palace and lighthouses under billowing white sails."
+    },
+    {
+      "id": "motor-yacht-majesty-15",
+      "name": "Majesty 44 Luxury Motor Yacht",
+      "category": "Yacht",
+      "capacity": 15,
+      "speed_knots": 22,
+      "pricing_type": "charter",
+      "price_gateway_mandwa": 25000,
+      "price_elephanta": 28000,
+      "price_harbour_cruise": 18000,
+      "advance_deposit": 5000,
+      "badge": "👑 Ultra Luxury Yacht",
+      "featured": true,
+      "engine": "Twin Caterpillar 450HP",
+      "amenities": ["Air-Conditioned Salon", "Open Flybridge Sundeck", "Master Bedroom & Restroom", "Kitchenette / Bar Counter", "Sound System"],
+      "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80",
+      "description": "Top-tier luxury motor yacht featuring an air-conditioned salon and an elevated sunbridge for celebrity cruises, VIP parties, and film shoots."
+    }
+  ],
+  "time_slots": [
+    "07:00 AM",
+    "08:00 AM",
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+    "05:45 PM (Sunset)",
+    "06:30 PM"
+  ],
+  "addons": [
+    {
+      "id": "waiting_charge_1hr",
+      "name": "Boat Waiting at Jetty (1 Hour)",
+      "price": 1500,
+      "description": "Boat captain and crew will hold the boat waiting for your return transfer."
+    },
+    {
+      "id": "waiting_charge_2hr",
+      "name": "Boat Waiting at Jetty (2 Hours)",
+      "price": 2800,
+      "description": "Extended 2-hour wait at Mandwa or Elephanta Jetty."
+    },
+    {
+      "id": "celebration_decor",
+      "name": "Birthday / Anniversary Balloon & Banner Decor",
+      "price": 1200,
+      "description": "Deck decorated with celebration balloons, ribbon banners, and celebratory setup."
+    },
+    {
+      "id": "ice_cooler_refreshments",
+      "name": "Ice Box & Mineral Water Pack",
+      "price": 500,
+      "description": "Insulated ice box with cold water bottles and soft beverages."
+    }
+  ]
+}
