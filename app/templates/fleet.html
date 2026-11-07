@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Our Fleet — Captain's Choice Speedboats & Luxury Yachts{% endblock %}
+{% block title %}Our Fleet — Captain's Choice Speedboats{% endblock %}
 
 {% block content %}
 <!-- Light Maritime Header -->
@@ -11,27 +11,25 @@
                 The Fleet Specification
             </span>
             <h1 class="text-3xl sm:text-4xl font-extrabold font-display text-[#0B192C] tracking-tight">
-                High-Speed Vessels & Marine Yachts
+                High-Speed Speedboat Fleet
             </h1>
             <p class="text-slate-500 text-xs sm:text-sm mt-1.5 leading-relaxed">
                 Stationed at <strong class="text-slate-900">Jetty No. 5, Gateway of India</strong> for private transfers to Mandwa (Alibaug), Elephanta Island heritage charters, and harbour sunset cruises.
             </p>
         </div>
 
-        <!-- Category Filter Tabs -->
+        <!-- Vessel Quick Badges -->
         <div class="flex flex-wrap items-center gap-2 mt-6">
-            <a href="/fleet?category=all" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'all' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
-                All Vessels ({{ boats|length }})
-            </a>
-            <a href="/fleet?category=Speedboat" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Speedboat' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
-                Speedboats (18-20 Mins)
-            </a>
-            <a href="/fleet?category=Yacht" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Yacht' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
-                Luxury Motor Yachts
-            </a>
-            <a href="/fleet?category=Sailboat" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Sailboat' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
-                Classic Sailboats
-            </a>
+            <span class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#0B192C] text-white shadow-sm flex items-center gap-1.5">
+                <span>⚡ Twin-Engine Speedboats</span>
+                <span class="bg-white/20 px-1.5 py-0.5 rounded text-[10px]">{{ boats|length }} Vessels</span>
+            </span>
+            <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700">
+                ⏱️ 18-20 Mins Mandwa Crossing
+            </span>
+            <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700">
+                🏛️ Jetty No. 5 (Apollo Bandar)
+            </span>
         </div>
     </div>
 </section>

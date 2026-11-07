@@ -1,6 +1,6 @@
-# Captain's Choice Sea Ventures — Luxury Speedboat & Marine Charters
+# Captain's Choice Sea Ventures — Luxury Speedboat Transfers & Charters
 
-A luxury, minimalist maritime booking platform for **Captain's Choice Sea Ventures** operating private speedboats and motor yachts between Gateway of India (Jetty No. 5), Mumbai and Mandwa Jetty, Alibaug (18–20 min crossing).
+A luxury, minimalist maritime booking platform for **Captain's Choice Sea Ventures** operating private twin-engine speedboats between Gateway of India (Jetty No. 5), Mumbai and Mandwa Jetty, Alibaug (18–20 min crossing).
 
 Featuring a **Maritime Minimalist design language** (Deep Maritime Navy `#0B192C`, Ocean Cyan `#0284C7`, Sandstone Gold `#D97706`, and Crisp Alabaster `#F8FAFC`), full responsiveness across **Mobile, Tablet, and Desktop**, direct **WhatsApp (+91 7506920614)** click-to-chat integration, and **Razorpay Payment Gateway with Webhooks**.
 

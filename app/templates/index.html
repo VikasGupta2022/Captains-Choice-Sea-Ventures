@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Captain's Choice — Speedboat & Yacht Booking from Gateway of India to Mandwa, Alibaug{% endblock %}
+{% block title %}Captain's Choice — Speedboat Booking from Gateway of India to Mandwa, Alibaug{% endblock %}
 
 {% block content %}
 <!-- ========================================== -->
@@ -198,9 +198,9 @@
                                     <div class="font-bold text-xs">6–8 Pax Speedboat</div>
                                     <div class="text-[10px] text-slate-300">Twin Yamaha • 18 Mins</div>
                                 </button>
-                                <button type="button" data-vessel="yacht" data-boat="motor-yacht-majesty-15" class="vessel-pill p-2.5 rounded-xl text-left border transition-all duration-200 bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
-                                    <div class="font-bold text-xs">12+ Pax Yacht</div>
-                                    <div class="text-[10px] text-slate-500">AC Salon • Flybridge</div>
+                                <button type="button" data-vessel="cruiser" data-boat="speedboat-gulfcraft-12" class="vessel-pill p-2.5 rounded-xl text-left border transition-all duration-200 bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                                    <div class="font-bold text-xs">10–12 Pax Speed Cruiser</div>
+                                    <div class="text-[10px] text-slate-500">Twin 250HP • 18 Mins</div>
                                 </button>
                             </div>
                         </div>
@@ -416,8 +416,8 @@
             </p>
         </div>
 
-        <!-- 3-Column Luxury Boarding Pass Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- 4-Column Luxury Boarding Pass Grid (Symmetrical 4-Card Layout) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {% for r in routes %}
             <div class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:shadow-[0_14px_35px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col group">
                 
@@ -485,7 +485,8 @@
 </section>
 
 <!-- ========================================== -->
-<!-- 4. FLEET SHOWCASE & LUXURY MOTOR YACHTS   -->
+<!-- ========================================== -->
+<!-- 4. CAPTAIN'S CHOICE SPEEDBOAT FLEET        -->
 <!-- ========================================== -->
 <section id="fleet" class="py-16 sm:py-20 bg-white border-t border-slate-900/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -496,10 +497,10 @@
                     The Fleet
                 </span>
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">
-                    Captain's Choice Fleet & Marine Yachts
+                    Captain's Choice Speedboat Fleet
                 </h2>
                 <p class="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
-                    Twin Yamaha outboard marine engines with certified life jackets, first aid, and GPS radar.
+                    Twin outboard marine engines with certified life jackets, first aid, and GPS radar.
                 </p>
             </div>
             <div class="mt-4 md:mt-0">
@@ -692,7 +693,7 @@
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    All our speedboats and yachts depart directly from <strong>Jetty No. 5</strong>, located directly opposite the entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba.
+                    All our speedboats depart directly from <strong>Jetty No. 5</strong>, located directly opposite the entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba.
                 </p>
             </details>
 
@@ -702,7 +703,7 @@
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    Standard speedboats accommodate 1 suitcase per passenger plus hand baggage. For extra luggage or golf bags, we recommend booking our 12-seater <em>Gulfcraft 31</em> or 18-seater <em>Sea-Rider 38</em>.
+                    Standard speedboats accommodate 1 suitcase per passenger plus hand baggage. For extra luggage or golf bags, we recommend booking our 10-seater <em>Interceptor 28</em> or 12-seater <em>Gulfcraft 31</em>.
                 </p>
             </details>
 
@@ -722,7 +723,7 @@
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
                 <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    Yes! Our WhatsApp desk is open daily at <strong>+91 7506920614</strong>. Message us anytime for custom schedules, catering, or yacht decoration setups.
+                    Yes! Our WhatsApp desk is open daily at <strong>+91 7506920614</strong>. Message us anytime for custom schedules, corporate charters, or celebration decoration setups.
                 </p>
             </details>
         </div>
@@ -773,15 +774,15 @@
         const fareMatrix = {
             "gateway-mandwa": {
                 "speedboat": { price: 6500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹1,080 per guest for 6 guests." },
-                "yacht": { price: 25000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,660 per guest for 15 guests." }
+                "cruiser": { price: 9500, boatId: "speedboat-gulfcraft-12", perGuest: "Approx. ₹950 per guest for 10 guests." }
             },
             "gateway-elephanta": {
                 "speedboat": { price: 7500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹1,250 per guest for 6 guests." },
-                "yacht": { price: 28000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,860 per guest for 15 guests." }
+                "cruiser": { price: 11000, boatId: "speedboat-gulfcraft-12", perGuest: "Approx. ₹1,100 per guest for 10 guests." }
             },
             "mumbai-harbour-cruise": {
                 "speedboat": { price: 4500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹750 per guest for 6 guests." },
-                "yacht": { price: 18000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,200 per guest for 15 guests." }
+                "cruiser": { price: 7000, boatId: "speedboat-gulfcraft-12", perGuest: "Approx. ₹700 per guest for 10 guests." }
             }
         };
 

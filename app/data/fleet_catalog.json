@@ -12,7 +12,7 @@
       "badge": "⚡ Bestseller • 20 Mins",
       "vessel_type": "Private Boat • Up to 8 Guests",
       "specs": ["⚡ Twin-Engine", "👥 Max 6–8 Pax", "🧳 Luggage Included"],
-      "image": "https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=1200&q=80"
+      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80"
     },
     {
       "id": "mandwa-gateway",
@@ -26,7 +26,7 @@
       "badge": "⚡ Express Return",
       "vessel_type": "Private Boat • Up to 8 Guests",
       "specs": ["⚡ Twin-Engine", "👥 Max 6–8 Pax", "🧳 Luggage Included"],
-      "image": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&w=1200&q=80"
+      "image": "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1000&q=80"
     },
     {
       "id": "gateway-elephanta",
@@ -40,7 +40,7 @@
       "badge": "🏛️ Heritage Tour",
       "vessel_type": "Private Boat • Up to 12 Guests",
       "specs": ["⚡ Twin-Engine", "👥 Max 12 Pax", "🏛️ Wait Time Included"],
-      "image": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80"
+      "image": "https://images.unsplash.com/photo-1567157577867-05ccb1388e66?auto=format&fit=crop&w=1000&q=80"
     },
     {
       "id": "mumbai-harbour-cruise",
@@ -52,9 +52,9 @@
       "distance_km": 8,
       "base_fare": 4500,
       "badge": "🌅 Golden Hour Special",
-      "vessel_type": "Luxury Charter • Up to 15 Guests",
-      "specs": ["🌅 Golden Hour", "👥 Up to 15 Pax", "🎵 Sound System"],
-      "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80"
+      "vessel_type": "Private Boat • Up to 12 Guests",
+      "specs": ["🌅 Golden Hour", "👥 Up to 12 Pax", "🎵 Sound System"],
+      "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80"
     }
   ],
   "boats": [
@@ -73,7 +73,7 @@
       "featured": true,
       "engine": "Twin Yamaha 150HP Four Stroke",
       "amenities": ["Twin High-Power Engines", "Cushioned Bucket Seats", "Bluetooth Sound System", "Life Jackets For All", "First Aid Onboard"],
-      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80",
+      "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1000&q=80",
       "description": "Sleek, twin-engine speedboat engineered for top acceleration and smooth wave cutting across Mumbai harbour to Mandwa in 18 minutes."
     },
     {
@@ -91,62 +91,26 @@
       "featured": true,
       "engine": "Twin Suzuki 250HP",
       "amenities": ["Full Weather Canopy", "Luggage Storage Bay", "Premium Marine Audio", "Coast Guard Approved", "USB Charging"],
-      "image": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&w=1000&q=80",
+      "image": "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?auto=format&fit=crop&w=1000&q=80",
       "description": "Ideal for families and weekend villa groups travelling with luggage to Alibaug. Spacious covered deck with marine sound system."
     },
     {
-      "id": "speedboat-vip-18",
-      "name": "Majestic Sea-Rider 38 VIP",
+      "id": "speedboat-interceptor-10",
+      "name": "Interceptor 28 Express Speedboat",
       "category": "Speedboat",
-      "capacity": 18,
-      "speed_knots": 28,
+      "capacity": 10,
+      "speed_knots": 32,
       "pricing_type": "charter",
-      "price_gateway_mandwa": 14500,
-      "price_elephanta": 16000,
-      "price_harbour_cruise": 10500,
-      "advance_deposit": 4000,
-      "badge": "👥 Large Group Favorite",
-      "featured": false,
-      "engine": "Twin Inboard Volvo Penta 300HP",
-      "amenities": ["U-Shaped Leather Lounge", "Ample Luggage Capacity", "Bimini Sun Top", "High-End Sound Rig", "Captain + 2 Deckhands"],
-      "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1000&q=80",
-      "description": "Perfect for corporate transfers, wedding parties, and group travel to Alibaug villas. Supreme comfort and high capacity."
-    },
-    {
-      "id": "sailboat-seabird-6",
-      "name": "Seabird Classic Sail Yacht",
-      "category": "Sailboat",
-      "capacity": 6,
-      "speed_knots": 10,
-      "pricing_type": "charter",
-      "price_gateway_mandwa": 7000,
-      "price_elephanta": 8000,
-      "price_harbour_cruise": 3500,
-      "advance_deposit": 1500,
-      "badge": "⛵ Romantic & Proposals",
+      "price_gateway_mandwa": 8000,
+      "price_elephanta": 9000,
+      "price_harbour_cruise": 5500,
+      "advance_deposit": 2500,
+      "badge": "🌊 Deep-V Wave Cutter",
       "featured": true,
-      "engine": "Wind-Powered with Auxiliary Motor",
-      "amenities": ["Teak Wood Decking", "Romantic Sunset Setting", "Experienced Skipper", "Life Buoys", "Proposal Setup Available"],
-      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80",
-      "description": "The quintessential Mumbai sailing experience. Drift quietly past the Taj Palace and lighthouses under billowing white sails."
-    },
-    {
-      "id": "motor-yacht-majesty-15",
-      "name": "Majesty 44 Luxury Motor Yacht",
-      "category": "Yacht",
-      "capacity": 15,
-      "speed_knots": 22,
-      "pricing_type": "charter",
-      "price_gateway_mandwa": 25000,
-      "price_elephanta": 28000,
-      "price_harbour_cruise": 18000,
-      "advance_deposit": 5000,
-      "badge": "👑 Ultra Luxury Yacht",
-      "featured": true,
-      "engine": "Twin Caterpillar 450HP",
-      "amenities": ["Air-Conditioned Salon", "Open Flybridge Sundeck", "Master Bedroom & Restroom", "Kitchenette / Bar Counter", "Sound System"],
-      "image": "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1000&q=80",
-      "description": "Top-tier luxury motor yacht featuring an air-conditioned salon and an elevated sunbridge for celebrity cruises, VIP parties, and film shoots."
+      "engine": "Twin Mercury 200HP Verado",
+      "amenities": ["Deep-V Offshore Hull", "Ergonomic Marine Seating", "Bluetooth Audio System", "ISO Life Vests", "Dedicated Luggage Bay"],
+      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1000&q=80",
+      "description": "High-performance offshore interceptor design offering maximum open-water stability and speed for groups of up to 10 guests."
     }
   ],
   "time_slots": [
