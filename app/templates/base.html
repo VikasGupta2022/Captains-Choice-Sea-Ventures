@@ -132,6 +132,20 @@
         .animate-wave-drift {
             animation: waveFloat 6s ease-in-out infinite;
         }
+
+        /* 3D Floating Animation for Flagship Vessel Showcase */
+        @keyframes vesselFloat {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-8px) rotate(-0.5deg);
+            }
+        }
+
+        .animate-vessel-float {
+            animation: vesselFloat 5s ease-in-out infinite;
+        }
     </style>
 
     {% block extra_head %}{% endblock %}
@@ -184,7 +198,7 @@
                 <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-8">
                     <a href="/" class="text-xs font-semibold uppercase tracking-wider transition-colors {% if active_nav == 'home' %}text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1{% else %}text-slate-600 hover:text-[#0B192C]{% endif %}">Home</a>
-                    <a href="/fleet" class="text-xs font-semibold uppercase tracking-wider transition-colors {% if active_nav == 'fleet' %}text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1{% else %}text-slate-600 hover:text-[#0B192C]{% endif %}">Our Fleet</a>
+                    <a href="/fleet" class="text-xs font-semibold uppercase tracking-wider transition-colors {% if active_nav == 'fleet' %}text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1{% else %}text-slate-600 hover:text-[#0B192C]{% endif %}">Our Speedboat</a>
                     <a href="/#routes" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">Routes & Fares</a>
                     <a href="/#how-it-works" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">VIP Boarding</a>
                     <a href="/#faq" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">FAQs</a>
@@ -222,7 +236,7 @@
         <!-- Mobile Drawer Navigation -->
         <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
             <a href="/" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Home</a>
-            <a href="/fleet" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Our Fleet</a>
+            <a href="/fleet" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Our Speedboat</a>
             <a href="/#routes" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Routes & Rates</a>
             <a href="/#how-it-works" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">VIP Boarding</a>
             <a href="/#faq" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">FAQs & Jetty Info</a>
@@ -296,7 +310,7 @@
                         <li><a href="/book?route=mandwa-gateway" class="hover:text-[#0284C7] transition-colors">Mandwa to Gateway of India</a></li>
                         <li><a href="/book?route=gateway-elephanta" class="hover:text-[#0284C7] transition-colors">Elephanta Caves Tour</a></li>
                         <li><a href="/book?route=mumbai-harbour-cruise" class="hover:text-[#0284C7] transition-colors">Mumbai Harbour Sunset Cruise</a></li>
-                        <li><a href="/fleet" class="hover:text-[#0284C7] transition-colors">Private Speedboat Fleet</a></li>
+                        <li><a href="/fleet" class="hover:text-[#0284C7] transition-colors">Our Speedboat (Specs & Blueprint)</a></li>
                     </ul>
                 </div>
 

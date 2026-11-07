@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Our Fleet — Captain's Choice Speedboats{% endblock %}
+{% block title %}Our Speedboat — Speedster 24 Twin-Yamaha Blueprint & Specifications{% endblock %}
 
 {% block content %}
 <!-- Light Maritime Header -->
@@ -8,24 +8,26 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl">
             <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
-                The Fleet Specification
+                Flagship Engineering & Deck Architecture
             </span>
             <h1 class="text-3xl sm:text-4xl font-extrabold font-display text-[#0B192C] tracking-tight">
-                High-Speed Speedboat Fleet
+                Speedster 24 Twin-Yamaha Express
             </h1>
             <p class="text-slate-500 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Stationed at <strong class="text-slate-900">Jetty No. 5, Gateway of India</strong> for private transfers to Mandwa (Alibaug), Elephanta Island heritage charters, and harbour sunset cruises.
+                Stationed permanently at <strong class="text-slate-900">Jetty No. 5, Gateway of India</strong> for private transfers to Mandwa (Alibaug), Elephanta Island heritage charters, and harbour sunset cruises.
             </p>
         </div>
 
         <!-- Vessel Quick Badges -->
         <div class="flex flex-wrap items-center gap-2 mt-6">
             <span class="px-3.5 py-1.5 rounded-xl text-xs font-bold bg-[#0B192C] text-white shadow-sm flex items-center gap-1.5">
-                <span>⚡ Twin-Engine Speedboats</span>
-                <span class="bg-white/20 px-1.5 py-0.5 rounded text-[10px]">{{ boats|length }} Vessels</span>
+                <span>⚡ Twin Yamaha 200HP Outboards</span>
             </span>
             <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700">
                 ⏱️ 18-20 Mins Mandwa Crossing
+            </span>
+            <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700">
+                👥 Up to 8 Guests + Dedicated Crew
             </span>
             <span class="px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700">
                 🏛️ Jetty No. 5 (Apollo Bandar)
@@ -34,90 +36,36 @@
     </div>
 </section>
 
-<!-- FLEET LIST (CRISP ALABASTER SURFACE) -->
-<section class="py-12 sm:py-16 bg-[#F8FAFC]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        {% for boat in boats %}
-        <div class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:shadow-[0_14px_35px_rgb(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                
-                <!-- Boat Visual -->
-                <div class="lg:col-span-5 relative h-64 lg:h-auto min-h-[260px] overflow-hidden bg-slate-900 group">
-                    <img src="{{ boat.image }}" alt="{{ boat.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
-                    
-                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
-                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">👥 {{ boat.capacity }} Passengers</span>
-                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">⚡ {{ boat.speed_knots }} Knots</span>
-                    </div>
-                </div>
+<!-- Interactive Flagship Vessel Showcase & Blueprint Stage -->
+<div class="bg-[#F8FAFC]">
+    {% include "components/vessel_showcase.html" %}
+</div>
 
-                <!-- Vessel Specifications & Pricing -->
-                <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
-                    <div>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[11px] uppercase font-bold text-[#0284C7]">{{ boat.category }}</span>
-                            <span class="text-[11px] text-slate-400 font-medium">{{ boat.engine }}</span>
-                        </div>
-                        <h2 class="text-xl font-bold font-display text-[#0B192C] mt-1">{{ boat.name }}</h2>
-                        <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">{{ boat.description }}</p>
+<!-- Additional Engineering & Safety Credentials -->
+<section class="py-12 bg-white border-t border-slate-900/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mb-8">
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">Maritime Safety & Compliance</span>
+            <h2 class="text-xl sm:text-2xl font-extrabold font-display text-[#0B192C]">Rigorous Certification Standards</h2>
+        </div>
 
-                        <!-- Amenities Checklist -->
-                        <div class="mt-4">
-                            <div class="flex flex-wrap gap-1.5">
-                                {% for a in boat.amenities %}
-                                <span class="text-[11px] px-2.5 py-0.5 rounded-lg bg-slate-100 text-slate-700 font-medium">
-                                    ✓ {{ a }}
-                                </span>
-                                {% endfor %}
-                            </div>
-                        </div>
-
-                        <!-- Route Pricing Comparison Grid -->
-                        <div class="mt-4 bg-slate-50 rounded-xl p-3 border border-slate-200/80">
-                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
-                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Gateway ➔ Mandwa</span>
-                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_gateway_mandwa) }}</strong>
-                                </div>
-                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
-                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Elephanta Caves</span>
-                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_elephanta) }}</strong>
-                                </div>
-                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
-                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Harbour Cruise</span>
-                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_harbour_cruise) }}</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bottom Bar -->
-                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                        <div>
-                            <span class="text-[10px] text-slate-400 uppercase block font-medium">Hold Deposit via Razorpay</span>
-                            <span class="text-lg font-extrabold text-emerald-800 font-display">₹{{ "{:,}".format(boat.advance_deposit) }}</span>
-                            <span class="text-[10px] text-slate-400 ml-1">(Remaining at jetty)</span>
-                        </div>
-
-                        <div class="flex items-center gap-2">
-                            <!-- Soft Mint WhatsApp CTA -->
-                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20want%20to%20inquire%20about%20booking%20the%20{{ boat.name|urlencode }}." target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1.5 active:scale-[0.98] transition-all duration-200">
-                                <svg class="w-3.5 h-3.5 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
-                                <span>WhatsApp</span>
-                            </a>
-                            <!-- Navy Book Button -->
-                            <a href="/book?boat={{ boat.id }}" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5 shadow-sm">
-                                <span>Book Vessel</span>
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="w-10 h-10 rounded-xl bg-sky-100 text-[#0284C7] flex items-center justify-center font-bold text-lg mb-3">🛡️</div>
+                <h3 class="font-bold text-sm text-[#0B192C] font-display">Coast Guard & Port Trust Certified</h3>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Fully surveyed and licensed for passenger transfer operations in Mumbai Harbour and coastal Raigad waters.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg mb-3">🦺</div>
+                <h3 class="font-bold text-sm text-[#0B192C] font-display">ISO-Certified Life Vests & Medical Kit</h3>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Dedicated adult and child life jackets onboard for all passengers, plus first aid and waterproof emergency beacon.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg mb-3">🧭</div>
+                <h3 class="font-bold text-sm text-[#0B192C] font-display">Veteran Master Mariner Crew</h3>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed">Captained by licensed local mariners with over 15 years navigating Gateway, Elephanta channels, and Mandwa sandbars.</p>
             </div>
         </div>
-        {% endfor %}
     </div>
 </section>
 {% endblock %}

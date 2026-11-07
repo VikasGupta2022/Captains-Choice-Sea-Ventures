@@ -1,0 +1,484 @@
+<!-- ======================================================== -->
+<!-- INTERACTIVE 3D FLAGSHIP VESSEL SHOWCASE & BLUEPRINT      -->
+<!-- ======================================================== -->
+<section id="vessel" class="py-12 sm:py-16" aria-label="Flagship Vessel Showcase">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        
+        <!-- Apple/Tesla-Style Luxury Maritime Showcase Container -->
+        <div class="bg-gradient-to-b from-[#0B192C] via-[#0F2537] to-[#0B192C] text-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden border border-slate-800">
+            
+            <!-- Ambient Cyan & Emerald Radial Glows -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-500/15 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+            <!-- Top Header & View Mode Switcher -->
+            <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/10">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/15 border border-sky-400/30 text-sky-300 text-[11px] font-bold uppercase tracking-wider mb-3">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>Flagship Private Vessel • Stationed at Jetty No. 5</span>
+                    </div>
+                    <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight leading-tight">
+                        Speedster 24 Twin-Yamaha Express
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                        Engineered specifically for high-speed Mumbai Harbour crossings. Private, Coast Guard certified, and built for smooth wave-piercing stability.
+                    </p>
+                </div>
+
+                <!-- View Mode Toggle (Live Vessel View vs Technical Deck Blueprint) -->
+                <div class="flex items-center bg-slate-900/90 p-1.5 rounded-2xl border border-white/10 self-start md:self-auto shadow-inner flex-shrink-0">
+                    <button type="button" id="btnLiveView" class="vessel-tab-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all duration-200 flex items-center gap-2 bg-[#0284C7] text-white shadow-md">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <span>Live Vessel View</span>
+                    </button>
+                    <button type="button" id="btnBlueprintView" class="vessel-tab-btn px-4 py-2 rounded-xl text-xs font-semibold text-slate-400 hover:text-white transition-all duration-200 flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>
+                        <span>Technical Deck Blueprint</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Stage (Split Layout: 3D Stage on Left 8 cols, Active Spec Inspector on Right 4 cols) -->
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-8">
+                
+                <!-- Left 8 Columns: Interactive Floating Vessel Stage -->
+                <div class="lg:col-span-8 relative">
+                    
+                    <!-- Sub-label indicating interactive hotspots -->
+                    <div class="flex items-center justify-between mb-3 text-xs">
+                        <span class="text-sky-300 font-mono text-[11px] flex items-center gap-1.5 font-semibold">
+                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                            INTERACTIVE ANATOMY: CLICK HOTSPOTS (1–5) TO INSPECT
+                        </span>
+                        <span class="text-slate-400 text-[11px] hidden sm:inline font-mono">Deep-V Hull • Length 24 Ft</span>
+                    </div>
+
+                    <!-- Floating Vessel Container with 3D Float Animation -->
+                    <div class="relative animate-vessel-float">
+                        
+                        <!-- 1. Live Vessel View (Photo with Hotspots) -->
+                        <div id="vesselLiveView" class="relative rounded-2xl overflow-hidden border border-white/15 bg-slate-950/70 shadow-2xl transition-all duration-300">
+                            <img src="https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1400&q=85" 
+                                 alt="Speedster 24 Twin Yamaha Speedboat" 
+                                 class="w-full h-72 sm:h-96 md:h-[420px] object-cover object-center filter brightness-95 contrast-105">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30 pointer-events-none"></div>
+
+                            <!-- Hotspots Overlaid on Live Photo -->
+                            <!-- Hotspot 1: Engines (Left/Stern) -->
+                            <button type="button" data-hotspot="1" aria-label="Hotspot 1: Twin Yamaha Engines" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 18%; top: 55%;">
+                                <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">1</span>
+                            </button>
+
+                            <!-- Hotspot 2: Lounge Seating (Mid-Ship) -->
+                            <button type="button" data-hotspot="2" aria-label="Hotspot 2: VIP Lounge Seating" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 48%; top: 50%;">
+                                <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">2</span>
+                            </button>
+
+                            <!-- Hotspot 3: Bimini Canopy (Top Center) -->
+                            <button type="button" data-hotspot="3" aria-label="Hotspot 3: UV Bimini Canopy" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 45%; top: 28%;">
+                                <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">3</span>
+                            </button>
+
+                            <!-- Hotspot 4: Helm Console (Forward Mid) -->
+                            <button type="button" data-hotspot="4" aria-label="Hotspot 4: Helm & GPS Navigation" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 62%; top: 45%;">
+                                <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">4</span>
+                            </button>
+
+                            <!-- Hotspot 5: Deep-V Bow (Right/Bow) -->
+                            <button type="button" data-hotspot="5" aria-label="Hotspot 5: Deep-V Hull Bow" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 80%; top: 58%;">
+                                <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">5</span>
+                            </button>
+                        </div>
+
+                        <!-- 2. Technical Deck Blueprint View (Top-Down CAD SVG, Hidden by default) -->
+                        <div id="vesselBlueprintView" class="hidden relative rounded-2xl overflow-hidden border border-cyan-400/30 bg-[#06111e] p-2 sm:p-4 shadow-2xl transition-all duration-300">
+                            <!-- CAD Background Grid -->
+                            <div class="w-full h-72 sm:h-96 md:h-[420px] flex items-center justify-center relative">
+                                <svg class="w-full h-full max-h-[400px]" viewBox="0 0 800 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <defs>
+                                        <pattern id="cadGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                                            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#38BDF8" stroke-width="0.5" stroke-opacity="0.12"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#cadGrid)" />
+
+                                    <!-- Top-Down Speedboat Hull Contour (Stern on left x=140, Bow on right x=720) -->
+                                    <!-- Wake Lines Left -->
+                                    <path d="M 40 100 Q 90 120 140 125" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                                    <path d="M 40 180 Q 90 160 140 155" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
+                                    <path d="M 20 80 Q 80 110 140 115" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+                                    <path d="M 20 200 Q 80 170 140 165" stroke="#38BDF8" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+
+                                    <!-- Twin Outboard Motors at Stern (x=105-140) -->
+                                    <!-- Engine 1 (Port) -->
+                                    <rect x="105" y="108" width="35" height="24" rx="4" fill="#0B192C" stroke="#38BDF8" stroke-width="2"/>
+                                    <rect x="92" y="115" width="13" height="10" rx="2" fill="#38BDF8" opacity="0.8"/>
+                                    <text x="75" y="105" fill="#38BDF8" font-size="9" font-family="monospace" opacity="0.85">YAMAHA 200HP #1</text>
+                                    <!-- Engine 2 (Starboard) -->
+                                    <rect x="105" y="148" width="35" height="24" rx="4" fill="#0B192C" stroke="#38BDF8" stroke-width="2"/>
+                                    <rect x="92" y="155" width="13" height="10" rx="2" fill="#38BDF8" opacity="0.8"/>
+                                    <text x="75" y="185" fill="#38BDF8" font-size="9" font-family="monospace" opacity="0.85">YAMAHA 200HP #2</text>
+
+                                    <!-- Outer Hull (Deep-V Bow Pointed to Right) -->
+                                    <path d="M 140 85 Q 380 75 580 95 Q 680 115 720 140 Q 680 165 580 185 Q 380 205 140 195 Z" fill="#091b2c" stroke="#38BDF8" stroke-width="2.5"/>
+                                    <!-- Inner Deck Border -->
+                                    <path d="M 155 96 Q 380 88 565 106 Q 650 123 685 140 Q 650 157 565 174 Q 380 192 155 184 Z" fill="#0d2438" stroke="#38BDF8" stroke-width="1.2" opacity="0.8"/>
+
+                                    <!-- Swim Platform / Stern Transom -->
+                                    <rect x="140" y="95" width="22" height="90" rx="3" fill="#0F2537" stroke="#38BDF8" stroke-width="1" stroke-dasharray="2 2"/>
+                                    <text x="145" y="144" fill="#38BDF8" font-size="8" font-family="monospace" transform="rotate(-90 152 140)" opacity="0.7">TRANSOM</text>
+
+                                    <!-- Aft Luggage Storage Bay -->
+                                    <rect x="175" y="105" width="45" height="70" rx="4" fill="#13314a" stroke="#38BDF8" stroke-width="1.2"/>
+                                    <text x="180" y="143" fill="#94A3B8" font-size="8" font-family="sans-serif">LUGGAGE</text>
+
+                                    <!-- VIP U-Lounge Marine Seating Area (Mid-Ship for 6-8 Guests) -->
+                                    <path d="M 235 105 L 390 105 L 390 125 L 340 125 L 340 155 L 390 155 L 390 175 L 235 175 Z" fill="#0369A1" fill-opacity="0.25" stroke="#38BDF8" stroke-width="1.5"/>
+                                    <!-- Individual Cushion Blocks -->
+                                    <rect x="240" y="108" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="278" y="108" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="316" y="108" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="354" y="108" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="240" y="157" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="278" y="157" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="316" y="157" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <rect x="354" y="157" width="32" height="15" rx="3" fill="#38BDF8" fill-opacity="0.3" stroke="#38BDF8" stroke-width="1"/>
+                                    <text x="250" y="144" fill="#38BDF8" font-size="10" font-weight="bold" font-family="sans-serif">VIP LOUNGE (6–8 GUESTS)</text>
+
+                                    <!-- Bimini Canopy Overhead Boundary (Dashed Rectangle) -->
+                                    <rect x="220" y="98" width="220" height="84" rx="8" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.8"/>
+                                    <text x="260" y="93" fill="#F59E0B" font-size="8" font-family="monospace">UV BIMINI SUN CANOPY OVERHEAD</text>
+
+                                    <!-- Helm / Skipper Station (x=415 to 470) -->
+                                    <rect x="420" y="106" width="38" height="34" rx="4" fill="#1e3a53" stroke="#38BDF8" stroke-width="1.5"/>
+                                    <!-- Steering Wheel -->
+                                    <circle cx="438" cy="123" r="8" stroke="#38BDF8" stroke-width="1.5"/>
+                                    <path d="M 430 123 L 446 123 M 438 115 L 438 131" stroke="#38BDF8" stroke-width="1"/>
+                                    <!-- Skipper Bucket Seat -->
+                                    <rect x="400" y="112" width="16" height="22" rx="3" fill="#0284C7" stroke="#38BDF8" stroke-width="1"/>
+                                    <!-- Garmin Dual Screen Console -->
+                                    <rect x="445" y="110" width="8" height="12" rx="1" fill="#22C55E" opacity="0.8"/>
+                                    <rect x="445" y="125" width="8" height="12" rx="1" fill="#38BDF8" opacity="0.8"/>
+                                    <text x="415" y="155" fill="#38BDF8" font-size="8" font-family="sans-serif">HELM & GPS</text>
+
+                                    <!-- Forward Co-Pilot / Nav Seat -->
+                                    <rect x="400" y="146" width="16" height="22" rx="3" fill="#0284C7" stroke="#38BDF8" stroke-width="1" opacity="0.8"/>
+
+                                    <!-- Windshield Curved Line -->
+                                    <path d="M 465 102 Q 490 120 495 140 Q 490 160 465 178" stroke="#38BDF8" stroke-width="2" opacity="0.85"/>
+
+                                    <!-- Bow Deck (Forward Deep-V Seating & Anchor Bay) -->
+                                    <path d="M 505 115 Q 600 128 640 140 Q 600 152 505 165 Z" fill="#13314a" stroke="#38BDF8" stroke-width="1.2"/>
+                                    <circle cx="630" cy="140" r="5" fill="#38BDF8" stroke="#FFFFFF" stroke-width="1"/>
+                                    <text x="535" y="143" fill="#38BDF8" font-size="8" font-family="sans-serif">DEEP-V BOW</text>
+                                    <text x="645" y="143" fill="#94A3B8" font-size="7" font-family="monospace">ANCHOR</text>
+
+                                    <!-- Dimension Hairlines & Annotations -->
+                                    <line x1="140" y1="230" x2="720" y2="230" stroke="#38BDF8" stroke-width="1" opacity="0.4"/>
+                                    <line x1="140" y1="225" x2="140" y2="235" stroke="#38BDF8" stroke-width="1" opacity="0.4"/>
+                                    <line x1="720" y1="225" x2="720" y2="235" stroke="#38BDF8" stroke-width="1" opacity="0.4"/>
+                                    <text x="380" y="245" fill="#38BDF8" font-size="10" font-family="monospace" text-anchor="middle" opacity="0.7">LENGTH OVERALL: 24 FT (7.32 M) • BEAM: 8.2 FT (2.50 M)</text>
+                                </svg>
+
+                                <!-- Blueprint Hotspots Overlay -->
+                                <button type="button" data-hotspot="1" aria-label="Hotspot 1" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 14%; top: 50%;">
+                                    <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                    <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">1</span>
+                                </button>
+                                <button type="button" data-hotspot="2" aria-label="Hotspot 2" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 40%; top: 50%;">
+                                    <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                    <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">2</span>
+                                </button>
+                                <button type="button" data-hotspot="3" aria-label="Hotspot 3" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 36%; top: 32%;">
+                                    <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                    <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">3</span>
+                                </button>
+                                <button type="button" data-hotspot="4" aria-label="Hotspot 4" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 56%; top: 46%;">
+                                    <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                    <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">4</span>
+                                </button>
+                                <button type="button" data-hotspot="5" aria-label="Hotspot 5" class="vessel-hotspot group absolute -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 focus:outline-none" style="left: 82%; top: 50%;">
+                                    <span class="absolute inline-flex h-9 w-9 rounded-full bg-cyan-400 opacity-60 animate-ping"></span>
+                                    <span class="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-[#0284C7] text-white font-extrabold text-xs shadow-xl ring-2 ring-white group-hover:scale-125 transition-all">5</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Glowing Cyan Water Reflection / Wake Underneath -->
+                        <div class="bg-sky-500/25 blur-2xl rounded-full h-10 w-3/4 mx-auto -mt-4 pointer-events-none" aria-hidden="true"></div>
+
+                    </div>
+                </div>
+
+                <!-- Right 4 Columns: Active Glassmorphism Spec Inspector Card -->
+                <div class="lg:col-span-4">
+                    <div class="backdrop-blur-md bg-white/10 border border-white/15 rounded-2xl p-6 sm:p-7 text-white shadow-2xl relative transition-all duration-300">
+                        
+                        <!-- Inspector Header -->
+                        <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                            <span class="text-[10px] font-mono uppercase tracking-wider text-sky-300 flex items-center gap-1.5 font-bold">
+                                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                                <span>SYSTEM INSPECTOR</span>
+                            </span>
+                            <span id="inspectorIndex" class="text-xs font-mono font-bold text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded border border-amber-400/20">
+                                Hotspot 01 / 05
+                            </span>
+                        </div>
+
+                        <!-- Inspector Dynamic Content Area -->
+                        <div class="mt-5 space-y-3.5">
+                            <div class="flex items-center gap-2.5">
+                                <span id="inspectorIcon" class="text-2xl">⚡</span>
+                                <h3 id="inspectorTitle" class="text-lg font-bold font-display text-white leading-snug">
+                                    Twin Yamaha High-Thrust Engines
+                                </h3>
+                            </div>
+
+                            <div class="inline-block">
+                                <span id="inspectorSpec" class="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-500/20 text-sky-300 border border-sky-400/30">
+                                    Dual 200HP 4-Stroke Outboards
+                                </span>
+                            </div>
+
+                            <p id="inspectorDetail" class="text-xs text-slate-300 leading-relaxed min-h-[72px]">
+                                Twin-engine redundancy ensures maximum safety and rapid 18-minute crossings across Mumbai Harbour at 35–38 knots.
+                            </p>
+                        </div>
+
+                        <!-- Hotspot Quick Navigator Buttons -->
+                        <div class="mt-6 pt-4 border-t border-white/10">
+                            <span class="text-[10px] uppercase font-bold text-slate-400 block mb-2 font-mono">Quick Subsystem Select</span>
+                            <div class="grid grid-cols-5 gap-1.5" id="inspectorQuickTabs">
+                                <button type="button" data-select="1" class="inspector-btn active py-1.5 rounded-lg text-xs font-bold bg-[#0284C7] text-white transition-all">01</button>
+                                <button type="button" data-select="2" class="inspector-btn py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-slate-300 transition-all">02</button>
+                                <button type="button" data-select="3" class="inspector-btn py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-slate-300 transition-all">03</button>
+                                <button type="button" data-select="4" class="inspector-btn py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-slate-300 transition-all">04</button>
+                                <button type="button" data-select="5" class="inspector-btn py-1.5 rounded-lg text-xs font-bold bg-white/10 hover:bg-white/20 text-slate-300 transition-all">05</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Technical Specification Grid (4-Column Bento Grid) -->
+            <div class="mt-4 pt-8 border-t border-white/10">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left">
+                    
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-sky-400/40 transition-colors">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">Max Capacity</span>
+                        <div class="text-sm sm:text-base font-bold text-white font-display mt-0.5">6–8 Passengers</div>
+                        <span class="text-[11px] text-sky-400 block mt-0.5 font-medium">+ 2 Certified Crew</span>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-sky-400/40 transition-colors">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">Cruising Speed</span>
+                        <div class="text-sm sm:text-base font-bold text-white font-display mt-0.5">32–38 Knots</div>
+                        <span class="text-[11px] text-emerald-400 block mt-0.5 font-medium">~18 Mins Mandwa Crossing</span>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-sky-400/40 transition-colors">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">Propulsion</span>
+                        <div class="text-sm sm:text-base font-bold text-white font-display mt-0.5">Twin Yamaha Outboards</div>
+                        <span class="text-[11px] text-amber-400 block mt-0.5 font-medium">Dual 4-Stroke High-Thrust</span>
+                    </div>
+
+                    <div class="bg-white/5 border border-white/10 rounded-xl p-4 hover:border-sky-400/40 transition-colors">
+                        <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-semibold">Boarding Pier</span>
+                        <div class="text-sm sm:text-base font-bold text-white font-display mt-0.5">Jetty No. 5, Gateway</div>
+                        <span class="text-[11px] text-slate-400 block mt-0.5 font-medium">Opp. Taj Mahal Palace</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Direct Booking & Pricing Conversion Bar -->
+            <div class="mt-6 bg-slate-900/90 border border-white/10 rounded-2xl p-4 sm:p-6 flex flex-col lg:flex-row items-center justify-between gap-5">
+                
+                <!-- Rates Snapshot -->
+                <div class="flex flex-wrap items-center gap-4 text-xs">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                        <span class="text-slate-300">Gateway ⇄ Mandwa:</span>
+                        <strong class="text-white text-sm font-display">₹6,500</strong>
+                    </div>
+                    <span class="hidden sm:inline text-slate-600">•</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+                        <span class="text-slate-300">Elephanta Caves:</span>
+                        <strong class="text-white text-sm font-display">₹7,500</strong>
+                    </div>
+                    <span class="hidden sm:inline text-slate-600">•</span>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span class="text-slate-300">Harbour Cruise:</span>
+                        <strong class="text-white text-sm font-display">₹4,500</strong>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex items-center gap-3 w-full lg:w-auto justify-end">
+                    <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20have%20questions%20about%20booking%20the%20Speedster%2024%20speedboat." target="_blank" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all">
+                        <svg class="w-3.5 h-3.5 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                        <span>Ask Skipper Desk</span>
+                    </a>
+                    <a href="/book?boat=speedboat-yamaha-8" class="w-full sm:w-auto bg-[#0284C7] hover:bg-sky-500 text-white font-extrabold px-6 py-2.5 rounded-xl text-xs shadow-lg active:scale-[0.98] transition-all flex items-center justify-center gap-1.5">
+                        <span>Reserve This Vessel</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ======================================================== -->
+<!-- INTERACTIVE HOTSPOTS & BLUEPRINT VIEW TOGGLE SCRIPT      -->
+<!-- ======================================================== -->
+<script>
+(function() {
+    function initVesselShowcase() {
+        const liveView = document.getElementById("vesselLiveView");
+        const blueprintView = document.getElementById("vesselBlueprintView");
+        const btnLive = document.getElementById("btnLiveView");
+        const btnBlueprint = document.getElementById("btnBlueprintView");
+
+        const hotspotData = {
+            1: {
+                index: "Hotspot 01 / 05",
+                icon: "⚡",
+                title: "Twin Yamaha High-Thrust Engines",
+                spec: "Dual 200HP 4-Stroke Outboards",
+                detail: "Twin-engine redundancy ensures maximum safety and rapid 18-minute crossings across Mumbai Harbour at 35–38 knots."
+            },
+            2: {
+                index: "Hotspot 02 / 05",
+                icon: "👥",
+                title: "VIP Marine-Grade Lounge Seating",
+                spec: "Up to 8 Guests + Cabin Luggage",
+                detail: "Plush weather-resistant cushioned seating with ample legroom and dedicated storage for weekend travel bags."
+            },
+            3: {
+                index: "Hotspot 03 / 05",
+                icon: "🛡️",
+                title: "All-Weather UV Bimini Canopy",
+                spec: "Full Sun & Sea-Spray Protection",
+                detail: "High-grade overhead sunshade keeps guests cool during afternoon Alibaug transfers while maintaining 360° harbour views."
+            },
+            4: {
+                index: "Hotspot 04 / 05",
+                icon: "🧭",
+                title: "Garmin GPS & Safety Navigation",
+                spec: "Radar, Sonar & Coast Guard Certified",
+                detail: "Equipped with marine GPS, VHF communication, certified life jackets for all passengers, and a veteran Gateway-Mandwa skipper."
+            },
+            5: {
+                index: "Hotspot 05 / 05",
+                icon: "🌊",
+                title: "Deep-V Wave-Piercing Fiberglass Hull",
+                spec: "Zero-Slam Smooth Ride",
+                detail: "Aerodynamic stepped hull slices through Arabian Sea swells smoothly so you arrive at Mandwa fresh and dry."
+            }
+        };
+
+        function setHotspot(id) {
+            const data = hotspotData[id];
+            if (!data) return;
+            const idxEl = document.getElementById("inspectorIndex");
+            const iconEl = document.getElementById("inspectorIcon");
+            const titleEl = document.getElementById("inspectorTitle");
+            const specEl = document.getElementById("inspectorSpec");
+            const detailEl = document.getElementById("inspectorDetail");
+
+            if (idxEl) idxEl.textContent = data.index;
+            if (iconEl) iconEl.textContent = data.icon;
+            if (titleEl) titleEl.textContent = data.title;
+            if (specEl) specEl.textContent = data.spec;
+            if (detailEl) detailEl.textContent = data.detail;
+
+            // Highlight active hotspot buttons across views
+            document.querySelectorAll(".vessel-hotspot").forEach(btn => {
+                const ring = btn.querySelector("span:first-child");
+                const dot = btn.querySelector("span:last-child");
+                if (btn.getAttribute("data-hotspot") == id) {
+                    if (ring) ring.classList.remove("hidden");
+                    if (dot) {
+                        dot.classList.add("bg-amber-500", "scale-125");
+                        dot.classList.remove("bg-[#0284C7]");
+                    }
+                } else {
+                    if (ring) ring.classList.add("hidden");
+                    if (dot) {
+                        dot.classList.remove("bg-amber-500", "scale-125");
+                        dot.classList.add("bg-[#0284C7]");
+                    }
+                }
+            });
+
+            // Highlight quick tab buttons
+            document.querySelectorAll(".inspector-btn").forEach(btn => {
+                if (btn.getAttribute("data-select") == id) {
+                    btn.classList.add("bg-[#0284C7]", "text-white");
+                    btn.classList.remove("bg-white/10", "text-slate-300");
+                } else {
+                    btn.classList.remove("bg-[#0284C7]", "text-white");
+                    btn.classList.add("bg-white/10", "text-slate-300");
+                }
+            });
+        }
+
+        // Hotspot click & hover
+        document.querySelectorAll(".vessel-hotspot").forEach(btn => {
+            const hid = btn.getAttribute("data-hotspot");
+            btn.addEventListener("click", () => setHotspot(hid));
+            btn.addEventListener("mouseenter", () => setHotspot(hid));
+        });
+
+        // Quick tabs click
+        document.querySelectorAll(".inspector-btn").forEach(btn => {
+            const hid = btn.getAttribute("data-select");
+            btn.addEventListener("click", () => setHotspot(hid));
+        });
+
+        // View Mode Toggling
+        if (btnLive && btnBlueprint && liveView && blueprintView) {
+            btnLive.addEventListener("click", () => {
+                liveView.classList.remove("hidden");
+                blueprintView.classList.add("hidden");
+                btnLive.classList.add("bg-[#0284C7]", "text-white", "shadow-md");
+                btnLive.classList.remove("text-slate-400");
+                btnBlueprint.classList.remove("bg-[#0284C7]", "text-white", "shadow-md");
+                btnBlueprint.classList.add("text-slate-400");
+            });
+
+            btnBlueprint.addEventListener("click", () => {
+                liveView.classList.add("hidden");
+                blueprintView.classList.remove("hidden");
+                btnBlueprint.classList.add("bg-[#0284C7]", "text-white", "shadow-md");
+                btnBlueprint.classList.remove("text-slate-400");
+                btnLive.classList.remove("bg-[#0284C7]", "text-white", "shadow-md");
+                btnLive.classList.add("text-slate-400");
+            });
+        }
+
+        // Initialize with Hotspot 1
+        setHotspot(1);
+    }
+
+    if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initVesselShowcase);
+    } else {
+        initVesselShowcase();
+    }
+})();
+</script>
