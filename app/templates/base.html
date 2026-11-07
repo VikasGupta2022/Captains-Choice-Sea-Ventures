@@ -67,34 +67,47 @@
             letter-spacing: -0.025em;
         }
 
-        /* Speedboat horizontal glide animation */
+        /* Speedboat horizontal glide animation along nautical track */
         @keyframes boatGlide {
             0% {
-                left: 6%;
-                transform: translateY(-50%) scaleX(1);
+                left: 3%;
+                transform: translateY(-50%);
             }
-            47% {
-                left: 88%;
-                transform: translateY(-50%) scaleX(1);
+            46% {
+                left: calc(100% - 54px);
+                transform: translateY(-50%);
             }
             50% {
-                left: 88%;
-                transform: translateY(-50%) scaleX(-1);
+                left: calc(100% - 54px);
+                transform: translateY(-50%);
             }
-            97% {
-                left: 6%;
-                transform: translateY(-50%) scaleX(-1);
+            96% {
+                left: 3%;
+                transform: translateY(-50%);
             }
             100% {
-                left: 6%;
-                transform: translateY(-50%) scaleX(1);
+                left: 3%;
+                transform: translateY(-50%);
             }
         }
 
-        /* Wake trail animation */
+        /* Directional flip for boat graphics without inverting text pills */
+        @keyframes boatFlip {
+            0%, 46% {
+                transform: scaleX(1);
+            }
+            50%, 96% {
+                transform: scaleX(-1);
+            }
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Wake trail pulse animation */
         @keyframes wakePulse {
-            0%, 100% { opacity: 0.35; transform: scaleX(0.7); }
-            50% { opacity: 0.75; transform: scaleX(1.1); }
+            0%, 100% { opacity: 0.45; transform: scaleX(0.75); }
+            50% { opacity: 0.95; transform: scaleX(1.15); }
         }
 
         /* Ocean wave divider subtle 6s loop */
@@ -108,8 +121,12 @@
             animation: boatGlide 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
         }
 
+        .animate-boat-flip {
+            animation: boatFlip 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+        }
+
         .animate-wake {
-            animation: wakePulse 2.5s ease-in-out infinite;
+            animation: wakePulse 2s ease-in-out infinite;
         }
 
         .animate-wave-drift {
@@ -171,7 +188,6 @@
                     <a href="/#routes" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">Routes & Fares</a>
                     <a href="/#how-it-works" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">VIP Boarding</a>
                     <a href="/#faq" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">FAQs</a>
-                    <a href="/admin" class="text-[11px] uppercase tracking-wider font-bold px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors border border-slate-200">Admin</a>
                 </nav>
 
                 <!-- Header Actions (Desktop) -->
@@ -210,7 +226,6 @@
             <a href="/#routes" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Routes & Rates</a>
             <a href="/#how-it-works" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">VIP Boarding</a>
             <a href="/#faq" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">FAQs & Jetty Info</a>
-            <a href="/admin" class="block text-xs font-medium text-slate-600 py-1">Admin Dashboard</a>
 
             <div class="pt-2 flex flex-col gap-2">
                 <a href="{{ whatsapp_default_url }}" target="_blank" class="w-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold py-2.5 rounded-xl text-center text-xs flex items-center justify-center gap-2">

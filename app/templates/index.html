@@ -7,47 +7,124 @@
 <!-- 1. HERO SECTION & INTERACTIVE FARE CHECKER -->
 <!-- ========================================== -->
 <section class="relative bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 overflow-hidden border-b border-slate-900/5">
-    <!-- Local Mumbai–Alibaug Subtle Line-Art Watermarks (5% Opacity) -->
+    <!-- Local Mumbai–Alibaug Subtle Line-Art Watermarks (4% Opacity) -->
     <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <!-- Gateway of India Arch Watermark (Left) -->
-        <svg class="absolute -left-12 top-6 sm:top-10 w-72 sm:w-96 h-72 sm:h-96 text-slate-900/[0.04]" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
-            <!-- Arch Base & Columns -->
-            <rect x="25" y="160" width="150" height="12" rx="2" />
-            <rect x="35" y="60" width="25" height="100" />
-            <rect x="140" y="60" width="25" height="100" />
-            <rect x="80" y="75" width="40" height="85" />
-            <!-- Central Arch Curve -->
-            <path d="M 60 90 Q 100 45 140 90" stroke-width="1.5" />
-            <path d="M 70 100 Q 100 65 130 100" />
-            <!-- Side Arches -->
-            <path d="M 35 110 Q 47.5 95 60 110" />
-            <path d="M 140 110 Q 152.5 95 165 110" />
-            <!-- Central Dome & Corner Turrets -->
-            <path d="M 75 60 Q 100 25 125 60 Z" />
-            <rect x="32" y="45" width="12" height="15" />
-            <polygon points="32,45 38,32 44,45" />
-            <rect x="156" y="45" width="12" height="15" />
-            <polygon points="156,45 162,32 168,45" />
-            <line x1="20" y1="172" x2="180" y2="172" stroke-width="2" />
+        <svg class="absolute -left-10 top-4 sm:top-8 w-80 sm:w-[420px] h-80 sm:h-[340px] text-slate-900/[0.04]" viewBox="0 0 320 240" fill="none" stroke="currentColor" stroke-width="1.3">
+            <!-- Stepped Plinth / Waterfront Steps -->
+            <line x1="15" y1="225" x2="305" y2="225" stroke-width="2" />
+            <line x1="25" y1="220" x2="295" y2="220" stroke-width="1.5" />
+            <line x1="32" y1="215" x2="288" y2="215" stroke-width="1.2" />
+
+            <!-- Main Building Outer Walls -->
+            <rect x="36" y="70" width="248" height="145" />
+
+            <!-- Four Distinctive Corner Turrets / Minarets -->
+            <!-- 1. Far Left Turret -->
+            <path d="M 36 70 L 36 40 L 52 40 L 52 70" />
+            <path d="M 33 40 L 55 40" stroke-width="1.5" />
+            <path d="M 36 40 C 36 28, 52 28, 52 40 Z" fill="currentColor" fill-opacity="0.02" />
+            <line x1="44" y1="28" x2="44" y2="20" stroke-width="1.5" />
+            <circle cx="44" cy="18" r="1.5" fill="currentColor" />
+
+            <!-- 2. Inner Left Fluting Turret (flanking central arch) -->
+            <path d="M 104 64 L 104 45 L 118 45 L 118 64" />
+            <path d="M 102 45 L 120 45" stroke-width="1.5" />
+            <path d="M 104 45 C 104 35, 118 35, 118 45 Z" fill="currentColor" fill-opacity="0.02" />
+            <line x1="111" y1="35" x2="111" y2="27" stroke-width="1.3" />
+
+            <!-- 3. Inner Right Fluting Turret (flanking central arch) -->
+            <path d="M 202 64 L 202 45 L 216 45 L 216 64" />
+            <path d="M 200 45 L 218 45" stroke-width="1.5" />
+            <path d="M 202 45 C 202 35, 216 35, 216 45 Z" fill="currentColor" fill-opacity="0.02" />
+            <line x1="209" y1="35" x2="209" y2="27" stroke-width="1.3" />
+
+            <!-- 4. Far Right Turret -->
+            <path d="M 268 70 L 268 40 L 284 40 L 284 70" />
+            <path d="M 265 40 L 287 40" stroke-width="1.5" />
+            <path d="M 268 40 C 268 28, 284 28, 284 40 Z" fill="currentColor" fill-opacity="0.02" />
+            <line x1="276" y1="28" x2="276" y2="20" stroke-width="1.5" />
+            <circle cx="276" cy="18" r="1.5" fill="currentColor" />
+
+            <!-- Perforated Stone Parapet / Cornice Cresting -->
+            <line x1="36" y1="64" x2="284" y2="64" stroke-width="2" />
+            <line x1="36" y1="70" x2="284" y2="70" stroke-width="1.2" />
+            <!-- Decorative jali battlement pattern on cornice -->
+            <path d="M 52 64 L 54 58 L 58 58 L 60 64 L 62 58 L 66 58 L 68 64 L 70 58 L 74 58 L 76 64 L 78 58 L 82 58 L 84 64 L 86 58 L 90 58 L 92 64 L 94 58 L 98 58 L 100 64 M 220 64 L 222 58 L 226 58 L 228 64 L 230 58 L 234 58 L 236 64 L 238 58 L 242 58 L 244 64 L 246 58 L 250 58 L 252 64 L 254 58 L 258 58 L 260 64 L 262 58 L 266 58 L 268 64" />
+            <path d="M 120 64 L 124 55 L 196 55 L 200 64" stroke-width="1.5" />
+            <path d="M 130 55 L 134 48 L 186 48 L 190 55" stroke-width="1.2" />
+
+            <!-- Grand Central Indo-Saracenic Pointed Arch -->
+            <path d="M 120 215 L 120 145 C 120 105, 145 80, 160 76 C 175 80, 200 105, 200 145 L 200 215" stroke-width="2" />
+            <path d="M 128 215 L 128 150 C 128 116, 148 94, 160 90 C 172 94, 192 116, 192 150 L 192 215" stroke-width="1.4" />
+            <path d="M 136 215 L 136 156 C 136 128, 150 108, 160 104 C 170 108, 184 128, 184 156 L 184 215" stroke-width="1" stroke-dasharray="3 2" />
+
+            <!-- Spandrel Roundels (Medallions flanking central arch) -->
+            <circle cx="132" cy="100" r="4.5" />
+            <circle cx="188" cy="100" r="4.5" />
+
+            <!-- Left Wing: Side Arch & Pierced Jaali Screen -->
+            <path d="M 58 215 L 58 165 C 58 142, 70 132, 78 130 C 86 132, 98 142, 98 165 L 98 215" stroke-width="1.5" />
+            <path d="M 64 215 L 64 168 C 64 150, 72 142, 78 140 C 84 142, 92 150, 92 168 L 92 215" stroke-width="1.1" />
+            <rect x="62" y="90" width="32" height="24" rx="1.5" />
+            <line x1="78" y1="90" x2="78" y2="114" />
+            <line x1="62" y1="102" x2="94" y2="102" />
+            <path d="M 68 96 L 88 108 M 68 108 L 88 96" stroke-width="0.8" />
+
+            <!-- Right Wing: Side Arch & Pierced Jaali Screen -->
+            <path d="M 222 215 L 222 165 C 222 142, 234 132, 242 130 C 250 132, 262 142, 262 165 L 262 215" stroke-width="1.5" />
+            <path d="M 228 215 L 228 168 C 228 150, 236 142, 242 140 C 248 142, 256 150, 256 168 L 256 215" stroke-width="1.1" />
+            <rect x="226" y="90" width="32" height="24" rx="1.5" />
+            <line x1="242" y1="90" x2="242" y2="114" />
+            <line x1="226" y1="102" x2="258" y2="102" />
+            <path d="M 232 96 L 252 108 M 232 108 L 252 96" stroke-width="0.8" />
+
+            <!-- Horizontal Masonry String Courses -->
+            <line x1="36" y1="126" x2="104" y2="126" />
+            <line x1="216" y1="126" x2="284" y2="126" />
         </svg>
 
         <!-- Mandwa Coastal Palms Watermark (Right) -->
-        <svg class="absolute -right-8 bottom-4 w-72 sm:w-96 h-72 sm:h-96 text-slate-900/[0.04]" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
-            <!-- Swaying Palm Trunks -->
-            <path d="M 170 180 Q 165 120 150 70" stroke-width="2" />
-            <path d="M 185 180 Q 188 130 180 85" stroke-width="1.6" />
-            <!-- Palm Fronds -->
-            <path d="M 150 70 Q 120 50 105 75" />
-            <path d="M 150 70 Q 130 35 120 40" />
-            <path d="M 150 70 Q 155 30 165 35" />
-            <path d="M 150 70 Q 185 45 185 70" />
-            <path d="M 150 70 Q 165 65 155 85" />
-            <!-- Second Palm Fronds -->
-            <path d="M 180 85 Q 160 65 150 90" />
-            <path d="M 180 85 Q 195 55 200 75" />
-            <!-- Coastal Jetty Pier & Waves -->
-            <line x1="80" y1="175" x2="195" y2="175" stroke-width="2" stroke-dasharray="4 3" />
-            <path d="M 60 185 Q 80 180 100 185 T 140 185 T 180 185" />
+        <svg class="absolute -right-8 bottom-2 w-80 sm:w-[420px] h-80 sm:h-[340px] text-slate-900/[0.04]" viewBox="0 0 320 240" fill="none" stroke="currentColor" stroke-width="1.3">
+            <!-- Arabian Sea Waves & Jetty Shoreline -->
+            <path d="M 80 228 Q 120 224 160 228 T 240 228 T 320 228" stroke-width="1.6" />
+            <path d="M 110 234 Q 150 230 190 234 T 270 234 T 330 234" stroke-width="1" />
+            <!-- Coastal Jetty Pier Bollard & Mooring -->
+            <rect x="135" y="212" width="10" height="16" rx="2" stroke-width="1.4" />
+            <ellipse cx="140" cy="212" rx="6" ry="2.5" />
+            <path d="M 140 216 Q 160 222 175 228" stroke-width="1.2" stroke-dasharray="3 2" />
+
+            <!-- Primary Tall Curved Coconut Palm Trunk -->
+            <path d="M 255 228 C 252 170, 230 115, 185 62" stroke-width="2.5" />
+            <path d="M 262 228 C 259 172, 236 118, 191 63" stroke-width="1.8" />
+            <!-- Trunk rings / segments -->
+            <path d="M 254 210 Q 258 209 261 210" stroke-width="1" />
+            <path d="M 251 185 Q 255 184 259 186" stroke-width="1" />
+            <path d="M 245 160 Q 250 159 254 162" stroke-width="1" />
+            <path d="M 235 135 Q 240 134 245 138" stroke-width="1" />
+            <path d="M 221 110 Q 227 109 232 113" stroke-width="1" />
+            <path d="M 203 85 Q 208 84 214 88" stroke-width="1" />
+
+            <!-- Natural Curved Drooping Coconut Fronds (Main Tree) -->
+            <path d="M 188 62 C 165 42, 135 38, 105 52 C 125 64, 155 68, 188 62" />
+            <path d="M 110 54 Q 106 64 102 72 M 125 50 Q 123 62 120 70 M 145 48 Q 144 60 142 68 M 165 52 Q 166 62 166 68" stroke-width="0.8" />
+            <path d="M 188 62 C 180 32, 162 15, 132 12 C 145 32, 165 48, 188 62" />
+            <path d="M 188 62 C 200 30, 225 18, 252 24 C 235 42, 212 55, 188 62" />
+            <path d="M 188 62 C 220 46, 255 52, 280 78 C 252 82, 222 78, 188 62" />
+            <path d="M 188 62 C 215 78, 232 102, 228 132 C 215 110, 202 92, 188 62" />
+            <path d="M 188 62 C 168 82, 148 104, 138 130 C 152 108, 170 90, 188 62" />
+            <!-- Coconuts Cluster at Crown -->
+            <circle cx="184" cy="67" r="3.5" fill="currentColor" fill-opacity="0.03" />
+            <circle cx="191" cy="68" r="3.5" fill="currentColor" fill-opacity="0.03" />
+            <circle cx="187" cy="72" r="3.2" fill="currentColor" fill-opacity="0.03" />
+
+            <!-- Secondary Companion Palm Tree (Sweeping right) -->
+            <path d="M 285 228 C 284 185, 272 142, 245 98" stroke-width="2.2" />
+            <path d="M 292 228 C 290 186, 278 144, 251 99" stroke-width="1.6" />
+            <path d="M 248 98 C 225 80, 202 82, 182 96 C 202 104, 225 106, 248 98" />
+            <path d="M 248 98 C 255 72, 272 58, 298 62 C 285 78, 268 90, 248 98" />
+            <path d="M 248 98 C 275 88, 304 98, 320 125 C 298 124, 275 116, 248 98" />
+            <path d="M 248 98 C 265 118, 272 142, 265 168 C 255 146, 248 128, 248 98" />
         </svg>
     </div>
 
@@ -90,7 +167,7 @@
                 <div class="grid grid-cols-3 max-w-lg pt-6 mt-6 border-t border-slate-200/80 divide-x divide-slate-200">
                     <div class="pr-4">
                         <div class="text-xl sm:text-2xl font-extrabold text-[#0B192C] font-display tracking-tight">18 Mins</div>
-                        <div class="text-xs text-slate-500 font-medium mt-0.5">Transit Transit</div>
+                        <div class="text-xs text-slate-500 font-medium mt-0.5">Transit Time</div>
                     </div>
                     <div class="px-4">
                         <div class="text-xl sm:text-2xl font-extrabold text-[#0284C7] font-display tracking-tight">Jetty No. 5</div>
@@ -202,81 +279,90 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
         
         <!-- Transit Track Card -->
-        <div class="bg-gradient-to-r from-sky-50/60 via-slate-50 to-sky-50/60 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-sm">
-            <div class="flex items-center justify-between mb-4">
+        <div class="bg-gradient-to-r from-sky-50/70 via-white to-sky-50/70 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-sm">
+            <div class="flex items-center justify-between mb-4 sm:mb-6">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284C7] flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse"></span>
                     Live Nautical Transfer Corridor
                 </span>
-                <span class="text-xs text-slate-500 font-medium">14 km Express Passage • 18 Mins</span>
+                <span class="text-xs text-slate-500 font-medium">14 km High-Speed Passage • 18 Mins</span>
             </div>
 
-            <!-- Transit Track Visual Nodes & Animated Boat -->
-            <div class="relative py-4">
+            <!-- Single Unified Horizontal Row: Mumbai Node -> Nautical Connecting Track -> Alibaug Node -->
+            <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
                 
-                <!-- Horizontal Nautical Track Line with wave ripples -->
-                <div class="relative h-2.5 bg-slate-200 rounded-full overflow-hidden my-6">
-                    <div class="absolute inset-0 bg-gradient-to-r from-[#0284C7] via-cyan-400 to-[#0B192C] opacity-75"></div>
-                    <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.7)_50%,transparent_100%)] animate-wake"></div>
-                </div>
-
-                <!-- Gliding Speedboat Component (< 4KB SVG) -->
-                <div id="transitBoatContainer" class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none" style="z-index: 10;">
-                    <div class="relative flex items-center">
-                        <!-- Speedboat SVG -->
-                        <svg class="w-10 h-7 text-[#0B192C] drop-shadow-md" viewBox="0 0 64 36" fill="currentColor">
-                            <!-- Hull Profile -->
-                            <path d="M 4 24 L 14 26 L 52 26 L 62 18 L 48 18 L 36 12 L 20 12 L 14 18 L 4 20 Z" fill="#0B192C" />
-                            <!-- Cabin Windshield -->
-                            <polygon points="22,13 35,13 32,18 19,18" fill="#38BDF8" opacity="0.9" />
-                            <!-- Twin Outboard Motors -->
-                            <rect x="2" y="19" width="4" height="9" rx="1" fill="#475569" />
-                            <rect x="6" y="21" width="3" height="7" rx="1" fill="#64748B" />
-                            <!-- White Waterline & Spray -->
-                            <path d="M 8 27 Q 24 28 44 27 L 60 21" stroke="#38BDF8" stroke-width="2" fill="none" />
+                <!-- Left Node: Mumbai (Jetty No. 5) -->
+                <div class="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm z-20 flex-shrink-0 w-full md:w-auto">
+                    <div class="w-9 h-9 rounded-lg bg-sky-50 text-[#0284C7] flex items-center justify-center flex-shrink-0">
+                        <!-- Arch Icon -->
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M4 21V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/>
+                            <path d="M9 21v-7a3 3 0 0 1 6 0v7"/>
+                            <path d="M2 21h20"/>
+                            <path d="M7 4h10"/>
                         </svg>
-                        <!-- Wake Trail -->
-                        <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-transparent to-cyan-300 rounded-full blur-[1px] opacity-70 animate-wake"></div>
+                    </div>
+                    <div>
+                        <span class="block text-[#0B192C] font-bold text-xs sm:text-sm">Mumbai (Jetty No. 5)</span>
+                        <span class="block text-[10px] text-slate-500 font-normal">Opposite Taj Mahal Palace</span>
                     </div>
                 </div>
 
-                <!-- Left & Right Heritage Origin/Destination Nodes -->
-                <div class="flex items-center justify-between text-xs font-semibold text-slate-800 relative z-20">
+                <!-- Center Connecting Route Line (Directly connecting left & right nodes) -->
+                <div class="relative flex-1 w-full md:mx-4 h-20 flex items-center justify-center">
                     
-                    <!-- Left Node: Gateway of India Arch -->
-                    <div class="flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-sm">
-                        <div class="w-8 h-8 rounded-lg bg-sky-50 text-[#0284C7] flex items-center justify-center flex-shrink-0">
-                            <!-- Arch Icon -->
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <path d="M4 21V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/>
-                                <path d="M9 21v-7a3 3 0 0 1 6 0v7"/>
-                                <path d="M2 21h20"/>
-                                <path d="M7 4h10"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <span class="block text-[#0B192C] font-bold text-xs">Mumbai (Jetty No. 5)</span>
-                            <span class="block text-[10px] text-slate-500 font-normal">Opposite Taj Mahal Palace</span>
-                        </div>
+                    <!-- Sleek Horizontal Nautical Route Track Line -->
+                    <div class="w-full relative flex items-center">
+                        <div class="w-full h-[2px] bg-sky-200 rounded-full"></div>
+                        <div class="absolute inset-0 border-b-2 border-dashed border-[#0284C7]/60 top-1/2 -translate-y-1/2"></div>
+                        <!-- Navigational waypoints -->
+                        <div class="absolute left-1/4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#0284C7]/40"></div>
+                        <div class="absolute left-2/4 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-[#0284C7] ring-4 ring-sky-100"></div>
+                        <div class="absolute left-3/4 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-[#0284C7]/40"></div>
                     </div>
 
-                    <!-- Right Node: Mandwa Palm Jetty -->
-                    <div class="flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-sm text-right">
-                        <div>
-                            <span class="block text-[#0B192C] font-bold text-xs">Alibaug (Mandwa Jetty)</span>
-                            <span class="block text-[10px] text-slate-500 font-normal">Arrival in ~18 Minutes</span>
+                    <!-- Gliding Speedboat Component Directly ON the route line -->
+                    <div id="transitBoatContainer" class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none z-10 flex flex-col items-center">
+                        
+                        <!-- Live Pill Tag Above the Boat -->
+                        <div class="-mt-8 mb-1">
+                            <span class="px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold tracking-tight bg-[#0B192C] text-[#38BDF8] rounded-full shadow-sm whitespace-nowrap border border-cyan-400/30 flex items-center gap-1">
+                                <span>⚡</span>
+                                <span>~18 Mins Express</span>
+                            </span>
                         </div>
-                        <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0">
-                            <!-- Palm Pier Icon -->
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                                <path d="M12 21V10"/>
-                                <path d="M12 10c0-4.5-3.5-7-7-7 0 3.5 2.5 7 7 7z"/>
-                                <path d="M12 10c0-4.5 3.5-7 7-7 0 3.5-2.5 7-7 7z"/>
-                                <path d="M4 21h16"/>
+
+                        <!-- Animated Boat Graphic (approx 40px wide) & Glowing Wake -->
+                        <div class="relative flex items-center animate-boat-flip">
+                            <svg class="w-10 sm:w-11 h-7 text-[#0B192C] drop-shadow-md" viewBox="0 0 64 36" fill="currentColor">
+                                <path d="M 4 24 L 14 26 L 52 26 L 62 18 L 48 18 L 36 12 L 20 12 L 14 18 L 4 20 Z" fill="#0B192C" />
+                                <polygon points="22,13 35,13 32,18 19,18" fill="#38BDF8" opacity="0.9" />
+                                <rect x="2" y="19" width="4" height="9" rx="1" fill="#475569" />
+                                <rect x="6" y="21" width="3" height="7" rx="1" fill="#64748B" />
+                                <path d="M 8 27 Q 24 28 44 27 L 60 21" stroke="#38BDF8" stroke-width="2" fill="none" />
                             </svg>
+                            <!-- Glowing Cyan/White Wake Trail Behind Boat -->
+                            <div class="absolute -left-7 top-1/2 -translate-y-1/2 w-9 h-2.5 bg-gradient-to-r from-transparent via-cyan-400 to-white rounded-full blur-[1px] opacity-80 animate-wake"></div>
                         </div>
+
                     </div>
 
+                </div>
+
+                <!-- Right Node: Alibaug (Mandwa Jetty) -->
+                <div class="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200 shadow-sm z-20 flex-shrink-0 w-full md:w-auto text-right md:text-right justify-between md:justify-end">
+                    <div>
+                        <span class="block text-[#0B192C] font-bold text-xs sm:text-sm">Alibaug (Mandwa Jetty)</span>
+                        <span class="block text-[10px] text-slate-500 font-normal">Arrival in ~18 Minutes</span>
+                    </div>
+                    <div class="w-9 h-9 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                            <path d="M12 21V10"/>
+                            <path d="M12 10c0-4.5-3.5-7-7-7 0 3.5 2.5 7 7 7z"/>
+                            <path d="M12 10c0-4.5 3.5-7 7-7 0 3.5-2.5 7-7 7z"/>
+                            <path d="M4 21h16"/>
+                        </svg>
+                    </div>
                 </div>
 
             </div>
