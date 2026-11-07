@@ -1,116 +1,121 @@
 {% extends "base.html" %}
 
-{% block title %}Our Fleet — Captain's Choice Speedboats & Yachts{% endblock %}
+{% block title %}Our Fleet — Captain's Choice Speedboats & Luxury Yachts{% endblock %}
 
 {% block content %}
-<!-- Light Clean Header -->
-<section class="bg-slate-50 py-10 border-b border-slate-200">
+<!-- Light Maritime Header -->
+<section class="bg-white py-12 border-b border-slate-900/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
-                Captain's Choice Fleet
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
+                The Fleet Specification
             </span>
-            <h1 class="text-2xl sm:text-4xl font-extrabold font-display text-slate-900">
-                Speedboats & Marine Yachts
+            <h1 class="text-3xl sm:text-4xl font-extrabold font-display text-[#0B192C] tracking-tight">
+                High-Speed Vessels & Marine Yachts
             </h1>
             <p class="text-slate-500 text-xs sm:text-sm mt-1.5 leading-relaxed">
-                Vessels stationed at <strong class="text-slate-800">Jetty No. 5, Gateway of India</strong> for high-speed Alibaug transfers, sunset cruises, and private charters.
+                Stationed at <strong class="text-slate-900">Jetty No. 5, Gateway of India</strong> for private transfers to Mandwa (Alibaug), Elephanta Island heritage charters, and harbour sunset cruises.
             </p>
         </div>
 
         <!-- Category Filter Tabs -->
         <div class="flex flex-wrap items-center gap-2 mt-6">
-            <a href="/fleet?category=all" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all {% if selected_category == 'all' %}bg-slate-900 text-white shadow-sm{% else %}bg-white border border-slate-200 text-slate-600 hover:bg-slate-100{% endif %}">
+            <a href="/fleet?category=all" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'all' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
                 All Vessels ({{ boats|length }})
             </a>
-            <a href="/fleet?category=Speedboat" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all {% if selected_category == 'Speedboat' %}bg-slate-900 text-white shadow-sm{% else %}bg-white border border-slate-200 text-slate-600 hover:bg-slate-100{% endif %}">
+            <a href="/fleet?category=Speedboat" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Speedboat' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
                 Speedboats (18-20 Mins)
             </a>
-            <a href="/fleet?category=Yacht" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all {% if selected_category == 'Yacht' %}bg-slate-900 text-white shadow-sm{% else %}bg-white border border-slate-200 text-slate-600 hover:bg-slate-100{% endif %}">
+            <a href="/fleet?category=Yacht" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Yacht' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
                 Luxury Motor Yachts
             </a>
-            <a href="/fleet?category=Sailboat" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all {% if selected_category == 'Sailboat' %}bg-slate-900 text-white shadow-sm{% else %}bg-white border border-slate-200 text-slate-600 hover:bg-slate-100{% endif %}">
-                Sailboats
+            <a href="/fleet?category=Sailboat" class="px-4 py-2 rounded-xl text-xs font-semibold transition-all duration-200 active:scale-[0.98] {% if selected_category == 'Sailboat' %}bg-[#0B192C] text-white shadow-sm{% else %}bg-slate-100 hover:bg-slate-200 text-slate-700{% endif %}">
+                Classic Sailboats
             </a>
         </div>
     </div>
 </section>
 
-<!-- FLEET LIST (CLEAN WHITE) -->
-<section class="py-10 sm:py-14 bg-white">
+<!-- FLEET LIST (CRISP ALABASTER SURFACE) -->
+<section class="py-12 sm:py-16 bg-[#F8FAFC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {% for boat in boats %}
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden">
+        <div class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:shadow-[0_14px_35px_rgb(0,0,0,0.08)] transition-all duration-300 overflow-hidden">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-0">
+                
                 <!-- Boat Visual -->
-                <div class="lg:col-span-5 relative h-60 lg:h-auto min-h-[240px] overflow-hidden bg-slate-100">
-                    <img src="{{ boat.image }}" alt="{{ boat.name }}" class="w-full h-full object-cover">
+                <div class="lg:col-span-5 relative h-64 lg:h-auto min-h-[260px] overflow-hidden bg-slate-900 group">
+                    <img src="{{ boat.image }}" alt="{{ boat.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                     
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
-                        <span class="bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm text-[11px]">👥 {{ boat.capacity }} Pax</span>
-                        <span class="bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm text-[11px]">⚡ {{ boat.speed_knots }} Knots</span>
+                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">👥 {{ boat.capacity }} Passengers</span>
+                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">⚡ {{ boat.speed_knots }} Knots</span>
                     </div>
                 </div>
 
                 <!-- Vessel Specifications & Pricing -->
-                <div class="lg:col-span-7 p-6 sm:p-7 flex flex-col justify-between space-y-5">
+                <div class="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-5">
                     <div>
                         <div class="flex items-center justify-between">
-                            <span class="text-[11px] uppercase font-bold text-sky-600">{{ boat.category }}</span>
-                            <span class="text-[11px] text-slate-400 font-medium">Engine: {{ boat.engine }}</span>
+                            <span class="text-[11px] uppercase font-bold text-[#0284C7]">{{ boat.category }}</span>
+                            <span class="text-[11px] text-slate-400 font-medium">{{ boat.engine }}</span>
                         </div>
-                        <h2 class="text-xl font-bold font-display text-slate-900 mt-1">{{ boat.name }}</h2>
+                        <h2 class="text-xl font-bold font-display text-[#0B192C] mt-1">{{ boat.name }}</h2>
                         <p class="text-xs text-slate-500 mt-1.5 leading-relaxed">{{ boat.description }}</p>
 
                         <!-- Amenities Checklist -->
-                        <div class="mt-3.5">
+                        <div class="mt-4">
                             <div class="flex flex-wrap gap-1.5">
                                 {% for a in boat.amenities %}
-                                <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">
+                                <span class="text-[11px] px-2.5 py-0.5 rounded-lg bg-slate-100 text-slate-700 font-medium">
                                     ✓ {{ a }}
                                 </span>
                                 {% endfor %}
                             </div>
                         </div>
 
-                        <!-- Route Pricing Comparison -->
-                        <div class="mt-4 bg-slate-50 rounded-xl p-3 border border-slate-200">
+                        <!-- Route Pricing Comparison Grid -->
+                        <div class="mt-4 bg-slate-50 rounded-xl p-3 border border-slate-200/80">
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                                <div class="bg-white p-2 rounded-lg border border-slate-200">
-                                    <span class="text-slate-400 block text-[10px] uppercase">Gateway ➔ Mandwa</span>
-                                    <strong class="text-slate-900 text-xs">₹{{ "{:,}".format(boat.price_gateway_mandwa) }}</strong>
+                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
+                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Gateway ➔ Mandwa</span>
+                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_gateway_mandwa) }}</strong>
                                 </div>
-                                <div class="bg-white p-2 rounded-lg border border-slate-200">
-                                    <span class="text-slate-400 block text-[10px] uppercase">Elephanta Caves</span>
-                                    <strong class="text-slate-900 text-xs">₹{{ "{:,}".format(boat.price_elephanta) }}</strong>
+                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
+                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Elephanta Caves</span>
+                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_elephanta) }}</strong>
                                 </div>
-                                <div class="bg-white p-2 rounded-lg border border-slate-200">
-                                    <span class="text-slate-400 block text-[10px] uppercase">Harbour Cruise</span>
-                                    <strong class="text-slate-900 text-xs">₹{{ "{:,}".format(boat.price_harbour_cruise) }}</strong>
+                                <div class="bg-white p-2.5 rounded-lg border border-slate-200/80 shadow-xs">
+                                    <span class="text-slate-400 block text-[10px] uppercase font-medium">Harbour Cruise</span>
+                                    <strong class="text-[#0B192C] text-xs font-display">₹{{ "{:,}".format(boat.price_harbour_cruise) }}</strong>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Bottom Bar -->
-                    <div class="pt-3.5 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                         <div>
-                            <span class="text-[10px] text-slate-400 uppercase block">Advance deposit</span>
-                            <span class="text-lg font-extrabold text-emerald-700 font-display">₹{{ "{:,}".format(boat.advance_deposit) }}</span>
-                            <span class="text-[10px] text-slate-400 ml-1">(Balance at jetty)</span>
+                            <span class="text-[10px] text-slate-400 uppercase block font-medium">Hold Deposit via Razorpay</span>
+                            <span class="text-lg font-extrabold text-emerald-800 font-display">₹{{ "{:,}".format(boat.advance_deposit) }}</span>
+                            <span class="text-[10px] text-slate-400 ml-1">(Remaining at jetty)</span>
                         </div>
 
                         <div class="flex items-center gap-2">
-                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20want%20to%20inquire%20about%20booking%20the%20{{ boat.name|urlencode }}" target="_blank" class="px-3.5 py-2 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-semibold text-xs flex items-center gap-1.5 transition-colors">
-                                <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                            <!-- Soft Mint WhatsApp CTA -->
+                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20want%20to%20inquire%20about%20booking%20the%20{{ boat.name|urlencode }}." target="_blank" class="px-4 py-2.5 rounded-xl bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold text-xs flex items-center gap-1.5 active:scale-[0.98] transition-all duration-200">
+                                <svg class="w-3.5 h-3.5 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                                 <span>WhatsApp</span>
                             </a>
-                            <a href="/book?boat={{ boat.id }}" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-5 py-2 rounded-xl text-xs transition-colors flex items-center gap-1">
-                                <span>Book Online</span>
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+                            <!-- Navy Book Button -->
+                            <a href="/book?boat={{ boat.id }}" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5 shadow-sm">
+                                <span>Book Vessel</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

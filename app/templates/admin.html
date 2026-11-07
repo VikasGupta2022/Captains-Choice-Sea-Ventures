@@ -3,18 +3,18 @@
 {% block title %}Admin Dashboard — Bookings & Webhook Audit{% endblock %}
 
 {% block content %}
-<section class="bg-slate-50 py-8 border-b border-slate-200">
+<section class="bg-white py-8 sm:py-10 border-b border-slate-900/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-                <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
+                <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
                     Captain's Choice Operations
                 </span>
-                <h1 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
+                <h1 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">
                     Bookings & Webhook Management
                 </h1>
                 <p class="text-xs text-slate-500 mt-1">
-                    Real-time monitoring of speed boat reservations, Razorpay payments, and webhook payloads
+                    Real-time monitoring of speedboat reservations, Razorpay payments, and webhook payloads
                 </p>
             </div>
             
@@ -25,33 +25,33 @@
             </div>
         </div>
 
-        <!-- Metric Cards (Clean Light) -->
+        <!-- Metric Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+            <div class="bg-white p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5">
                 <span class="text-[11px] text-slate-400 font-bold uppercase block">Total Bookings</span>
-                <span class="text-2xl font-extrabold font-display text-slate-900 mt-1 block">{{ bookings|length }}</span>
+                <span class="text-2xl font-extrabold font-display text-[#0B192C] mt-1 block">{{ bookings|length }}</span>
             </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                <span class="text-[11px] text-sky-600 font-bold uppercase block">Confirmed Payments</span>
-                <span class="text-2xl font-extrabold font-display text-sky-700 mt-1 block">{{ payments|length }}</span>
+            <div class="bg-white p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5">
+                <span class="text-[11px] text-[#0284C7] font-bold uppercase block">Confirmed Payments</span>
+                <span class="text-2xl font-extrabold font-display text-[#0284C7] mt-1 block">{{ payments|length }}</span>
             </div>
-            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
-                <span class="text-[11px] text-emerald-600 font-bold uppercase block">Advance Revenue</span>
-                <span class="text-2xl font-extrabold font-display text-emerald-700 mt-1 block">₹{{ "{:,}".format(total_revenue|int) }}</span>
+            <div class="bg-white p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5">
+                <span class="text-[11px] text-emerald-700 font-bold uppercase block">Advance Revenue</span>
+                <span class="text-2xl font-extrabold font-display text-emerald-800 mt-1 block">₹{{ "{:,}".format(total_revenue|int) }}</span>
             </div>
         </div>
     </div>
 </section>
 
-<div class="py-10 bg-slate-50">
+<div class="py-10 bg-[#F8FAFC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
         <!-- LIVE BOOKINGS TABLE -->
-        <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+        <div class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 overflow-hidden">
             <div class="p-5 border-b border-slate-100 flex items-center justify-between">
                 <div>
-                    <h2 class="font-bold text-ocean-900 text-lg font-display">Recent Speedboat Bookings</h2>
-                    <p class="text-xs text-slate-500">Live booking records and customer contact channels</p>
+                    <h2 class="font-bold text-[#0B192C] text-lg font-display">Recent Speedboat Bookings</h2>
+                    <p class="text-xs text-slate-500">Live booking records and customer communication channels</p>
                 </div>
             </div>
 
@@ -71,47 +71,47 @@
                     <tbody class="divide-y divide-slate-100 text-slate-700">
                         {% for b in bookings %}
                         <tr class="hover:bg-slate-50/80 transition-colors">
-                            <td class="px-5 py-4 font-mono font-bold text-ocean-900">
-                                <a href="/booking/{{ b.booking_ref }}" class="hover:underline text-cyanAccent-600">
+                            <td class="px-5 py-4 font-mono font-bold text-[#0B192C]">
+                                <a href="/booking/{{ b.booking_ref }}" class="hover:underline text-[#0284C7]">
                                     {{ b.booking_ref }}
                                 </a>
                             </td>
                             <td class="px-5 py-4">
-                                <strong class="block text-ocean-900">{{ b.customer_name }}</strong>
-                                <span class="text-slate-500">{{ b.customer_phone }}</span>
+                                <strong class="block text-[#0B192C]">{{ b.customer_name }}</strong>
+                                <span class="text-slate-500 font-mono">{{ b.customer_phone }}</span>
                             </td>
                             <td class="px-5 py-4">
-                                <strong class="block text-ocean-900">{{ b.boat_name }}</strong>
+                                <strong class="block text-[#0B192C]">{{ b.boat_name }}</strong>
                                 <span class="text-slate-500 text-[11px]">{{ b.route_name }}</span>
                             </td>
                             <td class="px-5 py-4">
-                                <strong class="block text-ocean-900">{{ b.travel_date }}</strong>
+                                <strong class="block text-[#0B192C]">{{ b.travel_date }}</strong>
                                 <span class="text-slate-500 text-[11px]">{{ b.time_slot }} ({{ b.passengers }} Pax)</span>
                             </td>
                             <td class="px-5 py-4">
-                                <div class="text-ocean-900 font-bold">₹{{ "{:,}".format(b.total_fare|int) }}</div>
-                                <div class="text-emerald-600 text-[11px]">Adv: ₹{{ "{:,}".format(b.advance_required|int) }}</div>
+                                <div class="text-[#0B192C] font-bold">₹{{ "{:,}".format(b.total_fare|int) }}</div>
+                                <div class="text-emerald-700 font-semibold text-[11px]">Adv: ₹{{ "{:,}".format(b.advance_required|int) }}</div>
                             </td>
                             <td class="px-5 py-4">
                                 {% if b.payment_status == 'paid' %}
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">
                                     PAID
                                 </span>
                                 {% elif b.payment_status == 'pending' %}
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 text-amber-800">
                                     PENDING
                                 </span>
                                 {% else %}
-                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-800">
+                                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-red-100 text-red-800">
                                     {{ b.payment_status|upper }}
                                 </span>
                                 {% endif %}
                             </td>
                             <td class="px-5 py-4 text-right space-x-2">
-                                <a href="https://wa.me/{{ b.customer_phone }}?text=Hello%20{{ b.customer_name|urlencode }}!%20This%20is%20Gateway%20Speedboat%20regarding%20your%20booking%20{{ b.booking_ref }}." target="_blank" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 font-bold text-[11px] border border-emerald-300">
+                                <a href="https://wa.me/{{ b.customer_phone }}?text=Hello%20{{ b.customer_name|urlencode }}!%20This%20is%20Captain's%20Choice%20Sea%20Ventures%20regarding%20your%20booking%20{{ b.booking_ref }}." target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-800 hover:bg-emerald-100 font-bold text-[11px] border border-emerald-200 active:scale-[0.98] transition-all">
                                     <span>WhatsApp</span>
                                 </a>
-                                <a href="/booking/{{ b.booking_ref }}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-[11px]">
+                                <a href="/booking/{{ b.booking_ref }}" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 font-bold text-[11px] active:scale-[0.98] transition-all">
                                     <span>Ticket</span>
                                 </a>
                             </td>
@@ -119,7 +119,7 @@
                         {% else %}
                         <tr>
                             <td colspan="7" class="px-5 py-8 text-center text-slate-400">
-                                No bookings recorded yet. Create a test booking from the <a href="/book" class="text-cyanAccent-600 font-bold underline">booking page</a>.
+                                No bookings recorded yet. Create a test booking from the <a href="/book" class="text-[#0284C7] font-bold underline">booking page</a>.
                             </td>
                         </tr>
                         {% endfor %}
@@ -132,10 +132,10 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             <!-- Webhook Audit Log Table -->
-            <div class="lg:col-span-8 bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+            <div class="lg:col-span-8 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 overflow-hidden">
                 <div class="p-5 border-b border-slate-100 flex items-center justify-between">
                     <div>
-                        <h2 class="font-bold text-ocean-900 text-lg font-display">Razorpay Webhook Events Log</h2>
+                        <h2 class="font-bold text-[#0B192C] text-lg font-display">Razorpay Webhook Events Log</h2>
                         <p class="text-xs text-slate-500">Incoming asynchronous webhook notifications from Razorpay</p>
                     </div>
                 </div>
@@ -153,7 +153,7 @@
                         <tbody class="divide-y divide-slate-100 text-slate-700 font-mono">
                             {% for e in events %}
                             <tr class="hover:bg-slate-50">
-                                <td class="px-5 py-3 text-ocean-900 font-bold">{{ e.event_type }}</td>
+                                <td class="px-5 py-3 text-[#0B192C] font-bold">{{ e.event_type }}</td>
                                 <td class="px-5 py-3">
                                     {% if e.verified %}
                                     <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">✓ VALID HMAC</span>
@@ -177,23 +177,23 @@
             </div>
 
             <!-- Webhook Dispatch Test Tool -->
-            <div class="lg:col-span-4 bg-white rounded-2xl border border-slate-200 shadow-md p-6 space-y-4">
+            <div class="lg:col-span-4 bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-6 space-y-4">
                 <div>
-                    <h3 class="font-bold text-ocean-900 text-base font-display">Test Razorpay Webhook</h3>
+                    <h3 class="font-bold text-[#0B192C] text-base font-display">Test Razorpay Webhook</h3>
                     <p class="text-xs text-slate-500 mt-1">Dispatch a test simulated webhook payload to <code class="bg-slate-100 px-1 py-0.5 rounded text-[11px]">/api/payments/webhook</code></p>
                 </div>
 
                 <div class="space-y-3">
                     <div>
                         <label class="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">Select Event Type</label>
-                        <select id="webhookTestEvent" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-ocean-900">
+                        <select id="webhookTestEvent" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-[#0B192C]">
                             <option value="payment.captured">payment.captured (Success)</option>
                             <option value="order.paid">order.paid</option>
                             <option value="payment.failed">payment.failed</option>
                         </select>
                     </div>
 
-                    <button id="dispatchWebhookBtn" class="w-full bg-ocean-800 hover:bg-ocean-900 text-white font-bold py-2.5 rounded-xl text-xs shadow-md transition-colors flex items-center justify-center gap-2">
+                    <button id="dispatchWebhookBtn" class="w-full bg-[#0B192C] hover:bg-slate-800 text-white font-bold py-2.5 rounded-xl text-xs active:scale-[0.98] transition-colors flex items-center justify-center gap-2 shadow-sm">
                         <span>Dispatch Test Webhook</span>
                     </button>
                     <div id="webhookResult" class="text-xs text-slate-600 mt-2 p-2.5 rounded-lg bg-slate-50 border border-slate-200 hidden"></div>

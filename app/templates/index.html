@@ -1,202 +1,405 @@
 {% extends "base.html" %}
 
-{% block title %}Captain's Choice — Speedboat Booking from Gateway of India to Mandwa{% endblock %}
+{% block title %}Captain's Choice — Speedboat & Yacht Booking from Gateway of India to Mandwa, Alibaug{% endblock %}
 
 {% block content %}
-<!-- MINIMALIST CLEAN LIGHT HERO SECTION -->
-<section class="relative bg-gradient-to-b from-sky-50/70 via-white to-white py-14 sm:py-20 lg:py-24 border-b border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- ========================================== -->
+<!-- 1. HERO SECTION & INTERACTIVE FARE CHECKER -->
+<!-- ========================================== -->
+<section class="relative bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 overflow-hidden border-b border-slate-900/5">
+    <!-- Local Mumbai–Alibaug Subtle Line-Art Watermarks (5% Opacity) -->
+    <div class="absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+        <!-- Gateway of India Arch Watermark (Left) -->
+        <svg class="absolute -left-12 top-6 sm:top-10 w-72 sm:w-96 h-72 sm:h-96 text-slate-900/[0.04]" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+            <!-- Arch Base & Columns -->
+            <rect x="25" y="160" width="150" height="12" rx="2" />
+            <rect x="35" y="60" width="25" height="100" />
+            <rect x="140" y="60" width="25" height="100" />
+            <rect x="80" y="75" width="40" height="85" />
+            <!-- Central Arch Curve -->
+            <path d="M 60 90 Q 100 45 140 90" stroke-width="1.5" />
+            <path d="M 70 100 Q 100 65 130 100" />
+            <!-- Side Arches -->
+            <path d="M 35 110 Q 47.5 95 60 110" />
+            <path d="M 140 110 Q 152.5 95 165 110" />
+            <!-- Central Dome & Corner Turrets -->
+            <path d="M 75 60 Q 100 25 125 60 Z" />
+            <rect x="32" y="45" width="12" height="15" />
+            <polygon points="32,45 38,32 44,45" />
+            <rect x="156" y="45" width="12" height="15" />
+            <polygon points="156,45 162,32 168,45" />
+            <line x1="20" y1="172" x2="180" y2="172" stroke-width="2" />
+        </svg>
+
+        <!-- Mandwa Coastal Palms Watermark (Right) -->
+        <svg class="absolute -right-8 bottom-4 w-72 sm:w-96 h-72 sm:h-96 text-slate-900/[0.04]" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.2">
+            <!-- Swaying Palm Trunks -->
+            <path d="M 170 180 Q 165 120 150 70" stroke-width="2" />
+            <path d="M 185 180 Q 188 130 180 85" stroke-width="1.6" />
+            <!-- Palm Fronds -->
+            <path d="M 150 70 Q 120 50 105 75" />
+            <path d="M 150 70 Q 130 35 120 40" />
+            <path d="M 150 70 Q 155 30 165 35" />
+            <path d="M 150 70 Q 185 45 185 70" />
+            <path d="M 150 70 Q 165 65 155 85" />
+            <!-- Second Palm Fronds -->
+            <path d="M 180 85 Q 160 65 150 90" />
+            <path d="M 180 85 Q 195 55 200 75" />
+            <!-- Coastal Jetty Pier & Waves -->
+            <line x1="80" y1="175" x2="195" y2="175" stroke-width="2" stroke-dasharray="4 3" />
+            <path d="M 60 185 Q 80 180 100 185 T 140 185 T 180 185" />
+        </svg>
+    </div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <!-- Left Hero Content (Minimalist & Uncluttered) -->
+            <!-- Left 7 Columns: Value Proposition & Trust Metrics -->
             <div class="lg:col-span-7 space-y-6">
-                <!-- Single Minimalist Brand Badge -->
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold">
-                    <span class="w-1.5 h-1.5 rounded-full bg-sky-600"></span>
-                    <span>Captain's Choice Sea Ventures • Jetty No. 5</span>
+                <!-- Status Pill -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-900/10 shadow-sm text-slate-800 text-xs font-semibold">
+                    <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                    <span>Direct Jetty No. 5 Boarding • Gateway of India</span>
                 </div>
 
-                <!-- Main Clean Heading -->
-                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-slate-900 leading-[1.12]">
-                    Speedboat Transfers to Alibaug.<br>
-                    <span class="text-sky-600">Arrive in 20 Minutes.</span>
+                <!-- Main Headline with Ocean Cyan Highlight -->
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight font-display text-[#0B192C] leading-[1.12]">
+                    Private Speedboats to Alibaug.<br>
+                    <span class="text-[#0284C7]">Arrive in 18–20 Minutes.</span>
                 </h1>
 
-                <!-- Clear, Minimal Subtitle -->
+                <!-- Subtitle -->
                 <p class="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
-                    Skip 3 hours of road traffic. Private speedboats, luxury motor yachts, and harbor cruises departing daily from <strong class="text-slate-900">Jetty No. 5 (Opp. Taj Mahal Palace)</strong>.
+                    Skip 3.5 hours of road traffic. Board your private twin-engine speedboat opposite The Taj Mahal Palace hotel and glide across Mumbai Harbour directly to Mandwa Jetty.
                 </p>
 
-                <!-- Uncluttered Action Buttons -->
+                <!-- Actions: Navy Primary + Soft Mint WhatsApp -->
                 <div class="flex flex-wrap items-center gap-3.5 pt-1">
-                    <a href="/book" class="bg-slate-900 hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl shadow-sm hover:shadow transition-all text-sm flex items-center gap-2">
-                        <span>Book Speedboat</span>
+                    <a href="/book" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold px-7 py-3.5 rounded-xl shadow-sm hover:shadow active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2">
+                        <span>Reserve Speedboat</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </a>
-                    <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="border border-slate-300 hover:border-slate-400 bg-white text-slate-800 font-bold px-6 py-3.5 rounded-xl shadow-sm hover:bg-slate-50 transition-all text-sm flex items-center gap-2">
-                        <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                    
+                    <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20would%20like%20to%20inquire%20about%20a%20private%20speedboat%20from%20Gateway%20of%20India." target="_blank" class="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold px-6 py-3.5 rounded-xl shadow-sm active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2">
+                        <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                         <span>WhatsApp Desk</span>
                     </a>
                 </div>
 
-                <!-- Clean Minimalist Stats -->
-                <div class="grid grid-cols-3 gap-6 pt-4 border-t border-slate-200/80 max-w-lg">
-                    <div>
-                        <div class="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">18 Mins</div>
-                        <div class="text-xs text-slate-500">Transit to Mandwa</div>
+                <!-- Trust Metrics Bar (Divided by Subtle Hairlines) -->
+                <div class="grid grid-cols-3 max-w-lg pt-6 mt-6 border-t border-slate-200/80 divide-x divide-slate-200">
+                    <div class="pr-4">
+                        <div class="text-xl sm:text-2xl font-extrabold text-[#0B192C] font-display tracking-tight">18 Mins</div>
+                        <div class="text-xs text-slate-500 font-medium mt-0.5">Transit Transit</div>
                     </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-extrabold text-sky-600 font-display">Jetty No. 5</div>
-                        <div class="text-xs text-slate-500">Boarding Point</div>
+                    <div class="px-4">
+                        <div class="text-xl sm:text-2xl font-extrabold text-[#0284C7] font-display tracking-tight">Jetty No. 5</div>
+                        <div class="text-xs text-slate-500 font-medium mt-0.5">Opp. Taj Hotel</div>
                     </div>
-                    <div>
-                        <div class="text-xl sm:text-2xl font-extrabold text-slate-900 font-display">4.9 ★</div>
-                        <div class="text-xs text-slate-500">Passenger Rating</div>
+                    <div class="pl-4">
+                        <div class="text-xl sm:text-2xl font-extrabold text-[#D97706] font-display tracking-tight flex items-center gap-1">
+                            <span>4.9</span>
+                            <span class="text-sm">★</span>
+                        </div>
+                        <div class="text-xs text-slate-500 font-medium mt-0.5">Verified Rating</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Hero: Clean White Quick Finder Card -->
+            <!-- Right 5 Columns: Floating Interactive Quick-Quote Card -->
             <div class="lg:col-span-5">
-                <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-200">
+                <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 transition-all">
+                    
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100">
                         <div>
-                            <h2 class="text-lg font-bold font-display text-slate-900">Check Rates & Availability</h2>
-                            <p class="text-xs text-slate-500">Instant reservation & time slots</p>
+                            <span class="text-[11px] uppercase font-bold tracking-wider text-[#0284C7] block">Instant Fare Calculator</span>
+                            <h2 class="text-lg font-bold font-display text-[#0B192C]">Quick Charter Quote</h2>
                         </div>
-                        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-sky-50 text-sky-700 border border-sky-100">
-                            Jetty No. 5
+                        <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-sky-50 text-[#0284C7] border border-sky-100">
+                            Live Rates
                         </span>
                     </div>
 
-                    <form action="/book" method="GET" class="mt-5 space-y-4">
-                        <!-- Route Selection -->
+                    <!-- Interactive Controls -->
+                    <div class="mt-5 space-y-4">
+                        
+                        <!-- Route Selection Pills -->
                         <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Select Route</label>
-                            <select name="route" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2.5 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
-                                {% for r in routes %}
-                                <option value="{{ r.id }}" {% if r.id == 'gateway-mandwa' %}selected{% endif %}>
-                                    {{ r.name }} ({{ r.duration }})
-                                </option>
-                                {% endfor %}
-                            </select>
+                            <label class="block text-xs font-semibold text-slate-700 mb-2">Select Route</label>
+                            <div class="grid grid-cols-3 gap-1.5" id="heroRoutePills">
+                                <button type="button" data-route="gateway-mandwa" class="route-pill active px-2.5 py-2 rounded-xl text-center text-xs font-semibold border transition-all duration-200 bg-[#0B192C] text-white border-[#0B192C] shadow-sm">
+                                    Gateway ⇄ Mandwa
+                                </button>
+                                <button type="button" data-route="gateway-elephanta" class="route-pill px-2.5 py-2 rounded-xl text-center text-xs font-semibold border transition-all duration-200 bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                                    Elephanta Tour
+                                </button>
+                                <button type="button" data-route="mumbai-harbour-cruise" class="route-pill px-2.5 py-2 rounded-xl text-center text-xs font-semibold border transition-all duration-200 bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                                    Harbour Cruise
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- Trip Type -->
+                        <!-- Vessel Size Pills -->
                         <div>
-                            <label class="block text-xs font-semibold text-slate-600 mb-1">Trip Type</label>
-                            <div class="grid grid-cols-2 gap-2">
-                                <label class="flex items-center justify-center p-2.5 rounded-xl border border-slate-200 bg-white cursor-pointer hover:bg-slate-50 has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white text-xs font-semibold transition-all">
-                                    <input type="radio" name="trip_type" value="one_way" checked class="hidden">
-                                    <span>One-Way</span>
-                                </label>
-                                <label class="flex items-center justify-center p-2.5 rounded-xl border border-slate-200 bg-white cursor-pointer hover:bg-slate-50 has-[:checked]:border-slate-900 has-[:checked]:bg-slate-900 has-[:checked]:text-white text-xs font-semibold transition-all">
-                                    <input type="radio" name="trip_type" value="round_trip" class="hidden">
-                                    <span>Round-Trip (10% Off)</span>
-                                </label>
+                            <label class="block text-xs font-semibold text-slate-700 mb-2">Vessel Category</label>
+                            <div class="grid grid-cols-2 gap-2" id="heroVesselPills">
+                                <button type="button" data-vessel="speedboat" data-boat="speedboat-yamaha-8" class="vessel-pill active p-2.5 rounded-xl text-left border transition-all duration-200 bg-slate-900 text-white border-slate-900 shadow-sm">
+                                    <div class="font-bold text-xs">6–8 Pax Speedboat</div>
+                                    <div class="text-[10px] text-slate-300">Twin Yamaha • 18 Mins</div>
+                                </button>
+                                <button type="button" data-vessel="yacht" data-boat="motor-yacht-majesty-15" class="vessel-pill p-2.5 rounded-xl text-left border transition-all duration-200 bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
+                                    <div class="font-bold text-xs">12+ Pax Yacht</div>
+                                    <div class="text-[10px] text-slate-500">AC Salon • Flybridge</div>
+                                </button>
                             </div>
                         </div>
 
-                        <!-- Date & Guests -->
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Date</label>
-                                <input type="date" id="heroDateInput" name="date" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
+                        <!-- Dynamic Fare Display Box -->
+                        <div class="bg-slate-50/80 rounded-xl p-4 border border-slate-200/80 transition-all">
+                            <div class="flex items-baseline justify-between">
+                                <div>
+                                    <span class="text-[11px] text-slate-500 block uppercase font-medium">Estimated Private Charter</span>
+                                    <div class="flex items-baseline gap-1.5 mt-0.5">
+                                        <span id="heroEstimatedPrice" class="text-2xl font-extrabold text-[#0B192C] font-display tracking-tight">₹6,500</span>
+                                        <span class="text-xs text-slate-500 font-medium">/ whole boat</span>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                                    Skipper & Fuel Incl.
+                                </span>
                             </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-slate-600 mb-1">Guests</label>
-                                <select name="passengers" class="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500">
-                                    <option value="1">1 - 4 Guests</option>
-                                    <option value="6">5 - 8 Guests</option>
-                                    <option value="12">9 - 12 Guests</option>
-                                    <option value="18">13 - 18 Guests</option>
-                                </select>
-                            </div>
+                            <p id="heroPerGuestHelper" class="text-xs text-slate-500 mt-2 font-medium">
+                                Approx. ₹1,080 per guest for 6 guests.
+                            </p>
                         </div>
 
-                        <!-- Submit Button -->
-                        <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-sm hover:shadow transition-all text-xs flex items-center justify-center gap-1.5">
-                            <span>Proceed to Choose Boat & Time</span>
-                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                        </button>
-                    </form>
-
-                    <!-- WhatsApp Assistance Note -->
-                    <div class="mt-4 pt-3 border-t border-slate-100 text-center">
-                        <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20Need%20help%20with%20boat%20booking" target="_blank" class="text-xs text-slate-500 hover:text-emerald-600 font-medium inline-flex items-center gap-1.5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                            Prefer booking via WhatsApp? <strong>Chat with Captain</strong>
+                        <!-- High-Contrast CTA Button -->
+                        <a id="heroCheckSlotsBtn" href="/book?route=gateway-mandwa&boat=speedboat-yamaha-8" class="w-full bg-[#0B192C] hover:bg-slate-800 text-white font-bold py-3.5 rounded-xl shadow-sm hover:shadow active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center justify-center gap-2">
+                            <span>Check Available Slots</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
+
+                        <!-- WhatsApp In-Card Link -->
+                        <div class="text-center pt-1">
+                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20am%20looking%20for%20a%20speedboat%20quote%20for%20Gateway%20to%20Mandwa." target="_blank" class="text-xs text-slate-500 hover:text-emerald-700 font-medium inline-flex items-center gap-1.5 transition-colors">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                Need custom timings or group booking? <strong class="text-slate-800 underline">Chat on WhatsApp</strong>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
 
-<!-- POPULAR TRANSFERS & ROUTES SECTION (CLEAN WHITE) -->
-<section id="routes" class="py-16 sm:py-20 bg-white">
+<!-- ======================================================== -->
+<!-- 2. INTERACTIVE SPEEDBOAT TRANSIT ANIMATION & WAVE DIVIDER -->
+<!-- ======================================================== -->
+<section class="relative bg-white pt-6 pb-12 overflow-hidden" aria-label="Harbour Transit Track">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <!-- Transit Track Card -->
+        <div class="bg-gradient-to-r from-sky-50/60 via-slate-50 to-sky-50/60 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284C7] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
+                    Live Nautical Transfer Corridor
+                </span>
+                <span class="text-xs text-slate-500 font-medium">14 km Express Passage • 18 Mins</span>
+            </div>
+
+            <!-- Transit Track Visual Nodes & Animated Boat -->
+            <div class="relative py-4">
+                
+                <!-- Horizontal Nautical Track Line with wave ripples -->
+                <div class="relative h-2.5 bg-slate-200 rounded-full overflow-hidden my-6">
+                    <div class="absolute inset-0 bg-gradient-to-r from-[#0284C7] via-cyan-400 to-[#0B192C] opacity-75"></div>
+                    <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.7)_50%,transparent_100%)] animate-wake"></div>
+                </div>
+
+                <!-- Gliding Speedboat Component (< 4KB SVG) -->
+                <div id="transitBoatContainer" class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none" style="z-index: 10;">
+                    <div class="relative flex items-center">
+                        <!-- Speedboat SVG -->
+                        <svg class="w-10 h-7 text-[#0B192C] drop-shadow-md" viewBox="0 0 64 36" fill="currentColor">
+                            <!-- Hull Profile -->
+                            <path d="M 4 24 L 14 26 L 52 26 L 62 18 L 48 18 L 36 12 L 20 12 L 14 18 L 4 20 Z" fill="#0B192C" />
+                            <!-- Cabin Windshield -->
+                            <polygon points="22,13 35,13 32,18 19,18" fill="#38BDF8" opacity="0.9" />
+                            <!-- Twin Outboard Motors -->
+                            <rect x="2" y="19" width="4" height="9" rx="1" fill="#475569" />
+                            <rect x="6" y="21" width="3" height="7" rx="1" fill="#64748B" />
+                            <!-- White Waterline & Spray -->
+                            <path d="M 8 27 Q 24 28 44 27 L 60 21" stroke="#38BDF8" stroke-width="2" fill="none" />
+                        </svg>
+                        <!-- Wake Trail -->
+                        <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-transparent to-cyan-300 rounded-full blur-[1px] opacity-70 animate-wake"></div>
+                    </div>
+                </div>
+
+                <!-- Left & Right Heritage Origin/Destination Nodes -->
+                <div class="flex items-center justify-between text-xs font-semibold text-slate-800 relative z-20">
+                    
+                    <!-- Left Node: Gateway of India Arch -->
+                    <div class="flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-sm">
+                        <div class="w-8 h-8 rounded-lg bg-sky-50 text-[#0284C7] flex items-center justify-center flex-shrink-0">
+                            <!-- Arch Icon -->
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M4 21V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12"/>
+                                <path d="M9 21v-7a3 3 0 0 1 6 0v7"/>
+                                <path d="M2 21h20"/>
+                                <path d="M7 4h10"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <span class="block text-[#0B192C] font-bold text-xs">Mumbai (Jetty No. 5)</span>
+                            <span class="block text-[10px] text-slate-500 font-normal">Opposite Taj Mahal Palace</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Node: Mandwa Palm Jetty -->
+                    <div class="flex items-center gap-2.5 bg-white/90 backdrop-blur-md px-3.5 py-2 rounded-xl border border-slate-200/90 shadow-sm text-right">
+                        <div>
+                            <span class="block text-[#0B192C] font-bold text-xs">Alibaug (Mandwa Jetty)</span>
+                            <span class="block text-[10px] text-slate-500 font-normal">Arrival in ~18 Minutes</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 flex items-center justify-center flex-shrink-0">
+                            <!-- Palm Pier Icon -->
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                <path d="M12 21V10"/>
+                                <path d="M12 10c0-4.5-3.5-7-7-7 0 3.5 2.5 7 7 7z"/>
+                                <path d="M12 10c0-4.5 3.5-7 7-7 0 3.5-2.5 7-7 7z"/>
+                                <path d="M4 21h16"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Subtle Slow-Moving SVG Wave Divider (6s Loop) -->
+    <div class="w-full overflow-hidden leading-none mt-8 -mb-1 text-[#F8FAFC]">
+        <svg class="w-full h-8 sm:h-12 animate-wave-drift text-[#F8FAFC]" viewBox="0 0 1200 120" preserveAspectRatio="none" fill="currentColor">
+            <path d="M0,0 C150,55 350,-40 500,30 C650,90 900,10 1200,40 L1200,120 L0,120 Z"></path>
+        </svg>
+    </div>
+</section>
+
+<!-- ======================================================== -->
+<!-- 3. "LUXURY BOARDING PASS" ROUTE CARDS & RELEVANT IMAGERY -->
+<!-- ======================================================== -->
+<section id="routes" class="py-16 sm:py-20 bg-[#F8FAFC]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Header -->
         <div class="max-w-2xl mb-12">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
-                Routes & Fares
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
+                Luxury Boarding Passes
             </span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
-                Popular Speedboat Transfers
+            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">
+                Curated Marine Transfers & Charters
             </h2>
-            <p class="text-slate-500 text-xs sm:text-sm mt-1">
-                Punctual, private speedboat routes from Gateway of India to Mandwa and Elephanta Island.
+            <p class="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
+                Private twin-engine speedboat charters departing on your schedule from Jetty No. 5, Gateway of India.
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- 3-Column Luxury Boarding Pass Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for r in routes %}
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col group">
-                <div class="relative h-44 overflow-hidden bg-slate-100">
-                    <img src="{{ r.image }}" alt="{{ r.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    <span class="absolute top-3 left-3 px-2 py-0.5 rounded bg-white/95 text-slate-900 text-[11px] font-bold shadow-sm">
-                        ⏱️ {{ r.duration }}
+            <div class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:shadow-[0_14px_35px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col group">
+                
+                <!-- Relevant Maritime Imagery with Floating Glass Badges -->
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                    <img src="{{ r.image }}" alt="{{ r.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                    
+                    <!-- Floating Top-Left Duration Badge -->
+                    <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full backdrop-blur-md bg-white/90 text-[#0B192C] text-xs font-bold shadow-sm flex items-center gap-1.5">
+                        <span>⏱️ {{ r.duration }}</span>
+                    </span>
+
+                    <!-- Floating Top-Right Vessel Type Badge -->
+                    <span class="absolute top-3.5 right-3.5 px-3 py-1 rounded-full backdrop-blur-md bg-white/90 text-slate-800 text-xs font-semibold shadow-sm">
+                        {{ r.vessel_type|default('Private Boat • Up to 8 Pax') }}
                     </span>
                 </div>
-                <div class="p-5 flex-1 flex flex-col justify-between">
+
+                <!-- Card Body (Boarding Pass Aesthetic) -->
+                <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
-                        <h3 class="font-bold text-sm text-slate-900 font-display leading-snug">{{ r.name }}</h3>
-                        <p class="text-xs text-slate-500 mt-1.5 line-clamp-2">{{ r.description }}</p>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                        <div>
-                            <span class="text-[10px] text-slate-400 block uppercase">Starting from</span>
-                            <span class="text-base font-extrabold text-slate-900 font-display">₹{{ "{:,}".format(r.base_fare) }}</span>
+                        <!-- Route Title with Heritage Arch / Palm Icons -->
+                        <div class="flex items-start gap-2.5">
+                            <span class="text-lg">🏛️</span>
+                            <h3 class="font-bold text-base text-[#0B192C] font-display leading-snug">{{ r.name }}</h3>
                         </div>
-                        <a href="/book?route={{ r.id }}" class="px-3.5 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold transition-colors">
-                            Book
+                        <p class="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">{{ r.description }}</p>
+
+                        <!-- 3 Scannable Spec Pills -->
+                        <div class="mt-4 flex flex-wrap items-center gap-1.5">
+                            {% for spec in r.specs|default(['⚡ Twin-Engine', '👥 Max 6–8 Pax', '🧳 Luggage Included']) %}
+                            <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700">
+                                {{ spec }}
+                            </span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Boarding-Pass Dashed Divider -->
+                    <div class="my-4 border-t border-dashed border-slate-200"></div>
+
+                    <!-- Clear Pricing & CTA Pill -->
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xl font-extrabold text-[#0B192C] font-display tracking-tight">₹{{ "{:,}".format(r.base_fare) }}</span>
+                                <span class="text-xs text-slate-500 font-medium">/ whole boat</span>
+                            </div>
+                            <span class="text-[10px] text-slate-400 block font-normal">(Up to 6–8 guests)</span>
+                        </div>
+                        
+                        <a href="/book?route={{ r.id }}" class="px-5 py-2.5 rounded-xl bg-[#0B192C] hover:bg-slate-800 text-white text-xs font-bold shadow-sm active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5">
+                            <span>Reserve</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                         </a>
                     </div>
+
                 </div>
             </div>
             {% endfor %}
         </div>
+
     </div>
 </section>
 
-<!-- FLEET SHOWCASE SECTION (CLEAN LIGHT SLATE) -->
-<section id="fleet" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+<!-- ========================================== -->
+<!-- 4. FLEET SHOWCASE & LUXURY MOTOR YACHTS   -->
+<!-- ========================================== -->
+<section id="fleet" class="py-16 sm:py-20 bg-white border-t border-slate-900/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
             <div>
-                <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">
+                <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
                     The Fleet
                 </span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">
-                    Captain's Choice Fleet & Yachts
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">
+                    Captain's Choice Fleet & Marine Yachts
                 </h2>
-                <p class="text-slate-500 text-xs sm:text-sm mt-1">
-                    Twin Yamaha outboard marine engines with certified life jackets and GPS navigation.
+                <p class="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
+                    Twin Yamaha outboard marine engines with certified life jackets, first aid, and GPS radar.
                 </p>
             </div>
             <div class="mt-4 md:mt-0">
-                <a href="/fleet" class="text-xs font-bold text-sky-600 hover:text-sky-700 inline-flex items-center gap-1">
-                    <span>View all vessels & technical specs</span>
+                <a href="/fleet" class="text-xs font-bold text-[#0284C7] hover:text-[#0369A1] inline-flex items-center gap-1 active:scale-[0.98] transition-all">
+                    <span>View complete specifications & amenities</span>
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -204,35 +407,36 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for boat in boats %}
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col group">
-                <!-- Boat Image -->
-                <div class="relative h-52 overflow-hidden bg-slate-100">
-                    <img src="{{ boat.image }}" alt="{{ boat.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+            <div class="bg-white rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 hover:shadow-[0_14px_35px_rgb(0,0,0,0.08)] transition-all duration-300 flex flex-col group">
+                
+                <!-- Boat Maritime Image -->
+                <div class="relative h-52 overflow-hidden bg-slate-900">
+                    <img src="{{ boat.image }}" alt="{{ boat.name }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     
                     <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs font-semibold">
-                        <span class="bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm text-[11px]">
+                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">
                             👥 {{ boat.capacity }} Passengers
                         </span>
-                        <span class="bg-slate-900/80 px-2 py-0.5 rounded backdrop-blur-sm text-[11px]">
+                        <span class="bg-[#0B192C]/85 px-2.5 py-1 rounded-lg backdrop-blur-md text-[11px]">
                             ⚡ {{ boat.speed_knots }} Knots
                         </span>
                     </div>
                 </div>
 
                 <!-- Boat Details -->
-                <div class="p-5 flex-1 flex flex-col justify-between">
+                <div class="p-6 flex-1 flex flex-col justify-between">
                     <div>
                         <div class="flex items-center justify-between">
-                            <span class="text-[11px] uppercase font-bold text-sky-600">{{ boat.category }}</span>
-                            <span class="text-[11px] text-slate-400">{{ boat.engine }}</span>
+                            <span class="text-[11px] uppercase font-bold text-[#0284C7]">{{ boat.category }}</span>
+                            <span class="text-[11px] text-slate-400 font-medium">{{ boat.engine }}</span>
                         </div>
-                        <h3 class="font-bold text-lg text-slate-900 font-display mt-1">{{ boat.name }}</h3>
+                        <h3 class="font-bold text-lg text-[#0B192C] font-display mt-1">{{ boat.name }}</h3>
                         <p class="text-xs text-slate-500 mt-1.5 line-clamp-2 leading-relaxed">{{ boat.description }}</p>
 
                         <!-- Amenities -->
-                        <div class="mt-3 flex flex-wrap gap-1.5">
+                        <div class="mt-3.5 flex flex-wrap gap-1.5">
                             {% for a in boat.amenities[:3] %}
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-600 font-medium">
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
                                 ✓ {{ a }}
                             </span>
                             {% endfor %}
@@ -240,173 +444,290 @@
                     </div>
 
                     <!-- Pricing & Action -->
-                    <div class="mt-5 pt-3.5 border-t border-slate-100 space-y-3">
+                    <div class="mt-5 pt-4 border-t border-slate-100 space-y-3">
                         <div class="flex items-baseline justify-between">
                             <div>
-                                <span class="text-[10px] text-slate-400 uppercase block">Gateway ➔ Mandwa</span>
-                                <span class="text-xl font-extrabold text-slate-900 font-display">₹{{ "{:,}".format(boat.price_gateway_mandwa) }}</span>
+                                <span class="text-[10px] text-slate-400 uppercase block font-medium">Gateway ➔ Mandwa</span>
+                                <span class="text-xl font-extrabold text-[#0B192C] font-display tracking-tight">₹{{ "{:,}".format(boat.price_gateway_mandwa) }}</span>
                                 <span class="text-[10px] text-slate-400">/ charter</span>
                             </div>
-                            <span class="text-[11px] text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                            <span class="text-[11px] text-emerald-800 font-semibold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
                                 Advance: ₹{{ "{:,}".format(boat.advance_deposit) }}
                             </span>
                         </div>
 
                         <!-- 2 CTAs -->
                         <div class="grid grid-cols-2 gap-2">
-                            <a href="/book?boat={{ boat.id }}" class="bg-slate-900 hover:bg-slate-800 text-white font-bold text-center py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-1">
+                            <a href="/book?boat={{ boat.id }}" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold text-center py-2.5 rounded-xl text-xs active:scale-[0.98] transition-all flex items-center justify-center gap-1">
                                 <span>Book Now</span>
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                             </a>
-                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20am%20interested%20in%20booking%20the%20{{ boat.name|urlencode }}." target="_blank" class="border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold text-center py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-1.5">
-                                <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20am%20interested%20in%20reserving%20the%20{{ boat.name|urlencode }}." target="_blank" class="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold text-center py-2.5 rounded-xl text-xs active:scale-[0.98] transition-all flex items-center justify-center gap-1.5">
+                                <svg class="w-3.5 h-3.5 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                                 <span>WhatsApp</span>
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
             {% endfor %}
         </div>
+
     </div>
 </section>
 
-<!-- WHY BOOK WITH US SECTION (CLEAN MINIMALIST WHITE) -->
-<section class="py-16 bg-white border-t border-slate-200">
+<!-- ============================================== -->
+<!-- 5. VIP BOARDING 3-STEP VISUAL TIMELINE         -->
+<!-- ============================================== -->
+<section id="how-it-works" class="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-900/5">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="max-w-2xl mb-12">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">Why Choose Us</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">Why Captain's Choice Sea Ventures?</h2>
-            <p class="text-slate-500 text-xs sm:text-sm mt-1">Punctuality, safety, and comfort on every nautical trip.</p>
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
+                Zero Friction Travel
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">
+                How VIP Boarding Works
+            </h2>
+            <p class="text-slate-500 text-xs sm:text-sm mt-1 leading-relaxed">
+                Step-by-step private departure from South Mumbai to your Alibaug villa.
+            </p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center text-lg font-bold mb-3">
-                    ⚡
+        <!-- Minimalist 3-Step Timeline Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            
+            <!-- Step 1 -->
+            <div class="bg-white rounded-2xl p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-9 h-9 rounded-xl bg-sky-50 text-[#0284C7] font-extrabold font-display text-sm flex items-center justify-center">
+                            01
+                        </span>
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Arrival</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#0B192C] font-display mb-2">
+                        Arrive at Gate No. 5 (Opp. Taj Mahal Palace)
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Skip crowded public ferry lines. Our ground crew welcomes your party at Jetty No. 5, assists with your luggage, and escorts you directly to the water.
+                    </p>
                 </div>
-                <h3 class="font-bold text-sm font-display text-slate-900 mb-1">18-20 Min Transfers</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Twin Yamaha 4-stroke marine outboards cut transit time between Mumbai and Alibaug.</p>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-600 font-medium">
+                    <span class="text-emerald-600">✓</span>
+                    <span>Direct Jetty Escort</span>
+                </div>
             </div>
 
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg font-bold mb-3">
-                    🛡️
+            <!-- Step 2 -->
+            <div class="bg-white rounded-2xl p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-9 h-9 rounded-xl bg-sky-50 text-[#0284C7] font-extrabold font-display text-sm flex items-center justify-center">
+                            02
+                        </span>
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Embarkation</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#0B192C] font-display mb-2">
+                        Board in 2 Minutes
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Step straight onto your private twin-engine speedboat on your exact reserved schedule. Safety vests fitted instantly by certified skippers.
+                    </p>
                 </div>
-                <h3 class="font-bold text-sm font-display text-slate-900 mb-1">Certified Safety</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Qualified skippers, certified life vests for all ages, GPS navigation, and VHF marine radios.</p>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-600 font-medium">
+                    <span class="text-emerald-600">✓</span>
+                    <span>Coast Guard Life Vests</span>
+                </div>
             </div>
 
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                <div class="w-10 h-10 rounded-xl bg-slate-200 text-slate-800 flex items-center justify-center text-lg font-bold mb-3">
-                    💳
+            <!-- Step 3 -->
+            <div class="bg-white rounded-2xl p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 relative flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="w-9 h-9 rounded-xl bg-sky-50 text-[#0284C7] font-extrabold font-display text-sm flex items-center justify-center">
+                            03
+                        </span>
+                        <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Touchdown</span>
+                    </div>
+                    <h3 class="font-bold text-base text-[#0B192C] font-display mb-2">
+                        Touch Down at Mandwa in 20 Mins
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Glide across calm harbor waters, disembark fresh in Alibaug, and skip 3.5 hours of expressway congestion and toll queues.
+                    </p>
                 </div>
-                <h3 class="font-bold text-sm font-display text-slate-900 mb-1">Razorpay Booking</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Secure online advance via UPI or card. Pay remainder at the jetty upon boarding.</p>
+                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-2 text-[11px] text-slate-600 font-medium">
+                    <span class="text-emerald-600">✓</span>
+                    <span>Saves 3+ Hours</span>
+                </div>
             </div>
 
-            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-lg font-bold mb-3">
-                    📍
-                </div>
-                <h3 class="font-bold text-sm font-display text-slate-900 mb-1">Jetty No. 5 Boarding</h3>
-                <p class="text-xs text-slate-500 leading-relaxed">Convenient private boarding point opposite The Taj Mahal Palace Hotel at Gateway of India.</p>
-            </div>
         </div>
+
     </div>
 </section>
 
-<!-- FREQUENTLY ASKED QUESTIONS (FAQ) -->
-<section id="faq" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200">
+<!-- ============================================== -->
+<!-- 6. FREQUENTLY ASKED QUESTIONS (FAQ)            -->
+<!-- ============================================== -->
+<section id="faq" class="py-16 sm:py-20 bg-white border-t border-slate-900/5">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center mb-10">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-sky-600 block mb-1">Support</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-slate-900">Frequently Asked Questions</h2>
+            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">Support & Operations</span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">Frequently Asked Questions</h2>
         </div>
 
         <div class="space-y-3">
-            <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm group" open>
-                <summary class="font-bold text-sm text-slate-900 cursor-pointer flex items-center justify-between">
+            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group" open>
+                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
                     <span>Where do we board the speedboat in Mumbai?</span>
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <p class="text-xs text-slate-500 mt-2.5 leading-relaxed">
-                    All our speedboats and yachts depart from <strong>Jetty No. 5</strong>, located directly opposite the entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba.
+                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                    All our speedboats and yachts depart directly from <strong>Jetty No. 5</strong>, located directly opposite the entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba.
                 </p>
             </details>
 
-            <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm group">
-                <summary class="font-bold text-sm text-slate-900 cursor-pointer flex items-center justify-between">
+            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
+                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
                     <span>How much luggage can we take to Mandwa / Alibaug?</span>
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <p class="text-xs text-slate-500 mt-2.5 leading-relaxed">
+                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
                     Standard speedboats accommodate 1 suitcase per passenger plus hand baggage. For extra luggage or golf bags, we recommend booking our 12-seater <em>Gulfcraft 31</em> or 18-seater <em>Sea-Rider 38</em>.
                 </p>
             </details>
 
-            <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm group">
-                <summary class="font-bold text-sm text-slate-900 cursor-pointer flex items-center justify-between">
+            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
+                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
                     <span>How does the Razorpay advance payment work?</span>
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <p class="text-xs text-slate-500 mt-2.5 leading-relaxed">
-                    A nominal advance deposit (starting at ₹1,500 - ₹3,000) is paid securely via Razorpay to hold the boat and captain schedule. The balance is settled at the jetty upon boarding.
+                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                    A nominal advance deposit (starting at ₹2,000) is paid securely via Razorpay to confirm the boat and skipper schedule. The balance is settled upon boarding at the jetty.
                 </p>
             </details>
 
-            <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm group">
-                <summary class="font-bold text-sm text-slate-900 cursor-pointer flex items-center justify-between">
+            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
+                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
                     <span>Can I chat on WhatsApp before making a reservation?</span>
                     <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
                 </summary>
-                <p class="text-xs text-slate-500 mt-2.5 leading-relaxed">
-                    Yes! Our WhatsApp desk is open daily at <strong>+91 7506920614</strong>. Click the WhatsApp button on any screen to ask custom timings, yacht decorations, or catering options.
+                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
+                    Yes! Our WhatsApp desk is open daily at <strong>+91 7506920614</strong>. Message us anytime for custom schedules, catering, or yacht decoration setups.
                 </p>
             </details>
         </div>
+
     </div>
 </section>
 
-<!-- CALL TO ACTION BANNER (RICH OCEAN COLORS) -->
-<section class="py-16 sm:py-20 ocean-gradient-banner text-white text-center relative overflow-hidden">
+<!-- ============================================== -->
+<!-- 7. CALL TO ACTION BANNER (DEEP MARITIME NAVY)  -->
+<!-- ============================================== -->
+<section class="py-16 sm:py-20 bg-gradient-to-r from-[#0B192C] via-[#0E2238] to-[#0B192C] text-white text-center relative overflow-hidden">
     <!-- Subtle Ocean Wave Overlay -->
-    <div class="absolute inset-0 opacity-15 pointer-events-none">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
         <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path d="M0,45 C25,25 50,65 75,35 C90,20 100,50 100,45 L100,100 L0,100 Z" fill="rgba(255,255,255,0.2)"></path>
         </svg>
     </div>
 
     <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 text-cyan-200 border border-white/20 backdrop-blur-sm">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-sky-200 border border-white/15 backdrop-blur-sm">
             <span>🌊 Arabian Sea Express Transfers</span>
         </span>
         <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
             Ready for a 20-Minute Alibaug Ride?
         </h2>
-        <p class="text-sm sm:text-base text-cyan-100 max-w-xl mx-auto leading-relaxed">
-            Glide across Mumbai Harbour aboard a twin-engine speedboat. Book your private vessel today with <strong class="text-white">Captain's Choice Sea Ventures</strong> or message our desk on WhatsApp.
+        <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+            Glide across Mumbai Harbour aboard a twin-engine speedboat. Reserve your vessel today or speak directly with our jetty desk on WhatsApp.
         </p>
+        
         <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-            <a href="/book" class="bg-white text-[#071E3D] hover:bg-slate-100 font-extrabold px-8 py-3.5 rounded-xl shadow-xl hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm">
+            <a href="/book" class="bg-white text-[#0B192C] hover:bg-slate-100 font-extrabold px-8 py-3.5 rounded-xl shadow-xl active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm">
                 Reserve Speedboat Now
             </a>
-            <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-7 py-3.5 rounded-xl shadow-lg hover:scale-105 transition-all text-xs sm:text-sm flex items-center gap-2">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20would%20like%20to%20book%20a%20speedboat%20to%20Mandwa." target="_blank" class="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold px-7 py-3.5 rounded-xl shadow-lg active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2">
+                <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                 <span>WhatsApp (+91 7506920614)</span>
             </a>
         </div>
     </div>
 </section>
 
+<!-- ============================================== -->
+<!-- 8. JAVASCRIPT: INTERACTIVE FARE CHECKER LOGIC  -->
+<!-- ============================================== -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const dateInput = document.getElementById("heroDateInput");
-        if (dateInput) {
-            const today = new Date().toISOString().split("T")[0];
-            dateInput.value = today;
-            dateInput.min = today;
+        // Fare matrix for instant calculations
+        const fareMatrix = {
+            "gateway-mandwa": {
+                "speedboat": { price: 6500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹1,080 per guest for 6 guests." },
+                "yacht": { price: 25000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,660 per guest for 15 guests." }
+            },
+            "gateway-elephanta": {
+                "speedboat": { price: 7500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹1,250 per guest for 6 guests." },
+                "yacht": { price: 28000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,860 per guest for 15 guests." }
+            },
+            "mumbai-harbour-cruise": {
+                "speedboat": { price: 4500, boatId: "speedboat-yamaha-8", perGuest: "Approx. ₹750 per guest for 6 guests." },
+                "yacht": { price: 18000, boatId: "motor-yacht-majesty-15", perGuest: "Approx. ₹1,200 per guest for 15 guests." }
+            }
+        };
+
+        let selectedRoute = "gateway-mandwa";
+        let selectedVessel = "speedboat";
+
+        const routePills = document.querySelectorAll("#heroRoutePills button");
+        const vesselPills = document.querySelectorAll("#heroVesselPills button");
+        const priceDisplay = document.getElementById("heroEstimatedPrice");
+        const helperDisplay = document.getElementById("heroPerGuestHelper");
+        const checkSlotsBtn = document.getElementById("heroCheckSlotsBtn");
+
+        function updateQuote() {
+            const data = fareMatrix[selectedRoute]?.[selectedVessel] || fareMatrix["gateway-mandwa"]["speedboat"];
+            if (priceDisplay) priceDisplay.textContent = "₹" + data.price.toLocaleString("en-IN");
+            if (helperDisplay) helperDisplay.textContent = data.perGuest;
+            if (checkSlotsBtn) {
+                checkSlotsBtn.href = `/book?route=${selectedRoute}&boat=${data.boatId}`;
+            }
         }
+
+        routePills.forEach(btn => {
+            btn.addEventListener("click", () => {
+                routePills.forEach(b => {
+                    b.classList.remove("active", "bg-[#0B192C]", "text-white", "border-[#0B192C]", "shadow-sm");
+                    b.classList.add("bg-white", "text-slate-700", "border-slate-200");
+                });
+                btn.classList.add("active", "bg-[#0B192C]", "text-white", "border-[#0B192C]", "shadow-sm");
+                btn.classList.remove("bg-white", "text-slate-700", "border-slate-200");
+                selectedRoute = btn.getAttribute("data-route");
+                updateQuote();
+            });
+        });
+
+        vesselPills.forEach(btn => {
+            btn.addEventListener("click", () => {
+                vesselPills.forEach(b => {
+                    b.classList.remove("active", "bg-slate-900", "text-white", "border-slate-900", "shadow-sm");
+                    b.classList.add("bg-white", "text-slate-700", "border-slate-200");
+                    const sub = b.querySelector("div:last-child");
+                    if (sub) { sub.classList.remove("text-slate-300"); sub.classList.add("text-slate-500"); }
+                });
+                btn.classList.add("active", "bg-slate-900", "text-white", "border-slate-900", "shadow-sm");
+                btn.classList.remove("bg-white", "text-slate-700", "border-slate-200");
+                const sub = btn.querySelector("div:last-child");
+                if (sub) { sub.classList.add("text-slate-300"); sub.classList.remove("text-slate-500"); }
+
+                selectedVessel = btn.getAttribute("data-vessel");
+                updateQuote();
+            });
+        });
     });
 </script>
 {% endblock %}

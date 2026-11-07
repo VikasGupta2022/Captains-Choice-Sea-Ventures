@@ -10,7 +10,9 @@
       "distance_km": 14,
       "base_fare": 6500,
       "badge": "⚡ Bestseller • 20 Mins",
-      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+      "vessel_type": "Private Boat • Up to 8 Guests",
+      "specs": ["⚡ Twin-Engine", "👥 Max 6–8 Pax", "🧳 Luggage Included"],
+      "image": "https://images.unsplash.com/photo-1540946485063-a40da27545f8?auto=format&fit=crop&w=1200&q=80"
     },
     {
       "id": "mandwa-gateway",
@@ -22,7 +24,9 @@
       "distance_km": 14,
       "base_fare": 6500,
       "badge": "⚡ Express Return",
-      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1200&q=80"
+      "vessel_type": "Private Boat • Up to 8 Guests",
+      "specs": ["⚡ Twin-Engine", "👥 Max 6–8 Pax", "🧳 Luggage Included"],
+      "image": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&w=1200&q=80"
     },
     {
       "id": "gateway-elephanta",
@@ -34,7 +38,9 @@
       "distance_km": 11,
       "base_fare": 7500,
       "badge": "🏛️ Heritage Tour",
-      "image": "https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80"
+      "vessel_type": "Private Boat • Up to 12 Guests",
+      "specs": ["⚡ Twin-Engine", "👥 Max 12 Pax", "🏛️ Wait Time Included"],
+      "image": "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200&q=80"
     },
     {
       "id": "mumbai-harbour-cruise",
@@ -46,6 +52,8 @@
       "distance_km": 8,
       "base_fare": 4500,
       "badge": "🌅 Golden Hour Special",
+      "vessel_type": "Luxury Charter • Up to 15 Guests",
+      "specs": ["🌅 Golden Hour", "👥 Up to 15 Pax", "🎵 Sound System"],
       "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80"
     }
   ],
@@ -65,7 +73,7 @@
       "featured": true,
       "engine": "Twin Yamaha 150HP Four Stroke",
       "amenities": ["Twin High-Power Engines", "Cushioned Bucket Seats", "Bluetooth Sound System", "Life Jackets For All", "First Aid Onboard"],
-      "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1000&q=80",
+      "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1000&q=80",
       "description": "Sleek, twin-engine speedboat engineered for top acceleration and smooth wave cutting across Mumbai harbour to Mandwa in 18 minutes."
     },
     {
@@ -83,7 +91,7 @@
       "featured": true,
       "engine": "Twin Suzuki 250HP",
       "amenities": ["Full Weather Canopy", "Luggage Storage Bay", "Premium Marine Audio", "Coast Guard Approved", "USB Charging"],
-      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=1000&q=80",
+      "image": "https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&w=1000&q=80",
       "description": "Ideal for families and weekend villa groups travelling with luggage to Alibaug. Spacious covered deck with marine sound system."
     },
     {

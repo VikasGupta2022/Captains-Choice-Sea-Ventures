@@ -11,33 +11,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS with Ocean Palette -->
+    <!-- Tailwind CSS with Custom Maritime Tokens -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        ocean: {
-                            800: '#0B2545', // Rich Deep Ocean Navy
-                            850: '#091E3A',
-                            900: '#07182E', // Abyssal Deep Sea
-                            950: '#040F1E',
+                        navy: {
+                            800: '#0E2238',
+                            900: '#0B192C', // Deep Maritime Navy
+                            950: '#060E18',
                         },
-                        sea: {
-                            400: '#38BDF8',
-                            500: '#0284C7',
+                        oceanCyan: {
+                            500: '#0284C7', // Ocean Cyan Accent
                             600: '#0369A1',
+                            700: '#075985',
                         },
-                        cyanAqua: {
-                            400: '#22D3EE',
-                            500: '#06B6D4',
-                            600: '#0891B2',
+                        sandGold: {
+                            500: '#D97706', // Subtle Sandstone Gold
+                            600: '#B45309',
+                        },
+                        mint: {
+                            50: '#ECFDF5',
+                            100: '#D1FAE5',
+                            200: '#A7F3D0',
+                            700: '#047857',
                         }
                     },
                     fontFamily: {
                         sans: ['"Plus Jakarta Sans"', 'sans-serif'],
                         display: ['"Outfit"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft-card': '0 8px 30px rgb(0, 0, 0, 0.06)',
+                        'soft-lift': '0 14px 35px rgb(0, 0, 0, 0.08)',
                     }
                 }
             }
@@ -50,102 +58,143 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #FFFFFF;
+            background-color: #F8FAFC;
             color: #0F172A;
             -webkit-tap-highlight-color: transparent;
         }
         h1, h2, h3, h4, .font-heading {
             font-family: 'Outfit', sans-serif;
+            letter-spacing: -0.025em;
         }
-        /* Gradient resembling ocean depths meeting azure waves */
-        .ocean-gradient-banner {
-            background: linear-gradient(135deg, #071E3D 0%, #0E4975 45%, #007E9E 85%, #00A896 100%);
+
+        /* Speedboat horizontal glide animation */
+        @keyframes boatGlide {
+            0% {
+                left: 6%;
+                transform: translateY(-50%) scaleX(1);
+            }
+            47% {
+                left: 88%;
+                transform: translateY(-50%) scaleX(1);
+            }
+            50% {
+                left: 88%;
+                transform: translateY(-50%) scaleX(-1);
+            }
+            97% {
+                left: 6%;
+                transform: translateY(-50%) scaleX(-1);
+            }
+            100% {
+                left: 6%;
+                transform: translateY(-50%) scaleX(1);
+            }
         }
-        .ocean-nav-bg {
-            background: rgba(11, 37, 69, 0.95);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+
+        /* Wake trail animation */
+        @keyframes wakePulse {
+            0%, 100% { opacity: 0.35; transform: scaleX(0.7); }
+            50% { opacity: 0.75; transform: scaleX(1.1); }
         }
-        /* Subtle pulse for WhatsApp */
-        @keyframes pulse-subtle {
-            0% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
-            100% { transform: scale(0.96); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+
+        /* Ocean wave divider subtle 6s loop */
+        @keyframes waveFloat {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(-25px); }
+            100% { transform: translateX(0); }
         }
-        .whatsapp-pulse {
-            animation: pulse-subtle 2.5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+
+        .animate-boat-glide {
+            animation: boatGlide 14s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+        }
+
+        .animate-wake {
+            animation: wakePulse 2.5s ease-in-out infinite;
+        }
+
+        .animate-wave-drift {
+            animation: waveFloat 6s ease-in-out infinite;
         }
     </style>
 
     {% block extra_head %}{% endblock %}
 </head>
-<body class="flex flex-col min-h-screen bg-white text-slate-800 antialiased">
+<body class="flex flex-col min-h-screen bg-[#F8FAFC] text-slate-800 antialiased selection:bg-sky-100 selection:text-sky-900">
 
-    <!-- Top Announcement Bar (Deep Ocean Tint) -->
-    <div class="bg-[#07182E] text-slate-300 text-xs py-2 px-4 border-b border-[#0F355E]">
+    <!-- LIVE HARBOUR STATUS STRIP (TOP BAR) -->
+    <div class="bg-[#0B192C] text-white text-xs py-2 px-4 border-b border-slate-800">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center gap-2">
-                <span class="inline-block w-2 h-2 rounded-full bg-cyanAqua-400 animate-ping"></span>
-                <span class="font-medium text-cyan-200">Jetty No. 5 Open • Captain's Choice Speedboats operating normally today</span>
+            <!-- Pulsing Harbour Indicator -->
+            <div class="flex items-center gap-2.5">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span class="font-medium text-slate-200 tracking-normal">
+                    Jetty No. 5 (Apollo Bandar) Open • 🌊 Sea State: Calm • ⏱️ Mandwa Crossing: ~18 Mins
+                </span>
             </div>
-            <div class="flex items-center gap-4 text-slate-300">
-                <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="flex items-center gap-1.5 hover:text-cyanAqua-400 transition-colors">
-                    <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
-                    <span>WhatsApp: <strong class="text-white font-semibold">{{ whatsapp_display_phone }}</strong></span>
+
+            <!-- Soft Mint WhatsApp Pill & Transit Info -->
+            <div class="flex items-center gap-3.5 text-slate-300">
+                <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-950/70 text-emerald-300 border border-emerald-500/30 hover:bg-emerald-900/50 hover:text-emerald-200 text-xs transition-colors active:scale-[0.98]">
+                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                    <span>Desk: <strong class="text-white font-semibold">{{ whatsapp_display_phone }}</strong></span>
                 </a>
-                <span class="hidden md:inline text-slate-600">|</span>
-                <span class="hidden md:inline text-slate-400">Gateway of India ➔ Mandwa in 20 Mins</span>
+                <span class="hidden md:inline text-slate-700">|</span>
+                <span class="hidden md:inline text-slate-400">Gateway ➔ Mandwa in 18 Mins</span>
             </div>
         </div>
     </div>
 
-    <!-- Main Navigation Bar (Rich Ocean Blue) -->
-    <header class="sticky top-0 z-40 ocean-nav-bg border-b border-[#133E87] text-white shadow-md transition-all">
+    <!-- MAIN NAVIGATION BAR (GLASSMORPHISM) -->
+    <header class="sticky top-0 z-40 backdrop-blur-md bg-white/85 border-b border-slate-900/5 text-slate-900 transition-all shadow-[0_2px_15px_-3px_rgba(0,0,0,0.04)]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-                <!-- Brand Logo -->
+                <!-- Brand Identity -->
                 <a href="/" class="flex items-center gap-3.5 group">
-                    <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-cyan-300/30 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden flex-shrink-0">
+                    <div class="w-11 h-11 rounded-xl bg-white p-1 shadow-sm border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform overflow-hidden flex-shrink-0">
                         <img src="/static/images/logo.jpg" alt="Captain's Choice Logo" class="w-full h-full object-contain">
                     </div>
                     <div>
-                        <span class="text-lg sm:text-xl font-extrabold tracking-tight font-display text-white block leading-tight">
-                            CAPTAIN'S <span class="text-cyanAqua-400">CHOICE</span>
+                        <span class="text-lg sm:text-xl font-extrabold tracking-tight font-display text-[#0B192C] block leading-tight">
+                            CAPTAIN'S <span class="text-[#0284C7]">CHOICE</span>
                         </span>
-                        <span class="text-[10px] text-cyan-200 tracking-wider uppercase block font-semibold">Sea Ventures • Jetty 5</span>
+                        <span class="text-[10px] text-slate-500 tracking-wider uppercase block font-semibold">Sea Ventures • Jetty 5</span>
                     </div>
                 </a>
 
-                <!-- Desktop Menu Links -->
+                <!-- Desktop Navigation Links -->
                 <nav class="hidden md:flex items-center gap-8">
-                    <a href="/" class="text-sm font-semibold hover:text-cyanAqua-400 transition-colors {% if active_nav == 'home' %}text-cyanAqua-400 border-b-2 border-cyanAqua-400 pb-1{% else %}text-slate-200{% endif %}">Home</a>
-                    <a href="/fleet" class="text-sm font-semibold hover:text-cyanAqua-400 transition-colors {% if active_nav == 'fleet' %}text-cyanAqua-400 border-b-2 border-cyanAqua-400 pb-1{% else %}text-slate-200{% endif %}">Our Fleet</a>
-                    <a href="/#routes" class="text-sm font-semibold hover:text-cyanAqua-400 transition-colors text-slate-200">Routes & Fares</a>
-                    <a href="/#faq" class="text-sm font-semibold hover:text-cyanAqua-400 transition-colors text-slate-200">FAQs</a>
-                    <a href="/admin" class="text-xs uppercase tracking-wider font-bold px-2.5 py-1 bg-[#07182E] hover:bg-ocean-900 text-cyan-200 border border-[#133E87] rounded-lg transition-colors">Admin</a>
+                    <a href="/" class="text-xs font-semibold uppercase tracking-wider transition-colors {% if active_nav == 'home' %}text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1{% else %}text-slate-600 hover:text-[#0B192C]{% endif %}">Home</a>
+                    <a href="/fleet" class="text-xs font-semibold uppercase tracking-wider transition-colors {% if active_nav == 'fleet' %}text-[#0284C7] font-bold border-b-2 border-[#0284C7] pb-1{% else %}text-slate-600 hover:text-[#0B192C]{% endif %}">Our Fleet</a>
+                    <a href="/#routes" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">Routes & Fares</a>
+                    <a href="/#how-it-works" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">VIP Boarding</a>
+                    <a href="/#faq" class="text-xs font-semibold uppercase tracking-wider transition-colors text-slate-600 hover:text-[#0B192C]">FAQs</a>
+                    <a href="/admin" class="text-[11px] uppercase tracking-wider font-bold px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition-colors border border-slate-200">Admin</a>
                 </nav>
 
-                <!-- Header Actions -->
-                <div class="hidden lg:flex items-center gap-3.5">
-                    <!-- WhatsApp Button -->
-                    <a href="{{ whatsapp_default_url }}" target="_blank" class="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-emerald-400/40 bg-emerald-500/15 text-emerald-300 text-xs font-semibold hover:bg-emerald-500/25 transition-all">
-                        <svg class="w-3.5 h-3.5 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                <!-- Header Actions (Desktop) -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <!-- WhatsApp Styling (Soft Mint Surface) -->
+                    <a href="{{ whatsapp_default_url }}" target="_blank" class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 hover:bg-emerald-100 text-xs font-semibold active:scale-[0.98] transition-all duration-200">
+                        <svg class="w-3.5 h-3.5 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                         <span>WhatsApp Desk</span>
                     </a>
-                    
-                    <!-- Ocean Accent CTA -->
-                    <a href="/book" class="bg-gradient-to-r from-cyanAqua-500 to-sea-500 hover:from-cyanAqua-400 hover:to-sea-400 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md hover:shadow-cyanAqua-500/30 transition-all flex items-center gap-1.5">
+
+                    <!-- Primary Button (Deep Maritime Navy) -->
+                    <a href="/book" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-sm hover:shadow active:scale-[0.98] transition-all duration-200 flex items-center gap-1.5">
                         <span>Book Speedboat</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                     </a>
                 </div>
 
-                <!-- Mobile Header Right -->
+                <!-- Mobile Header Right (Book button & Toggle) -->
                 <div class="flex items-center gap-2 md:hidden">
-                    <a href="/book" class="bg-gradient-to-r from-cyanAqua-500 to-sea-500 text-white font-bold text-xs px-3.5 py-2 rounded-lg shadow-sm">
+                    <a href="/book" class="bg-[#0B192C] text-white font-bold text-xs px-3.5 py-2 rounded-lg shadow-sm active:scale-[0.98]">
                         Book
                     </a>
-                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2 text-white hover:text-cyanAqua-400 focus:outline-none">
+                    <button id="mobileMenuBtn" aria-label="Toggle Menu" class="p-2 text-slate-700 hover:text-[#0B192C] focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
                         </svg>
@@ -155,104 +204,96 @@
         </div>
 
         <!-- Mobile Drawer Navigation -->
-        <div id="mobileMenu" class="hidden md:hidden bg-[#07182E] border-b border-[#0F355E] px-4 pt-3 pb-6 space-y-3">
-            <a href="/" class="block text-base font-semibold text-white py-2 border-b border-[#0F355E]">Home</a>
-            <a href="/fleet" class="block text-base font-semibold text-white py-2 border-b border-[#0F355E]">Our Fleet</a>
-            <a href="/#routes" class="block text-base font-semibold text-white py-2 border-b border-[#0F355E]">Routes & Rates</a>
-            <a href="/#faq" class="block text-base font-semibold text-white py-2 border-b border-[#0F355E]">FAQs & Jetty Info</a>
-            <a href="/admin" class="block text-sm font-medium text-cyan-200 py-1">Admin Dashboard</a>
-            
-            <div class="pt-3 flex flex-col gap-2.5">
-                <a href="{{ whatsapp_default_url }}" target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-xl text-center text-sm flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+        <div id="mobileMenu" class="hidden md:hidden bg-white/95 backdrop-blur-md border-b border-slate-200 px-4 pt-3 pb-6 space-y-3">
+            <a href="/" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Home</a>
+            <a href="/fleet" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Our Fleet</a>
+            <a href="/#routes" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">Routes & Rates</a>
+            <a href="/#how-it-works" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">VIP Boarding</a>
+            <a href="/#faq" class="block text-sm font-semibold text-slate-900 py-2 border-b border-slate-100">FAQs & Jetty Info</a>
+            <a href="/admin" class="block text-xs font-medium text-slate-600 py-1">Admin Dashboard</a>
+
+            <div class="pt-2 flex flex-col gap-2">
+                <a href="{{ whatsapp_default_url }}" target="_blank" class="w-full bg-emerald-50 text-emerald-800 border border-emerald-200 font-semibold py-2.5 rounded-xl text-center text-xs flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
                     <span>WhatsApp Desk (+91 7506920614)</span>
                 </a>
-                <a href="/book" class="w-full bg-gradient-to-r from-cyanAqua-500 to-sea-500 text-white font-bold py-3 rounded-xl text-center text-sm shadow-md">
-                    Instant Speedboat Booking
+                <a href="/book" class="w-full bg-[#0B192C] text-white font-bold py-3 rounded-xl text-center text-xs shadow-sm">
+                    Instant Speedboat Reservation
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- Main Dynamic Content -->
+    <!-- MAIN DYNAMIC CONTENT -->
     <main class="flex-grow">
         {% block content %}{% endblock %}
     </main>
 
-    <!-- Floating WhatsApp Widget (Bottom-Right) -->
-    <aside class="fixed bottom-20 md:bottom-6 right-5 z-50 group" aria-label="WhatsApp Contact">
-        <div class="hidden md:flex items-center absolute right-16 top-2.5 bg-white text-slate-800 text-xs font-bold py-1.5 px-3 rounded-lg shadow-lg border border-slate-200 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
-            <span>Chat with Captain's Choice • +91 7506920614</span>
-            <div class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-3 h-3 bg-white transform rotate-45 border-t border-r border-slate-200"></div>
-        </div>
-
-        <a id="globalWhatsAppBtn" href="{{ whatsapp_default_url }}" target="_blank" rel="noopener noreferrer" class="whatsapp-pulse flex items-center justify-center w-13 h-13 p-3 bg-[#25D366] text-white rounded-full shadow-lg hover:scale-105 active:scale-95 transition-all">
-            <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/>
-            </svg>
-        </a>
-    </aside>
-
-    <!-- Mobile Sticky Bottom Bar -->
-    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-4 py-2.5 shadow-lg flex items-center justify-between gap-3">
-        <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="flex-1 bg-emerald-50 border border-emerald-500/30 text-emerald-700 font-bold py-2.5 px-3 rounded-xl text-center text-xs flex items-center justify-center gap-1.5 active:bg-emerald-100">
-            <svg class="w-4 h-4 fill-[#25D366]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+    <!-- STICKY BOTTOM ACTION BAR (MOBILE ONLY - HIDDEN ON MD & DESKTOP) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 backdrop-blur-md bg-white/90 border-t border-slate-200/80 px-4 py-2.5 shadow-[0_-4px_20px_rgba(0,0,0,0.06)] flex items-center justify-between gap-2.5">
+        <!-- Soft Mint WhatsApp Pill -->
+        <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="flex-1 bg-emerald-50 border border-emerald-200 text-emerald-800 font-bold py-2.5 px-3 rounded-xl text-center text-xs flex items-center justify-center gap-1.5 active:scale-[0.98] transition-all">
+            <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
             <span>WhatsApp</span>
         </a>
-        <a href="tel:{{ whatsapp_display_phone }}" class="p-2.5 rounded-xl border border-slate-200 text-slate-700 bg-slate-50 flex items-center justify-center">
+
+        <!-- Call Jetty Desk -->
+        <a href="tel:{{ whatsapp_display_phone }}" aria-label="Call Captain Desk" class="p-2.5 rounded-xl border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 flex items-center justify-center active:scale-[0.98] transition-all shadow-sm">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
         </a>
-        <a href="/book" class="flex-1 bg-[#0B2545] text-white font-bold py-2.5 px-3 rounded-xl text-center text-xs shadow-sm active:scale-95 transition-transform flex items-center justify-center gap-1">
+
+        <!-- Book Boat Primary Button -->
+        <a href="/book" class="flex-1 bg-[#0B192C] text-white font-bold py-2.5 px-3 rounded-xl text-center text-xs shadow-sm active:scale-[0.98] transition-all flex items-center justify-center gap-1.5">
             <span>Book Boat</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
     </div>
 
-    <!-- Deep Ocean Footer (Resembles the Rich Colors of the Ocean) -->
-    <footer class="bg-[#07182E] text-slate-300 pt-16 pb-12 border-t border-[#0F355E] mt-20">
+    <!-- LUXURY DEEP NAVY FOOTER -->
+    <footer class="bg-[#0B192C] text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
                 <!-- Brand Info -->
                 <div class="space-y-4">
                     <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-cyan-300/30 flex items-center justify-center overflow-hidden flex-shrink-0">
+                        <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
                             <img src="/static/images/logo.jpg" alt="Captain's Choice Logo" class="w-full h-full object-contain">
                         </div>
                         <div>
-                            <span class="text-lg font-bold font-display text-white tracking-tight block">CAPTAIN'S <span class="text-cyanAqua-400">CHOICE</span></span>
-                            <span class="text-[10px] text-cyan-200 tracking-wider uppercase block font-semibold">Sea Ventures • Mumbai</span>
+                            <span class="text-lg font-bold font-display text-white tracking-tight block">CAPTAIN'S <span class="text-[#0284C7]">CHOICE</span></span>
+                            <span class="text-[10px] text-slate-400 tracking-wider uppercase block font-semibold">Sea Ventures • Mumbai</span>
                         </div>
                     </div>
                     <p class="text-xs text-slate-400 leading-relaxed">
-                        High-speed marine passenger transfers and luxury yacht booking operated by <strong class="text-white">Captain's Choice Sea Ventures</strong> out of Jetty No. 5, Gateway of India.
+                        High-speed marine transfers and luxury yacht charters operated by <strong class="text-white">Captain's Choice Sea Ventures</strong> out of Jetty No. 5, Gateway of India.
                     </p>
                     <div class="flex items-center gap-2 pt-1">
-                        <span class="px-2.5 py-0.5 rounded bg-[#0B2545] text-cyan-300 text-[11px] font-medium border border-[#133E87]">Coast Guard Approved</span>
-                        <span class="px-2.5 py-0.5 rounded bg-[#0B2545] text-emerald-400 text-[11px] font-medium border border-[#133E87]">ISO Life Vests</span>
+                        <span class="px-2.5 py-0.5 rounded bg-slate-800 text-sky-300 text-[11px] font-medium border border-slate-700">Coast Guard Compliant</span>
+                        <span class="px-2.5 py-0.5 rounded bg-slate-800 text-emerald-400 text-[11px] font-medium border border-slate-700">ISO Life Vests</span>
                     </div>
                 </div>
 
                 <!-- Popular Routes -->
                 <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display">Popular Routes</h3>
+                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Popular Routes</h3>
                     <ul class="space-y-2 text-xs text-slate-300">
-                        <li><a href="/book?route=gateway-mandwa" class="hover:text-cyanAqua-400 transition-colors">Gateway to Mandwa (20 Mins)</a></li>
-                        <li><a href="/book?route=mandwa-gateway" class="hover:text-cyanAqua-400 transition-colors">Mandwa to Gateway of India</a></li>
-                        <li><a href="/book?route=gateway-elephanta" class="hover:text-cyanAqua-400 transition-colors">Elephanta Caves Tour</a></li>
-                        <li><a href="/book?route=mumbai-harbour-cruise" class="hover:text-cyanAqua-400 transition-colors">Mumbai Harbour Sunset Cruise</a></li>
-                        <li><a href="/fleet?category=yacht" class="hover:text-cyanAqua-400 transition-colors">Private Yacht & Birthday Charters</a></li>
+                        <li><a href="/book?route=gateway-mandwa" class="hover:text-[#0284C7] transition-colors">Gateway to Mandwa (18-20 Mins)</a></li>
+                        <li><a href="/book?route=mandwa-gateway" class="hover:text-[#0284C7] transition-colors">Mandwa to Gateway of India</a></li>
+                        <li><a href="/book?route=gateway-elephanta" class="hover:text-[#0284C7] transition-colors">Elephanta Caves Tour</a></li>
+                        <li><a href="/book?route=mumbai-harbour-cruise" class="hover:text-[#0284C7] transition-colors">Mumbai Harbour Sunset Cruise</a></li>
+                        <li><a href="/fleet?category=yacht" class="hover:text-[#0284C7] transition-colors">Private Yacht & Birthday Charters</a></li>
                     </ul>
                 </div>
 
                 <!-- Boarding Jetty Location -->
                 <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display">Boarding Point</h3>
+                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Boarding Point</h3>
                     <p class="text-xs text-slate-300 leading-relaxed">
                         <strong class="text-white">Jetty No. 5</strong><br>
                         Opposite The Taj Mahal Palace Hotel,<br>
                         Apollo Bandar, Colaba, Mumbai 400001
                     </p>
-                    <a href="{{ google_maps_url }}" target="_blank" class="inline-flex items-center gap-1 text-xs text-cyanAqua-400 font-semibold hover:underline">
+                    <a href="{{ google_maps_url }}" target="_blank" class="inline-flex items-center gap-1 text-xs text-[#0284C7] font-semibold hover:underline">
                         <span>Google Maps Directions</span>
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
                     </a>
@@ -260,15 +301,15 @@
 
                 <!-- Contact & Support -->
                 <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display">Contact & Bookings</h3>
+                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Contact & Bookings</h3>
                     <div class="space-y-1.5 text-xs text-slate-300">
                         <p>
                             <span class="text-slate-400">WhatsApp:</span>
-                            <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="text-white font-semibold hover:text-emerald-400 ml-1">{{ whatsapp_display_phone }}</a>
+                            <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="text-emerald-300 font-semibold hover:text-emerald-200 ml-1">{{ whatsapp_display_phone }}</a>
                         </p>
                         <p>
                             <span class="text-slate-400">Email:</span>
-                            <a href="mailto:{{ contact_email }}" class="text-slate-200 hover:text-cyanAqua-400 ml-1">{{ contact_email }}</a>
+                            <a href="mailto:{{ contact_email }}" class="text-slate-200 hover:text-[#0284C7] ml-1">{{ contact_email }}</a>
                         </p>
                         <p class="text-[11px] text-slate-400">07:00 AM – 07:30 PM (Daily)</p>
                     </div>
@@ -276,16 +317,16 @@
                     <div class="pt-2">
                         <span class="text-[11px] text-slate-400 uppercase tracking-wider block font-medium mb-1.5">Secure Payments:</span>
                         <div class="flex items-center gap-1.5 flex-wrap">
-                            <span class="px-2 py-0.5 rounded bg-[#0B2545] text-[11px] border border-[#133E87] text-slate-200">Razorpay</span>
-                            <span class="px-2 py-0.5 rounded bg-[#0B2545] text-[11px] border border-[#133E87] text-slate-200">UPI / Cards</span>
-                            <span class="px-2 py-0.5 rounded bg-[#0B2545] text-[11px] border border-[#133E87] text-slate-200">Net Banking</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">Razorpay</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">UPI / GPay</span>
+                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">Net Banking</span>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Bottom Line -->
-            <div class="mt-12 pt-6 border-t border-[#0F355E] text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
                 <p>&copy; 2026 {{ app_name }}. All rights reserved.</p>
                 <div class="flex items-center gap-4 text-slate-400">
                     <a href="/admin" class="hover:text-white transition-colors">Admin Portal</a>

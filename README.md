@@ -1,33 +1,43 @@
-# Gateway Speed Boat & Marine Charters — Web Platform
+# Captain's Choice Sea Ventures — Luxury Speedboat & Marine Charters
 
-A production-ready speedboat and ferry booking platform modeled after [Gateway Speed Boat](https://gatewayspeedboat.com), tailored for Mumbai to Mandwa (Alibaug), Elephanta Island, and harbour cruise charters.
+A luxury, minimalist maritime booking platform for **Captain's Choice Sea Ventures** operating private speedboats and motor yachts between Gateway of India (Jetty No. 5), Mumbai and Mandwa Jetty, Alibaug (18–20 min crossing).
 
-Featuring the **Modern Coastal & Fast Transit** design language (Ocean Blue, Electric Cyan, Vibrant Coral), full responsiveness across **Mobile, iPad, and Desktop**, direct **WhatsApp (+91 7506920614)** click-to-chat integration, and **Razorpay Payment Gateway with Webhooks**.
+Featuring a **Maritime Minimalist design language** (Deep Maritime Navy `#0B192C`, Ocean Cyan `#0284C7`, Sandstone Gold `#D97706`, and Crisp Alabaster `#F8FAFC`), full responsiveness across **Mobile, Tablet, and Desktop**, direct **WhatsApp (+91 7506920614)** click-to-chat integration, and **Razorpay Payment Gateway with Webhooks**.
 
 ---
 
 ## 🌟 Key Features
 
-1. **Multi-Device Responsive Design**:
-   - **📱 Mobile (<768px)**: Sticky bottom action bar ("Book Boat" + WhatsApp), off-canvas hamburger drawer, single-column tap-friendly booking wizard.
-   - **📟 iPad / Tablet (768px - 1024px)**: 2-column split booking layout with live sticky boarding pass preview and price calculator.
-   - **💻 Desktop (>1024px)**: Cinematic hero with quick booking widget, fleet showcase with speed & amenity badges, sticky navbar, and FAQ accordion.
+1. **Multi-Device Responsive Design (90% Shared, 10% Adaptive)**:
+   - **📱 Mobile (<768px)**: Sticky bottom action bar (`[WhatsApp]` | `[Call]` | `[Book Boat ->]`), off-canvas drawer navigation, uncluttered layout.
+   - **📟 Tablet / iPad (768px - 1024px)**: 2-column split booking layout with live sticky boarding pass preview and price calculator.
+   - **💻 Desktop (>1024px)**: 12-column split hero with live harbour status strip, interactive quick-quote fare calculator, animated speedboat transit corridor, and luxury boarding pass route cards.
 
-2. **WhatsApp Integration (`+91 7506920614`)**:
-   - Persistent floating WhatsApp button with pulse glow and quick tooltip.
-   - Context-aware inquiry buttons on every boat card (auto-populates boat name, route, date, and passenger count into WhatsApp).
+2. **Live Harbour Status Strip**:
+   - Pulsing maritime status indicator: `"Jetty No. 5 (Apollo Bandar) Open • 🌊 Sea State: Calm • ⏱️ Mandwa Crossing: ~18 Mins"`.
+
+3. **Interactive Fare Checker & Speedboat Transit Animation**:
+   - Instant quote calculator toggling route and vessel categories.
+   - Lightweight SVG speedboat glide animation connecting Gateway of India Arch and Mandwa Coastal Palms.
+
+4. **VIP Boarding 3-Step Visual Timeline**:
+   - Clean 3-step walkthrough: Arrive at Gate No. 5, Board in 2 Minutes, Touch Down at Mandwa in 20 Mins.
+
+5. **WhatsApp Integration (`+91 7506920614`)**:
+   - Refined Soft Mint styling (`bg-emerald-50 text-emerald-800 border-emerald-200`).
+   - Context-aware inquiry buttons on every boat card.
    - "Share on WhatsApp" and "Chat with Captain Desk" on confirmed E-Tickets.
 
-3. **Razorpay Payment Gateway & Webhook**:
+6. **Razorpay Payment Gateway & Webhook**:
    - Dual-Mode: Built-in sandbox simulation mode for immediate zero-dependency testing, plus 100% compatible with real Razorpay Live/Test keys.
    - Secure HMAC-SHA256 signature verification for client checkouts.
    - Webhook listener at `/api/payments/webhook` validating `X-Razorpay-Signature` against `RAZORPAY_WEBHOOK_SECRET`.
-   - Idempotent order state management (`pending` ➔ `paid`, `failed`).
 
-4. **Future-Proof Modular Architecture**:
-   - Fleet specifications, prices, routes, and departure slots are kept in `app/data/fleet_catalog.json` for instantaneous editing without code modifications.
-   - SQLite database for persistent bookings, payment transactions, and webhook audit logs.
-   - Admin overview dashboard at `/admin` with simulated webhook test dispatch tool.
+---
+
+## 📖 Complete Documentation
+- 📘 [`docs/DESIGN_SYSTEM_AND_UI_GUIDE.md`](docs/DESIGN_SYSTEM_AND_UI_GUIDE.md): Color tokens, typography, SVG watermarks, keyframes, and layout architecture.
+- 📙 [`docs/CONFIGURATION_GUIDE.md`](docs/CONFIGURATION_GUIDE.md): Managing fleet catalog, route pricing, and Razorpay production keys.
 
 ---
 

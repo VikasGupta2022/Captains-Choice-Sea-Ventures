@@ -5,7 +5,7 @@
 {% block extra_head %}
 <style>
     @media print {
-        header, footer, aside, .no-print, #globalWhatsAppBtn {
+        header, footer, aside, .no-print {
             display: none !important;
         }
         body {
@@ -21,29 +21,29 @@
 {% endblock %}
 
 {% block content %}
-<div class="py-10 sm:py-16 bg-slate-50">
+<div class="py-10 sm:py-16 bg-[#F8FAFC]">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
         
         <!-- Success Banner -->
         <div class="text-center mb-8 space-y-2 no-print">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner mb-3">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-3xl shadow-inner mb-3">
                 ✓
             </div>
-            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+            <span class="text-xs uppercase font-extrabold tracking-widest text-emerald-800 bg-emerald-50 px-3.5 py-1 rounded-full border border-emerald-200">
                 Payment Verified • Booking Confirmed
             </span>
-            <h1 class="text-2xl sm:text-4xl font-extrabold font-display text-ocean-900">
+            <h1 class="text-2xl sm:text-4xl font-extrabold font-display text-[#0B192C] tracking-tight">
                 Your Speedboat is Reserved!
             </h1>
             <p class="text-xs sm:text-sm text-slate-600 max-w-md mx-auto">
-                An electronic boarding pass has been generated. Please report at <strong>Jetty No. 5 (Gateway of India)</strong> 15 minutes before your time slot.
+                An electronic boarding pass has been generated. Please report at <strong>Jetty No. 5 (Gateway of India)</strong> 15 minutes before your departure time slot.
             </p>
         </div>
 
         <!-- PRINTABLE E-TICKET / BOARDING PASS -->
-        <div class="printable-ticket bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden">
+        <div class="printable-ticket bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 overflow-hidden">
             <!-- Ticket Top Header -->
-            <div class="bg-slate-900 text-white p-6 sm:p-7 relative">
+            <div class="bg-[#0B192C] text-white p-6 sm:p-7 relative">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div class="flex items-center gap-3.5">
                         <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-sm border border-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
@@ -51,7 +51,7 @@
                         </div>
                         <div>
                             <div class="flex items-center gap-2">
-                                <span class="text-[11px] uppercase tracking-widest text-sky-400 font-bold">Official E-Ticket</span>
+                                <span class="text-[11px] uppercase tracking-widest text-[#38BDF8] font-bold">Official E-Ticket</span>
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-600 text-white">CONFIRMED</span>
                             </div>
                             <h2 class="text-lg sm:text-xl font-extrabold font-display mt-0.5">Captain's Choice Sea Ventures</h2>
@@ -61,7 +61,7 @@
 
                     <div class="text-left sm:text-right">
                         <span class="text-[11px] text-slate-400 block uppercase tracking-wider font-semibold">Booking Reference</span>
-                        <span class="text-lg sm:text-xl font-mono font-extrabold text-amber-300 tracking-wider">
+                        <span class="text-lg sm:text-xl font-mono font-extrabold text-[#D97706] tracking-wider">
                             {{ booking.booking_ref }}
                         </span>
                     </div>
@@ -75,15 +75,15 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pb-6 border-b border-slate-100">
                     <div>
                         <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">Route</span>
-                        <h3 class="text-base font-bold text-ocean-900 font-display">{{ booking.route_name }}</h3>
-                        <span class="inline-block mt-1 text-xs font-semibold px-2 py-0.5 rounded bg-ocean-50 text-ocean-700">
+                        <h3 class="text-base font-bold text-[#0B192C] font-display">{{ booking.route_name }}</h3>
+                        <span class="inline-block mt-1 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
                             {{ "Round-Trip" if booking.trip_type == "round_trip" else "One-Way Express Transfer" }}
                         </span>
                     </div>
 
                     <div>
                         <span class="text-xs uppercase tracking-wider text-slate-400 font-bold block mb-1">Reserved Vessel</span>
-                        <h3 class="text-base font-bold text-ocean-900 font-display">{{ booking.boat_name }}</h3>
+                        <h3 class="text-base font-bold text-[#0B192C] font-display">{{ booking.boat_name }}</h3>
                         <span class="text-xs text-slate-500">Private Charter • Captain & Crew Assigned</span>
                     </div>
                 </div>
@@ -92,123 +92,86 @@
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pb-6 border-b border-slate-100 text-xs">
                     <div>
                         <span class="text-slate-400 font-bold uppercase block mb-1">Travel Date</span>
-                        <strong class="text-ocean-900 text-sm font-display">{{ booking.travel_date }}</strong>
+                        <strong class="text-[#0B192C] text-sm font-display">{{ booking.travel_date }}</strong>
                     </div>
                     <div>
                         <span class="text-slate-400 font-bold uppercase block mb-1">Departure Slot</span>
-                        <strong class="text-ocean-900 text-sm font-display">{{ booking.time_slot }}</strong>
+                        <strong class="text-[#0B192C] text-sm font-display">{{ booking.time_slot }}</strong>
                     </div>
                     <div>
                         <span class="text-slate-400 font-bold uppercase block mb-1">Passengers</span>
-                        <strong class="text-ocean-900 text-sm font-display">{{ booking.passengers }} Guests</strong>
+                        <strong class="text-[#0B192C] text-sm font-display">{{ booking.passengers }} Guests</strong>
                     </div>
                     <div>
-                        <span class="text-slate-400 font-bold uppercase block mb-1">Boarding Jetty</span>
-                        <strong class="text-ocean-900 text-sm font-display">Jetty No. 5</strong>
+                        <span class="text-slate-400 font-bold uppercase block mb-1">Boarding Point</span>
+                        <strong class="text-[#0284C7] text-sm font-display">Jetty No. 5</strong>
                     </div>
                 </div>
 
                 <!-- Passenger Details -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-6 border-b border-slate-100 text-xs">
                     <div>
-                        <span class="text-slate-400 font-bold uppercase block mb-1">Passenger Name</span>
-                        <strong class="text-ocean-900 text-sm">{{ booking.customer_name }}</strong>
+                        <span class="text-slate-400 font-bold uppercase block mb-0.5">Primary Guest</span>
+                        <strong class="text-[#0B192C] text-sm">{{ booking.customer_name }}</strong>
                     </div>
                     <div>
-                        <span class="text-slate-400 font-bold uppercase block mb-1">Contact Phone</span>
-                        <strong class="text-ocean-900 text-sm">{{ booking.customer_phone }}</strong>
+                        <span class="text-slate-400 font-bold uppercase block mb-0.5">Phone Number</span>
+                        <strong class="text-slate-700 text-sm font-mono">+{{ booking.customer_phone }}</strong>
                     </div>
                 </div>
 
-                <!-- Payment Summary & Razorpay Status -->
-                <div class="bg-slate-50 rounded-2xl p-5 border border-slate-200">
-                    <div class="flex items-center justify-between pb-3 border-b border-slate-200 text-xs">
-                        <span class="font-bold text-ocean-900">Payment Summary</span>
-                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-100 text-emerald-800">
-                            ✓ Razorpay Advance Paid
-                        </span>
-                    </div>
-
-                    <div class="space-y-2 mt-3 text-xs">
-                        <div class="flex justify-between text-slate-600">
-                            <span>Total Charter Fare:</span>
-                            <span class="font-semibold text-ocean-900">₹{{ "{:,}".format(booking.total_fare|int) }}</span>
+                <!-- Fare & Payment Summary Box -->
+                <div class="bg-slate-50 rounded-2xl p-4 sm:p-5 border border-slate-200/80">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <span class="text-slate-500 block uppercase">Total Charter Fare</span>
+                            <strong class="text-base font-bold text-[#0B192C] font-display">₹{{ "{:,}".format(booking.total_fare) }}</strong>
                         </div>
-                        <div class="flex justify-between text-emerald-700 font-bold">
-                            <span>Advance Paid Online:</span>
-                            <span>₹{{ "{:,}".format(booking.advance_required|int) }}</span>
+                        <div>
+                            <span class="text-emerald-700 block uppercase font-bold">Advance Paid (Razorpay)</span>
+                            <strong class="text-base font-extrabold text-emerald-800 font-display">₹{{ "{:,}".format(booking.advance_required) }}</strong>
+                            <span class="text-[10px] text-slate-400 block font-mono">ID: {{ booking.razorpay_payment_id or 'Simulated' }}</span>
                         </div>
-                        <div class="flex justify-between text-slate-800 font-bold pt-2 border-t border-slate-200">
-                            <span>Balance Due at Jetty:</span>
-                            <span class="text-sm font-display text-ocean-900">₹{{ "{:,}".format(booking.balance_due|int) }}</span>
+                        <div>
+                            <span class="text-slate-500 block uppercase">Due at Jetty 5</span>
+                            <strong class="text-base font-bold text-slate-800 font-display">₹{{ "{:,}".format(booking.balance_due) }}</strong>
                         </div>
                     </div>
-
-                    {% if booking.razorpay_payment_id %}
-                    <div class="mt-3 pt-2 border-t border-slate-200/60 text-[10px] text-slate-400 font-mono flex justify-between">
-                        <span>Payment ID: {{ booking.razorpay_payment_id }}</span>
-                        <span>Order ID: {{ booking.razorpay_order_id }}</span>
-                    </div>
-                    {% endif %}
                 </div>
 
-                <!-- QR Code & Verification Watermark -->
-                <div class="flex items-center justify-between pt-2">
-                    <div class="text-[11px] text-slate-500 space-y-1">
-                        <div>⚓ Present this pass to Jetty Coordinator at Jetty No. 5.</div>
-                        <div>Life jackets are mandatory for all passengers before stepping on board.</div>
-                    </div>
-                    <!-- Stylized Ticket Stamp / QR Box -->
-                    <div class="w-16 h-16 rounded-xl border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-1 text-slate-400">
-                        <span class="text-xs font-mono font-bold">PASS</span>
-                        <span class="text-[9px] font-mono">OK</span>
-                    </div>
+                <!-- Boarding Directions -->
+                <div class="text-xs text-slate-600 bg-sky-50/60 rounded-xl p-4 border border-sky-100 space-y-1.5">
+                    <strong class="text-[#0B192C] font-display text-sm block">📍 Boarding Instructions:</strong>
+                    <p>
+                        Please proceed to <strong>Jetty No. 5</strong> directly opposite the main entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba. Show this booking reference <strong>{{ booking.booking_ref }}</strong> to our ground supervisor.
+                    </p>
                 </div>
+
+            </div>
+
+            <!-- Ticket Footer Bar -->
+            <div class="bg-slate-50 border-t border-slate-200 px-6 sm:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <span>Issued by Captain's Choice Sea Ventures • ISO Marine Safety</span>
+                <span class="font-mono text-[11px] text-slate-400">Order Ref: {{ booking.razorpay_order_id }}</span>
             </div>
         </div>
 
-        <!-- ACTION BUTTONS (Share on WhatsApp, Print, Captain Support) -->
-        <div class="mt-8 space-y-3 no-print">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <!-- Share to WhatsApp -->
-                <a href="https://wa.me/?text={{ ('⚓ Captain\'s Choice Sea Ventures Boarding Pass\nBooking Ref: ' ~ booking.booking_ref ~ '\nRoute: ' ~ booking.route_name ~ '\nDate: ' ~ booking.travel_date ~ ' at ' ~ booking.time_slot ~ '\nBoat: ' ~ booking.boat_name ~ '\nBoarding: Jetty No. 5, Gateway of India')|urlencode }}" 
-                   target="_blank" 
-                   class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-md transition-all">
-                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
-                    <span>Share on WhatsApp</span>
-                </a>
+        <!-- Action Buttons (Print, WhatsApp Share, Return) -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 no-print">
+            <button onclick="window.print()" class="bg-[#0B192C] hover:bg-slate-800 text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm active:scale-[0.98] transition-all flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+                <span>Print / Save PDF</span>
+            </button>
 
-                <!-- Chat with Captain Desk -->
-                <a href="{{ wa_support_url }}" target="_blank" class="border border-emerald-500 bg-white hover:bg-emerald-50 text-emerald-700 font-bold py-3 px-4 rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-sm transition-all">
-                    <span>Chat with Captain Desk</span>
-                </a>
+            <!-- Soft Mint WhatsApp Pill -->
+            <a href="{{ wa_support_url }}" target="_blank" class="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm active:scale-[0.98] transition-all flex items-center gap-2 shadow-sm">
+                <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                <span>Share Ticket on WhatsApp</span>
+            </a>
 
-                <!-- Print E-Ticket -->
-                <button onclick="window.print()" class="bg-ocean-800 hover:bg-ocean-900 text-white font-bold py-3 px-4 rounded-xl text-xs text-center flex items-center justify-center gap-2 shadow-md transition-all">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
-                    <span>Print / Save Ticket</span>
-                </button>
-            </div>
-
-            <div class="text-center pt-3">
-                <a href="/" class="text-xs text-slate-500 hover:text-ocean-900 font-semibold underline">Return to Homepage</a>
-            </div>
-        </div>
-
-        <!-- Boarding Directions Card -->
-        <div class="mt-10 bg-white rounded-2xl border border-slate-200 p-6 shadow-md text-xs text-slate-600 space-y-3 no-print">
-            <h3 class="font-bold text-ocean-900 text-sm font-display flex items-center gap-2">
-                <span>📍 How to Reach Boarding Jetty No. 5</span>
-            </h3>
-            <p>
-                {{ jetty_location }}
-            </p>
-            <div class="flex items-center gap-3 pt-1">
-                <a href="{{ google_maps_url }}" target="_blank" class="text-cyanAccent-600 font-bold hover:underline inline-flex items-center gap-1">
-                    <span>Open in Google Maps Navigation</span>
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                </a>
-            </div>
+            <a href="/" class="bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm active:scale-[0.98] transition-all">
+                Return to Home
+            </a>
         </div>
 
     </div>
