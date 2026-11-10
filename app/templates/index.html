@@ -7,106 +7,97 @@
 <!-- 1. HERO SECTION & INTERACTIVE FARE CHECKER -->
 <!-- ========================================== -->
 <section class="relative bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 overflow-hidden border-b border-slate-900/5">
-    <!-- MUMBAI-TO-ALIBAUG HORIZON STRIP (Anchored along base with rich duotone coastal tints) -->
-    <div class="absolute bottom-0 left-0 right-0 h-44 sm:h-56 pointer-events-none select-none overflow-hidden" aria-hidden="true">
-        
-        <!-- Ambient Coastal Radial Glows -->
-        <!-- Mumbai Amber Heritage Glow (Left) -->
-        <div class="absolute left-0 bottom-0 w-96 h-96 bg-[radial-gradient(circle_at_15%_95%,rgba(217,119,6,0.18)_0%,rgba(217,119,6,0.04)_50%,transparent_75%)]"></div>
-        <!-- Alibaug Tropical Teal Glow (Right) -->
-        <div class="absolute right-0 bottom-0 w-96 h-96 bg-[radial-gradient(circle_at_85%_95%,rgba(13,148,136,0.18)_0%,rgba(13,148,136,0.04)_50%,transparent_75%)]"></div>
-        <!-- Ocean Cyan Water Glow (Center) -->
-        <div class="absolute left-1/3 right-1/3 bottom-0 h-24 bg-[radial-gradient(ellipse_at_50%_100%,rgba(2,132,199,0.12)_0%,transparent_70%)]"></div>
+    <!-- Ambient Coastal Radial Glows (Z-0) -->
+    <div class="absolute top-0 left-0 w-80 h-80 bg-[radial-gradient(circle_at_15%_15%,rgba(217,119,6,0.12)_0%,transparent_70%)] pointer-events-none z-0" aria-hidden="true"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-80 bg-[radial-gradient(circle_at_85%_85%,rgba(13,148,136,0.14)_0%,transparent_70%)] pointer-events-none z-0" aria-hidden="true"></div>
 
-        <!-- Left Skyline: Filled Silhouette of Gateway of India & Taj Mahal Palace Dome (Warm Sandstone Amber #D97706 at ~20-25% opacity) -->
-        <svg class="absolute left-0 bottom-0 w-[380px] sm:w-[480px] h-36 sm:h-48 text-[#D97706]" viewBox="0 0 480 180" fill="currentColor">
-            <!-- Taj Mahal Palace Historic Tower & Onion Dome Silhouette (Flanking Left) -->
-            <path d="M 0 180 L 0 95 L 35 95 L 35 75 L 48 75 L 48 45 C 48 30, 68 18, 68 18 C 68 18, 88 30, 88 45 L 88 75 L 102 75 L 102 95 L 125 95 L 125 180 Z" opacity="0.16" />
-            <line x1="68" y1="18" x2="68" y2="8" stroke="currentColor" stroke-width="2.5" opacity="0.25" />
-            <circle cx="68" cy="6" r="2.5" opacity="0.25" />
-            <path d="M 60 70 C 60 62, 76 62, 76 70 L 76 82 L 60 82 Z" fill="#FFFFFF" opacity="0.9" />
+    <!-- 1. TOP-LEFT Skyline: Gateway of India Architectural SVG (Warm Sandstone Amber #D97706, Z-0, Zero Mobile Collision) -->
+    <svg class="absolute top-2 left-0 lg:top-6 lg:left-4 pointer-events-none z-0 w-44 sm:w-64 lg:w-80 opacity-20 text-[#D97706]" viewBox="0 0 480 180" fill="currentColor" aria-hidden="true">
+        <!-- Taj Mahal Palace Historic Tower & Onion Dome Silhouette (Flanking Left) -->
+        <path d="M 0 180 L 0 95 L 35 95 L 35 75 L 48 75 L 48 45 C 48 30, 68 18, 68 18 C 68 18, 88 30, 88 45 L 88 75 L 102 75 L 102 95 L 125 95 L 125 180 Z" opacity="0.16" />
+        <line x1="68" y1="18" x2="68" y2="8" stroke="currentColor" stroke-width="2.5" opacity="0.25" />
+        <circle cx="68" cy="6" r="2.5" opacity="0.25" />
+        <path d="M 60 70 C 60 62, 76 62, 76 70 L 76 82 L 60 82 Z" fill="#FFFFFF" opacity="0.9" />
 
-            <!-- Stepped Waterfront Plinth & Apollo Bunder Jetty Steps -->
-            <rect x="110" y="168" width="280" height="12" rx="1" opacity="0.24" />
-            <rect x="125" y="162" width="250" height="6" rx="1" opacity="0.22" />
-            <rect x="135" y="156" width="230" height="6" rx="1" opacity="0.20" />
+        <!-- Stepped Waterfront Plinth & Apollo Bunder Jetty Steps -->
+        <rect x="110" y="168" width="280" height="12" rx="1" opacity="0.24" />
+        <rect x="125" y="162" width="250" height="6" rx="1" opacity="0.22" />
+        <rect x="135" y="156" width="230" height="6" rx="1" opacity="0.20" />
 
-            <!-- Gateway of India Main Basalt Facade (Filled Silhouette) -->
-            <rect x="142" y="55" width="216" height="102" opacity="0.20" />
+        <!-- Gateway of India Main Basalt Facade (Filled Silhouette) -->
+        <rect x="142" y="55" width="216" height="102" opacity="0.20" />
 
-            <!-- 4 Corner Minarets / Octagonal Turrets with Chhatri Domes -->
-            <path d="M 142 55 L 142 32 L 158 32 L 158 55 Z" opacity="0.25" />
-            <path d="M 140 32 C 140 22, 160 22, 160 32 Z" opacity="0.28" />
-            <line x1="150" y1="22" x2="150" y2="14" stroke="currentColor" stroke-width="2" opacity="0.30" />
-            <circle cx="150" cy="12" r="2" opacity="0.30" />
+        <!-- 4 Corner Minarets / Octagonal Turrets with Chhatri Domes -->
+        <path d="M 142 55 L 142 32 L 158 32 L 158 55 Z" opacity="0.25" />
+        <path d="M 140 32 C 140 22, 160 22, 160 32 Z" opacity="0.28" />
+        <line x1="150" y1="22" x2="150" y2="14" stroke="currentColor" stroke-width="2" opacity="0.30" />
+        <circle cx="150" cy="12" r="2" opacity="0.30" />
 
-            <path d="M 206 50 L 206 35 L 218 35 L 218 50 Z" opacity="0.25" />
-            <path d="M 204 35 C 204 27, 220 27, 220 35 Z" opacity="0.28" />
-            <line x1="212" y1="27" x2="212" y2="20" stroke="currentColor" stroke-width="1.8" opacity="0.30" />
+        <path d="M 206 50 L 206 35 L 218 35 L 218 50 Z" opacity="0.25" />
+        <path d="M 204 35 C 204 27, 220 27, 220 35 Z" opacity="0.28" />
+        <line x1="212" y1="27" x2="212" y2="20" stroke="currentColor" stroke-width="1.8" opacity="0.30" />
 
-            <path d="M 282 50 L 282 35 L 294 35 L 294 50 Z" opacity="0.25" />
-            <path d="M 280 35 C 280 27, 296 27, 296 35 Z" opacity="0.28" />
-            <line x1="288" y1="27" x2="288" y2="20" stroke-width="1.8" opacity="0.30" />
+        <path d="M 282 50 L 282 35 L 294 35 L 294 50 Z" opacity="0.25" />
+        <path d="M 280 35 C 280 27, 296 27, 296 35 Z" opacity="0.28" />
+        <line x1="288" y1="27" x2="288" y2="20" stroke-width="1.8" opacity="0.30" />
 
-            <path d="M 342 55 L 342 32 L 358 32 L 358 55 Z" opacity="0.25" />
-            <path d="M 340 32 C 340 22, 360 22, 360 32 Z" opacity="0.28" />
-            <line x1="350" y1="22" x2="350" y2="14" stroke="currentColor" stroke-width="2" opacity="0.30" />
-            <circle cx="350" cy="12" r="2" opacity="0.30" />
+        <path d="M 342 55 L 342 32 L 358 32 L 358 55 Z" opacity="0.25" />
+        <path d="M 340 32 C 340 22, 360 22, 360 32 Z" opacity="0.28" />
+        <line x1="350" y1="22" x2="350" y2="14" stroke="currentColor" stroke-width="2" opacity="0.30" />
+        <circle cx="350" cy="12" r="2" opacity="0.30" />
 
-            <!-- Parapet Cornice Cresting -->
-            <rect x="142" y="48" width="216" height="7" opacity="0.26" />
-            <polygon points="218,48 226,38 274,38 282,48" opacity="0.26" />
+        <!-- Parapet Cornice Cresting -->
+        <rect x="142" y="48" width="216" height="7" opacity="0.26" />
+        <polygon points="218,48 226,38 274,38 282,48" opacity="0.26" />
 
-            <!-- Gateway Void Cutouts (Crisp negative space) -->
-            <path d="M 220 156 L 220 102 C 220 72, 240 56, 250 54 C 260 56, 280 72, 280 102 L 280 156 Z" fill="#FFFFFF" opacity="0.95" />
-            <path d="M 226 156 L 226 106 C 226 80, 242 66, 250 64 C 258 66, 274 80, 274 106 L 274 156 Z" fill="#D97706" opacity="0.08" />
+        <!-- Gateway Void Cutouts (Crisp negative space) -->
+        <path d="M 220 156 L 220 102 C 220 72, 240 56, 250 54 C 260 56, 280 72, 280 102 L 280 156 Z" fill="#FFFFFF" opacity="0.95" />
+        <path d="M 226 156 L 226 106 C 226 80, 242 66, 250 64 C 258 66, 274 80, 274 106 L 274 156 Z" fill="#D97706" opacity="0.08" />
 
-            <path d="M 164 156 L 164 116 C 164 98, 175 92, 182 92 C 189 92, 200 98, 200 116 L 200 156 Z" fill="#FFFFFF" opacity="0.95" />
-            <rect x="168" y="68" width="28" height="18" rx="2" fill="#FFFFFF" opacity="0.9" />
+        <path d="M 164 156 L 164 116 C 164 98, 175 92, 182 92 C 189 92, 200 98, 200 116 L 200 156 Z" fill="#FFFFFF" opacity="0.95" />
+        <rect x="168" y="68" width="28" height="18" rx="2" fill="#FFFFFF" opacity="0.9" />
 
-            <path d="M 300 156 L 300 116 C 300 98, 311 92, 318 92 C 325 92, 336 98, 336 116 L 336 156 Z" fill="#FFFFFF" opacity="0.95" />
-            <rect x="304" y="68" width="28" height="18" rx="2" fill="#FFFFFF" opacity="0.9" />
+        <path d="M 300 156 L 300 116 C 300 98, 311 92, 318 92 C 325 92, 336 98, 336 116 L 336 156 Z" fill="#FFFFFF" opacity="0.95" />
+        <rect x="304" y="68" width="28" height="18" rx="2" fill="#FFFFFF" opacity="0.9" />
 
-            <path d="M 120 178 Q 250 174 380 178" stroke="currentColor" stroke-width="2" opacity="0.25" />
-        </svg>
+        <path d="M 120 178 Q 250 174 380 178" stroke="currentColor" stroke-width="2" opacity="0.25" />
+    </svg>
 
-        <!-- Right Skyline: Filled Silhouette of Alibaug Coastal Hills & Coconut Palms (Tropical Teal #0D9488 at ~20-25% opacity) -->
-        <svg class="absolute right-0 bottom-0 w-[380px] sm:w-[480px] h-36 sm:h-48 text-[#0D9488]" viewBox="0 0 480 180" fill="currentColor">
-            <!-- Background Coastal Hills (Kankeshwar Ridge / Alibaug Headlands) -->
-            <path d="M 220 180 C 270 145, 340 120, 390 128 C 430 134, 460 110, 480 98 L 480 180 Z" opacity="0.12" />
-            <path d="M 320 180 C 370 150, 420 135, 480 145 L 480 180 Z" opacity="0.16" />
+    <!-- 2. BOTTOM-RIGHT Skyline: Mandwa Coconut Palms & Pier (Tropical Teal #0D9488, Z-0, Zero Mobile Collision) -->
+    <svg class="absolute bottom-0 right-0 pointer-events-none z-0 w-44 sm:w-64 lg:w-80 opacity-20 text-[#0D9488]" viewBox="0 0 480 180" fill="currentColor" aria-hidden="true">
+        <!-- Background Coastal Hills (Kankeshwar Ridge / Alibaug Headlands) -->
+        <path d="M 220 180 C 270 145, 340 120, 390 128 C 430 134, 460 110, 480 98 L 480 180 Z" opacity="0.12" />
+        <path d="M 320 180 C 370 150, 420 135, 480 145 L 480 180 Z" opacity="0.16" />
 
-            <!-- Mandwa Jetty Pier Timber Wharf Silhouette -->
-            <rect x="230" y="165" width="180" height="10" rx="1" opacity="0.22" />
-            <rect x="250" y="158" width="8" height="8" rx="1" opacity="0.26" />
-            <rect x="310" y="158" width="8" height="8" rx="1" opacity="0.26" />
-            <rect x="370" y="158" width="8" height="8" rx="1" opacity="0.26" />
+        <!-- Mandwa Jetty Pier Timber Wharf Silhouette -->
+        <rect x="230" y="165" width="180" height="10" rx="1" opacity="0.22" />
+        <rect x="250" y="158" width="8" height="8" rx="1" opacity="0.26" />
+        <rect x="310" y="158" width="8" height="8" rx="1" opacity="0.26" />
+        <rect x="370" y="158" width="8" height="8" rx="1" opacity="0.26" />
 
-            <!-- Lush Swaying Alibaug Coconut Palm Trees (Solid Filled Trunks & Fronds) -->
-            <path d="M 390 170 C 388 125, 370 85, 340 45 C 344 45, 348 46, 348 47 C 376 86, 396 125, 398 170 Z" opacity="0.26" />
-            <path d="M 344 46 C 315 28, 280 26, 245 42 C 275 52, 310 56, 344 46 Z" opacity="0.25" />
-            <path d="M 344 46 C 330 18, 305 2, 275 0 C 295 18, 320 32, 344 46 Z" opacity="0.25" />
-            <path d="M 344 46 C 358 16, 385 4, 415 12 C 395 28, 370 40, 344 46 Z" opacity="0.25" />
-            <path d="M 344 46 C 380 28, 420 36, 450 65 C 418 68, 380 62, 344 46 Z" opacity="0.25" />
-            <path d="M 344 46 C 374 65, 390 92, 385 125 C 370 102, 355 82, 344 46 Z" opacity="0.25" />
-            <path d="M 344 46 C 320 68, 295 90, 280 120 C 300 96, 322 78, 344 46 Z" opacity="0.25" />
+        <!-- Lush Swaying Alibaug Coconut Palm Trees (Solid Filled Trunks & Fronds) -->
+        <path d="M 390 170 C 388 125, 370 85, 340 45 C 344 45, 348 46, 348 47 C 376 86, 396 125, 398 170 Z" opacity="0.26" />
+        <path d="M 344 46 C 315 28, 280 26, 245 42 C 275 52, 310 56, 344 46 Z" opacity="0.25" />
+        <path d="M 344 46 C 330 18, 305 2, 275 0 C 295 18, 320 32, 344 46 Z" opacity="0.25" />
+        <path d="M 344 46 C 358 16, 385 4, 415 12 C 395 28, 370 40, 344 46 Z" opacity="0.25" />
+        <path d="M 344 46 C 380 28, 420 36, 450 65 C 418 68, 380 62, 344 46 Z" opacity="0.25" />
+        <path d="M 344 46 C 374 65, 390 92, 385 125 C 370 102, 355 82, 344 46 Z" opacity="0.25" />
+        <path d="M 344 46 C 320 68, 295 90, 280 120 C 300 96, 322 78, 344 46 Z" opacity="0.25" />
 
-            <path d="M 435 170 C 432 135, 422 100, 400 65 C 404 65, 407 66, 407 67 C 428 100, 439 135, 442 170 Z" opacity="0.23" />
-            <path d="M 403 66 C 380 48, 350 48, 325 62 C 350 70, 378 72, 403 66 Z" opacity="0.22" />
-            <path d="M 403 66 C 415 40, 438 28, 465 32 C 450 48, 430 58, 403 66 Z" opacity="0.22" />
-            <path d="M 403 66 C 435 55, 468 64, 485 92 C 460 92, 432 84, 403 66 Z" opacity="0.22" />
-            <path d="M 403 66 C 424 85, 435 110, 428 135 C 418 112, 410 94, 403 66 Z" opacity="0.22" />
+        <path d="M 435 170 C 432 135, 422 100, 400 65 C 404 65, 407 66, 407 67 C 428 100, 439 135, 442 170 Z" opacity="0.23" />
+        <path d="M 403 66 C 380 48, 350 48, 325 62 C 350 70, 378 72, 403 66 Z" opacity="0.22" />
+        <path d="M 403 66 C 415 40, 438 28, 465 32 C 450 48, 430 58, 403 66 Z" opacity="0.22" />
+        <path d="M 403 66 C 435 55, 468 64, 485 92 C 460 92, 432 84, 403 66 Z" opacity="0.22" />
+        <path d="M 403 66 C 424 85, 435 110, 428 135 C 418 112, 410 94, 403 66 Z" opacity="0.22" />
 
-            <path d="M 200 176 Q 340 172 480 176" stroke="currentColor" stroke-width="2" opacity="0.25" />
-        </svg>
+        <path d="M 200 176 Q 340 172 480 176" stroke="currentColor" stroke-width="2" opacity="0.25" />
+    </svg>
 
-    </div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
-            <!-- Left 7 Columns: Value Proposition & Trust Metrics -->
-            <div class="lg:col-span-7 space-y-6">
+            <!-- Left 7 Columns: Value Proposition & Trust Metrics (Z-10) -->
+            <div class="lg:col-span-7 space-y-6 relative z-10">
                 <!-- Status Pill -->
                 <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-slate-900/10 shadow-sm text-slate-800 text-xs font-semibold">
                     <span class="w-2 h-2 rounded-full bg-[#0284C7]"></span>
@@ -157,8 +148,8 @@
                 </div>
             </div>
 
-            <!-- Right 5 Columns: Floating Interactive Quick-Quote Card -->
-            <div class="lg:col-span-5">
+            <!-- Right 5 Columns: Floating Interactive Quick-Quote Card (Z-10) -->
+            <div class="lg:col-span-5 relative z-10">
                 <div class="bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 transition-all">
                     
                     <div class="flex items-center justify-between pb-4 border-b border-slate-100">
@@ -254,9 +245,9 @@
 <section class="relative bg-white pt-6 pb-12 overflow-hidden" aria-label="Harbour Transit Track">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        <!-- Transit Track Card -->
-        <div class="bg-gradient-to-r from-sky-50/70 via-white to-sky-50/70 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-sm">
-            <div class="flex items-center justify-between mb-4 sm:mb-6">
+        <!-- Transit Track Card (Full Width Matching Hero) -->
+        <div class="w-full bg-gradient-to-r from-sky-50/70 via-white to-sky-50/70 rounded-2xl p-4 sm:p-6 border border-slate-200/80 shadow-sm">
+            <div class="flex items-center justify-between mb-3 sm:mb-6">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-[#0284C7] flex items-center gap-1.5">
                     <span class="w-2 h-2 rounded-full bg-[#0284C7] animate-pulse"></span>
                     Express Nautical Transfer Corridor
@@ -264,12 +255,76 @@
                 <span class="text-xs text-slate-500 font-medium">14 km High-Speed Passage • 18 Mins</span>
             </div>
 
-            <!-- Single Unified Horizontal Row: Mumbai Node -> Nautical Connecting Track -> Alibaug Node -->
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0">
+            <!-- MOBILE VIEW (< 768px): 2-Column Endpoints Grid + Full-Width Animated Speedboat Track Underneath -->
+            <div class="md:hidden">
+                <!-- 2-Column Endpoints Grid -->
+                <div class="grid grid-cols-2 gap-2 mb-2">
+                    <!-- Mumbai Node (Compact) -->
+                    <div class="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-amber-200/90 shadow-xs">
+                        <div class="w-8 h-8 rounded-lg bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-amber-600" viewBox="0 0 32 32" fill="none">
+                                <path d="M 3 28 L 29 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M 5 26 L 5 11 L 27 11 L 27 26" stroke="currentColor" stroke-width="1.8"/>
+                                <path d="M 13 26 L 13 18 C 13 14, 16 12, 16 12 C 16 12, 19 14, 19 18 L 19 26 Z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.8"/>
+                            </svg>
+                        </div>
+                        <div class="min-w-0">
+                            <span class="block text-[#0B192C] font-extrabold text-xs truncate font-display">Mumbai</span>
+                            <span class="text-[10px] text-amber-800 font-bold block truncate">Jetty No. 5</span>
+                        </div>
+                    </div>
+
+                    <!-- Alibaug Node (Compact) -->
+                    <div class="flex items-center gap-2 bg-white p-2.5 rounded-xl border border-teal-200/90 shadow-xs justify-end text-right">
+                        <div class="min-w-0">
+                            <span class="block text-[#0B192C] font-extrabold text-xs truncate font-display">Alibaug</span>
+                            <span class="text-[10px] text-teal-800 font-bold block truncate">Mandwa Jetty</span>
+                        </div>
+                        <div class="w-8 h-8 rounded-lg bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-4 h-4 text-teal-600" viewBox="0 0 32 32" fill="none">
+                                <circle cx="21" cy="9" r="4.5" fill="#FBBF24" fill-opacity="0.8" stroke="#F59E0B" stroke-width="1.2"/>
+                                <path d="M 3 28 C 8 26.5, 12 28.5, 17 27 C 22 25.5, 26 27.5, 30 26.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M 13 27 C 13 20, 11 14, 8 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full-Width Horizontal Animated Speedboat Track for Mobile -->
+                <div class="w-full h-16 sm:h-20 relative overflow-hidden my-2 flex items-center justify-center">
+                    <div class="w-full relative flex items-center">
+                        <div class="w-full h-[2px] bg-gradient-to-r from-amber-400 via-[#0284C7] to-teal-400 rounded-full opacity-65"></div>
+                        <div class="absolute inset-0 border-b-2 border-dashed border-slate-400/50 top-1/2 -translate-y-1/2"></div>
+                        <div class="absolute inset-0 h-[2px] bg-gradient-to-r from-amber-400/50 via-[#38BDF8] to-teal-400/50 blur-[2px] opacity-70 animate-pulse top-1/2 -translate-y-1/2"></div>
+                    </div>
+
+                    <!-- Gliding Speedboat Component for Mobile -->
+                    <div class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none z-10 flex flex-col items-center">
+                        <div class="-mt-8 mb-1">
+                            <span class="px-2 py-0.5 text-[9px] font-bold tracking-tight bg-[#0B192C] text-[#38BDF8] rounded-full shadow-md whitespace-nowrap border border-cyan-400/40 flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                                <span>⚡ ~18 Mins Express</span>
+                            </span>
+                        </div>
+                        <div class="relative flex items-center animate-boat-flip">
+                            <svg class="w-9 h-6 text-[#0B192C] drop-shadow-md" viewBox="0 0 64 36" fill="currentColor">
+                                <path d="M 4 24 L 14 26 L 52 26 L 62 18 L 48 18 L 36 12 L 20 12 L 14 18 L 4 20 Z" fill="#0B192C" />
+                                <polygon points="22,13 35,13 32,18 19,18" fill="#38BDF8" opacity="0.95" />
+                                <rect x="2" y="19" width="4" height="9" rx="1" fill="#475569" />
+                                <rect x="6" y="21" width="3" height="7" rx="1" fill="#64748B" />
+                                <path d="M 8 27 Q 24 28 44 27 L 60 21" stroke="#38BDF8" stroke-width="2" fill="none" />
+                            </svg>
+                            <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-8 h-2 bg-gradient-to-r from-transparent via-cyan-400 to-white rounded-full blur-[1px] opacity-85 animate-wake"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESKTOP / TABLET VIEW (md:flex): Single Horizontal Row [Mumbai Node] ➔ [Track (flex-1)] ➔ [Alibaug Node] -->
+            <div class="hidden md:flex items-center justify-between gap-4 lg:gap-8">
                 
-                <!-- Left Node: Mumbai (Jetty No. 5) with 48x48 Illustrated Heritage Badge -->
-                <div class="flex items-center gap-3.5 bg-white px-4 py-3.5 rounded-2xl border border-amber-200/90 shadow-sm z-20 flex-shrink-0 w-full md:w-auto">
-                    <!-- 48x48px Illustrated Badge (Warm Amber/Gold) -->
+                <!-- Left Node: Mumbai (Jetty No. 5) -->
+                <div class="flex items-center gap-3.5 bg-white px-4 py-3.5 rounded-2xl border border-amber-200/90 shadow-sm z-20 flex-shrink-0">
                     <div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 text-amber-700 flex items-center justify-center shadow-xs flex-shrink-0">
                         <svg class="w-7 h-7 text-amber-600 drop-shadow-xs" viewBox="0 0 32 32" fill="none">
                             <path d="M 3 28 L 29 28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -298,16 +353,11 @@
                     </div>
                 </div>
 
-                <!-- Center Connecting Route Line (Warm Amber -> Ocean Cyan -> Tropical Teal Gradient) -->
-                <div class="relative flex-1 mx-6 lg:mx-10 h-28 flex items-center justify-center overflow-hidden">
-                    
-                    <!-- Sleek Horizontal Nautical Route Track Line (Gradient from Amber to Cyan to Teal) -->
+                <!-- Center Connecting Route Line -->
+                <div class="relative flex-1 mx-4 lg:mx-8 h-28 flex items-center justify-center overflow-hidden">
                     <div class="w-full relative flex items-center">
-                        <!-- 2.5px Gradient Track Line -->
                         <div class="w-full h-[2.5px] bg-gradient-to-r from-amber-400 via-[#0284C7] to-teal-400 rounded-full opacity-65"></div>
-                        <!-- Dashed nautical track overlay -->
                         <div class="absolute inset-0 border-b-2 border-dashed border-slate-400/50 top-1/2 -translate-y-1/2"></div>
-                        <!-- Subtle animated pulse glow -->
                         <div class="absolute inset-0 h-[2.5px] bg-gradient-to-r from-amber-400/50 via-[#38BDF8] to-teal-400/50 blur-[2px] opacity-70 animate-pulse top-1/2 -translate-y-1/2"></div>
 
                         <!-- Storytelling waypoints across the harbor corridor -->
@@ -325,18 +375,14 @@
                         </div>
                     </div>
 
-                    <!-- Gliding Speedboat Component Directly ON the route line -->
-                    <div id="transitBoatContainer" class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none z-10 flex flex-col items-center">
-                        
-                        <!-- Live Pill Tag Above the Boat -->
+                    <!-- Gliding Speedboat Component for Desktop -->
+                    <div class="absolute top-1/2 -translate-y-1/2 animate-boat-glide pointer-events-none z-10 flex flex-col items-center">
                         <div class="-mt-9 mb-1">
                             <span class="px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold tracking-tight bg-[#0B192C] text-[#38BDF8] rounded-full shadow-md whitespace-nowrap border border-cyan-400/40 flex items-center gap-1.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
                                 <span>⚡ ~18 Mins Express</span>
                             </span>
                         </div>
-
-                        <!-- Animated Boat Graphic (approx 42px wide) & Glowing Wake -->
                         <div class="relative flex items-center animate-boat-flip">
                             <svg class="w-11 sm:w-12 h-7 text-[#0B192C] drop-shadow-md" viewBox="0 0 64 36" fill="currentColor">
                                 <path d="M 4 24 L 14 26 L 52 26 L 62 18 L 48 18 L 36 12 L 20 12 L 14 18 L 4 20 Z" fill="#0B192C" />
@@ -345,29 +391,25 @@
                                 <rect x="6" y="21" width="3" height="7" rx="1" fill="#64748B" />
                                 <path d="M 8 27 Q 24 28 44 27 L 60 21" stroke="#38BDF8" stroke-width="2" fill="none" />
                             </svg>
-                            <!-- Glowing Cyan/White Wake Trail Behind Boat -->
                             <div class="absolute -left-8 top-1/2 -translate-y-1/2 w-10 h-2.5 bg-gradient-to-r from-transparent via-cyan-400 to-white rounded-full blur-[1px] opacity-85 animate-wake"></div>
                         </div>
-
                     </div>
-
                 </div>
 
-                <!-- Right Node: Alibaug (Mandwa Jetty) with 48x48 Illustrated Coastal Badge -->
-                <div class="flex items-center gap-3.5 bg-white px-4 py-3.5 rounded-2xl border border-teal-200/90 shadow-sm z-20 flex-shrink-0 w-full md:w-auto text-left md:text-right justify-between md:justify-end">
-                    <div class="order-2 md:order-1">
-                        <div class="flex items-center md:justify-end gap-1.5">
+                <!-- Right Node: Alibaug (Mandwa Jetty) -->
+                <div class="flex items-center gap-3.5 bg-white px-4 py-3.5 rounded-2xl border border-teal-200/90 shadow-sm z-20 flex-shrink-0 text-right justify-end">
+                    <div>
+                        <div class="flex items-center justify-end gap-1.5">
                             <span class="block text-[#0B192C] font-extrabold text-sm sm:text-base leading-tight font-display">Alibaug (Mandwa Jetty)</span>
                         </div>
-                        <div class="mt-1 flex items-center md:justify-end gap-2">
+                        <div class="mt-1 flex items-center justify-end gap-2">
                             <span class="hidden sm:inline text-[11px] text-slate-500 font-medium">~18 Mins Transit</span>
                             <span class="text-[10px] font-bold text-teal-800 bg-teal-100/90 px-2 py-0.5 rounded-md inline-flex items-center gap-1 border border-teal-200/60">
                                 🌴 Coastal Pier • Raigad
                             </span>
                         </div>
                     </div>
-                    <!-- 48x48px Illustrated Badge (Tropical Teal/Emerald) -->
-                    <div class="order-1 md:order-2 w-12 h-12 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center shadow-xs flex-shrink-0">
+                    <div class="w-12 h-12 rounded-xl bg-teal-50 border border-teal-200 text-teal-700 flex items-center justify-center shadow-xs flex-shrink-0">
                         <svg class="w-7 h-7 text-teal-600 drop-shadow-xs" viewBox="0 0 32 32" fill="none">
                             <circle cx="21" cy="9" r="4.5" fill="#FBBF24" fill-opacity="0.8" stroke="#F59E0B" stroke-width="1.2"/>
                             <path d="M 3 28 C 8 26.5, 12 28.5, 17 27 C 22 25.5, 26 27.5, 30 26.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
