@@ -278,95 +278,172 @@
         </a>
     </div>
 
-    <!-- LUXURY DEEP NAVY FOOTER -->
-    <footer class="bg-[#0B192C] text-slate-300 pt-16 pb-12 border-t border-slate-800 mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                <!-- Brand Info -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-3">
-                        <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
-                            <img src="/static/images/logo.jpg" alt="Captain's Choice Logo" class="w-full h-full object-contain">
-                        </div>
-                        <div>
-                            <span class="text-lg font-bold font-display text-white tracking-tight block">CAPTAIN'S <span class="text-[#0284C7]">CHOICE</span></span>
-                            <span class="text-[10px] text-slate-400 tracking-wider uppercase block font-semibold">Sea Ventures • Mumbai</span>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-400 leading-relaxed">
-                        High-speed marine transfers and private speedboat charters operated by <strong class="text-white">Captain's Choice Sea Ventures</strong> out of Jetty No. 5, Gateway of India.
-                    </p>
-                    <div class="flex items-center gap-2 pt-1">
-                        <span class="px-2.5 py-0.5 rounded bg-slate-800 text-sky-300 text-[11px] font-medium border border-slate-700">Coast Guard Compliant</span>
-                        <span class="px-2.5 py-0.5 rounded bg-slate-800 text-emerald-400 text-[11px] font-medium border border-slate-700">ISO Life Vests</span>
-                    </div>
-                </div>
+    <!-- UNIFIED SHORELINE-TO-DEEP-SEA OCEAN CONTAINER (3-LAYER WAVE + CTA + NAUTICAL HORIZON + FOOTER) -->
+    <div class="relative w-full overflow-hidden bg-gradient-to-b from-[#0C4A6E] via-[#0F2942] to-[#07111E] text-white">
+        
+        <!-- 3-LAYER ANIMATED SHORELINE WAVE TRANSITION AT TOP EDGE -->
+        <div class="w-full h-16 sm:h-24 lg:h-28 overflow-hidden leading-none relative bg-white">
+            <svg class="w-full h-full" viewBox="0 0 1440 120" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Wave Layer 1 (Back/Shallow Water): Soft Sky/Cyan tint with slow horizontal drift animation -->
+                <path d="M0,32 C240,65 480,10 720,42 C960,74 1200,20 1440,48 L1440,120 L0,120 Z" fill="rgba(14, 165, 233, 0.25)" class="animate-[pulse_6s_ease-in-out_infinite]"></path>
+                
+                <!-- Wave Layer 2 (Mid-Tide): Ocean Teal tint offset slightly vertically and horizontally -->
+                <path d="M0,52 C280,18 540,78 820,38 C1100,68 1300,32 1440,62 L1440,120 L0,120 Z" fill="rgba(8, 145, 178, 0.35)"></path>
+                
+                <!-- Wave Layer 3 (Deep Crest): Solid match to top of ocean gradient (#0C4A6E) -->
+                <path d="M0,72 C320,32 640,92 960,52 C1200,82 1340,62 1440,76 L1440,120 L0,120 Z" fill="#0C4A6E"></path>
+            </svg>
+        </div>
 
-                <!-- Popular Routes -->
-                <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Popular Routes</h3>
-                    <ul class="space-y-2 text-xs text-slate-300">
-                        <li><a href="/book?route=gateway-mandwa" class="hover:text-[#0284C7] transition-colors">Gateway to Mandwa (18-20 Mins)</a></li>
-                        <li><a href="/book?route=mandwa-gateway" class="hover:text-[#0284C7] transition-colors">Mandwa to Gateway of India</a></li>
-                        <li><a href="/book?route=gateway-elephanta" class="hover:text-[#0284C7] transition-colors">Elephanta Caves Tour</a></li>
-                        <li><a href="/book?route=mumbai-harbour-cruise" class="hover:text-[#0284C7] transition-colors">Mumbai Harbour Sunset Cruise</a></li>
-                        <li><a href="/fleet" class="hover:text-[#0284C7] transition-colors">Our Speedboat (Specs & Blueprint)</a></li>
-                    </ul>
-                </div>
-
-                <!-- Boarding Jetty Location -->
-                <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Boarding Point</h3>
-                    <p class="text-xs text-slate-300 leading-relaxed">
-                        <strong class="text-white">Jetty No. 5</strong><br>
-                        Opposite The Taj Mahal Palace Hotel,<br>
-                        Apollo Bandar, Colaba, Mumbai 400001
-                    </p>
-                    <a href="{{ google_maps_url }}" target="_blank" class="inline-flex items-center gap-1 text-xs text-[#0284C7] font-semibold hover:underline">
-                        <span>Google Maps Directions</span>
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                    </a>
-                </div>
-
-                <!-- Contact & Support -->
-                <div class="space-y-3">
-                    <h3 class="text-white font-bold text-sm font-display tracking-tight">Contact & Bookings</h3>
-                    <div class="space-y-1.5 text-xs text-slate-300">
-                        <p>
-                            <span class="text-slate-400">WhatsApp:</span>
-                            <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="text-emerald-300 font-semibold hover:text-emerald-200 ml-1">{{ whatsapp_display_phone }}</a>
-                        </p>
-                        <p>
-                            <span class="text-slate-400">Email:</span>
-                            <a href="mailto:{{ contact_email }}" class="text-slate-200 hover:text-[#0284C7] ml-1">{{ contact_email }}</a>
-                        </p>
-                        <p class="text-[11px] text-slate-400">07:00 AM – 07:30 PM (Daily)</p>
-                    </div>
-
-                    <div class="pt-2">
-                        <span class="text-[11px] text-slate-400 uppercase tracking-wider block font-medium mb-1.5">Secure Payments:</span>
-                        <div class="flex items-center gap-1.5 flex-wrap">
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">Razorpay</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">UPI / GPay</span>
-                            <span class="px-2 py-0.5 rounded bg-slate-800 text-[11px] border border-slate-700 text-slate-200">Net Banking</span>
-                        </div>
-                    </div>
-                </div>
+        {% block pre_footer %}
+        <!-- UPPER WATER LAYER: THE "20-MINUTE ALIBAUG RIDE" CTA (max-w-7xl) -->
+        <section class="py-14 lg:py-20 relative z-10 text-center">
+            <!-- Subtle Radial Bioluminescent Water Glow -->
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+                <div class="bg-sky-400/10 blur-3xl rounded-full w-96 h-48 mx-auto"></div>
             </div>
 
-            <!-- Bottom Line -->
-            <div class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p>&copy; 2026 {{ app_name }}. All rights reserved.</p>
-                <div class="flex items-center gap-4 text-slate-400">
-                    <a href="/admin" class="hover:text-white transition-colors">Admin Portal</a>
-                    <span>•</span>
-                    <span>Coast Guard Safety Compliant</span>
-                    <span>•</span>
-                    <span>Weather Inspected</span>
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+                <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-white/10 text-sky-200 border border-white/15 backdrop-blur-sm">
+                    <span>🌊 Arabian Sea Express Transfers</span>
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
+                    Ready for a 20-Minute Alibaug Ride?
+                </h2>
+                <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+                    Glide across Mumbai Harbour aboard our private twin-engine speedboat. Reserve your vessel today or speak directly with our jetty desk on WhatsApp.
+                </p>
+                
+                <div class="flex flex-wrap items-center justify-center gap-3.5 pt-3">
+                    <a href="/book" class="bg-white text-[#0B192C] hover:bg-sky-50 font-extrabold px-8 py-3.5 rounded-xl shadow-xl active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2">
+                        <span>Reserve Speedboat Now</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </a>
+                    <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20would%20like%20to%20book%20a%20speedboat%20to%20Mandwa." target="_blank" class="bg-emerald-500/20 border border-emerald-400/30 text-emerald-100 hover:bg-emerald-500/30 font-bold px-7 py-3.5 rounded-xl shadow-lg active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2 backdrop-blur-sm">
+                        <svg class="w-4 h-4 fill-[#34D399]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
+                        <span>WhatsApp (+91 7506920614)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NAUTICAL HORIZON DIVIDER (CONNECTING CTA TO FOOTER LINKS) -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 my-4">
+            <div class="relative flex items-center justify-center">
+                <!-- 1px horizontal gradient line -->
+                <div class="w-full h-[1px] bg-gradient-to-r from-transparent via-sky-400/30 to-transparent"></div>
+                <!-- Centered pill badge -->
+                <div class="absolute px-4 py-1 rounded-full bg-[#0B2136] border border-sky-400/20 shadow-md">
+                    <span class="text-sky-300/80 text-[10px] sm:text-[11px] font-mono tracking-widest uppercase font-semibold flex items-center gap-1.5 whitespace-nowrap">
+                        <span>⚓ 18.9220° N, 72.8347° E</span>
+                        <span class="text-sky-400/40">•</span>
+                        <span>MUMBAI HARBOUR TO MANDWA</span>
+                    </span>
                 </div>
             </div>
         </div>
-    </footer>
+        {% endblock %}
+
+        <!-- DEEP SEA LAYER: UNIFIED 4-COLUMN FOOTER (max-w-7xl) -->
+        <footer class="pt-12 pb-24 md:pb-12 text-slate-300 relative z-10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Col 1 (lg:col-span-4): Brand Info, tagline, verified Jetty No. 5 badge -->
+                    <div class="lg:col-span-4 space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 rounded-xl bg-white p-1 shadow-md border border-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0">
+                                <img src="/static/images/logo.jpg" alt="Captain's Choice Logo" class="w-full h-full object-contain">
+                            </div>
+                            <div>
+                                <span class="text-lg font-bold font-display text-white tracking-tight block">CAPTAIN'S <span class="text-[#0284C7]">CHOICE</span></span>
+                                <span class="text-[10px] text-slate-400 tracking-wider uppercase block font-semibold">Sea Ventures • Mumbai</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            High-speed marine transfers and private speedboat charters operated by <strong class="text-white">Captain's Choice Sea Ventures</strong> out of Jetty No. 5, Gateway of India.
+                        </p>
+                        <div class="flex items-center gap-2 pt-1 flex-wrap">
+                            <span class="px-2.5 py-0.5 rounded bg-slate-800/80 text-sky-300 text-[11px] font-medium border border-slate-700 flex items-center gap-1">
+                                <span>🏛️</span> Jetty No. 5 Verified
+                            </span>
+                            <span class="px-2.5 py-0.5 rounded bg-slate-800/80 text-emerald-400 text-[11px] font-medium border border-slate-700">
+                                Coast Guard Compliant
+                            </span>
+                            <span class="px-2.5 py-0.5 rounded bg-slate-800/80 text-sky-200 text-[11px] font-medium border border-slate-700">
+                                ISO Life Vests
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Col 2 (lg:col-span-3): Popular Routes & Fares links -->
+                    <div class="lg:col-span-3 space-y-3">
+                        <h3 class="text-white font-bold text-sm font-display tracking-tight">Popular Routes & Fares</h3>
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li><a href="/book?route=gateway-mandwa" class="hover:text-sky-300 transition-colors">Gateway to Mandwa (~18 Mins)</a></li>
+                            <li><a href="/book?route=mandwa-gateway" class="hover:text-sky-300 transition-colors">Mandwa to Gateway of India</a></li>
+                            <li><a href="/book?route=gateway-elephanta" class="hover:text-sky-300 transition-colors">Elephanta Caves Heritage Tour</a></li>
+                            <li><a href="/book?route=mumbai-harbour-cruise" class="hover:text-sky-300 transition-colors">Mumbai Harbour Sunset Cruise</a></li>
+                            <li><a href="/fleet" class="hover:text-sky-300 transition-colors">Our Speedboat (Specs & Blueprint)</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Col 3 (lg:col-span-2): Boarding Point details -->
+                    <div class="lg:col-span-2 space-y-3">
+                        <h3 class="text-white font-bold text-sm font-display tracking-tight">Boarding Point</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            <strong class="text-white">Gate No. 5</strong><br>
+                            Opp. The Taj Mahal Palace,<br>
+                            Apollo Bandar, Colaba,<br>
+                            Mumbai 400001
+                        </p>
+                        <a href="{{ google_maps_url }}" target="_blank" class="inline-flex items-center gap-1 text-xs text-[#38BDF8] font-semibold hover:underline">
+                            <span>Google Maps Directions</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Col 4 (lg:col-span-3): Instant Bookings & WhatsApp Desk contact -->
+                    <div class="lg:col-span-3 space-y-3">
+                        <h3 class="text-white font-bold text-sm font-display tracking-tight">Instant Bookings & Desk</h3>
+                        <div class="space-y-1.5 text-xs text-slate-300">
+                            <p>
+                                <span class="text-slate-400">WhatsApp Desk:</span>
+                                <a href="https://wa.me/{{ whatsapp_phone }}" target="_blank" class="text-emerald-300 font-semibold hover:text-emerald-200 ml-1">{{ whatsapp_display_phone }}</a>
+                            </p>
+                            <p>
+                                <span class="text-slate-400">Email:</span>
+                                <a href="mailto:{{ contact_email }}" class="text-slate-200 hover:text-sky-300 ml-1">{{ contact_email }}</a>
+                            </p>
+                            <p class="text-[11px] text-slate-400">Daily Operations: 06:00 AM – 08:00 PM</p>
+                        </div>
+
+                        <div class="pt-2">
+                            <span class="text-[11px] text-slate-400 uppercase tracking-wider block font-medium mb-1.5">Secure Payments:</span>
+                            <div class="flex items-center gap-1.5 flex-wrap">
+                                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] border border-slate-700 text-slate-200">Razorpay</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] border border-slate-700 text-slate-200">UPI / GPay</span>
+                                <span class="px-2 py-0.5 rounded bg-slate-800/80 text-[11px] border border-slate-700 text-slate-200">Credit / Debit</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Copyright Line with Discreet Admin Login in bottom-right corner -->
+                <div class="mt-12 pt-6 border-t border-slate-800/80 text-xs text-slate-400 flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p>&copy; 2026 {{ app_name }}. All rights reserved.</p>
+                    <div class="flex items-center gap-4 text-slate-400">
+                        <span>Coast Guard Safety Compliant</span>
+                        <span>•</span>
+                        <span>Weather Inspected</span>
+                        <span>•</span>
+                        <a href="/admin" class="hover:text-slate-200 transition-colors">Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
 
     <!-- Mobile Menu Script -->
     <script>

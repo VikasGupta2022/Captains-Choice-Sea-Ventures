@@ -626,92 +626,126 @@
 </section>
 
 <!-- ============================================== -->
-<!-- 6. FREQUENTLY ASKED QUESTIONS (FAQ)            -->
+<!-- 6. FREQUENTLY ASKED QUESTIONS (FAQ - WIDENED 12-COL GRID) -->
 <!-- ============================================== -->
 <section id="faq" class="py-16 sm:py-20 bg-white border-t border-slate-900/5">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center mb-10">
-            <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">Support & Operations</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold font-display text-[#0B192C] tracking-tight">Frequently Asked Questions</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            
+            <!-- Left Column (lg:col-span-5): Heading & Direct Jetty Desk Card -->
+            <div class="lg:col-span-5 space-y-4">
+                <span class="text-xs uppercase font-extrabold tracking-wider text-[#0284C7] block mb-1">
+                    Support & Operations
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-[#0B192C] tracking-tight leading-tight">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md">
+                    Everything you need to know about private speedboat departures, luggage allowance, jetty boarding opposite Taj Mahal Palace, and customized charter timings.
+                </p>
+
+                <!-- Direct Jetty No. 5 Desk Support Card -->
+                <div class="bg-[#F8FAFC] border border-slate-200/80 rounded-2xl p-6 mt-6 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-xl bg-sky-100 text-[#0284C7] flex items-center justify-center font-bold text-lg flex-shrink-0">
+                            ⚓
+                        </div>
+                        <div>
+                            <span class="block text-xs font-extrabold text-[#0B192C] font-display">Direct Jetty No. 5 Desk</span>
+                            <span class="text-[11px] text-slate-500 font-medium">Opposite The Taj Mahal Palace, Colaba</span>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-2 py-3 border-y border-slate-200/80 text-xs text-slate-600">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium text-slate-500">Operating Hours:</span>
+                            <strong class="text-[#0B192C] font-semibold">Daily: 6:00 AM – 8:00 PM</strong>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium text-slate-500">Boarding Response:</span>
+                            <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/60">Within ~5 Mins</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium text-slate-500">Harbour Sea State:</span>
+                            <span class="text-sky-700 font-semibold">Calm / Open</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20have%20a%20question%20about%20Jetty%20No.%205%20boarding." target="_blank" class="w-full bg-[#0B192C] hover:bg-slate-800 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-sm">
+                            <span>Chat with Dock Master</span>
+                            <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column (lg:col-span-7): Expandable FAQ Accordion Cards -->
+            <div class="lg:col-span-7 space-y-3.5">
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all" open>
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>Where do we board the private speedboat in Mumbai?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        All our private charters depart strictly from <strong>Jetty No. 5</strong> at Apollo Bandar, directly opposite the grand sea entrance of The Taj Mahal Palace hotel in Colaba. Our dock master welcomes your party upon arrival, coordinates your luggage, and escorts you directly to the boarding pontoon.
+                    </p>
+                </details>
+
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>How much luggage can our group bring onboard?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Our flagship Speedster 24 features a dedicated watertight aft luggage bay designed to hold up to 1 medium trolley suitcase per guest plus standard soft duffels or hand backpacks (suitable for 6–8 passengers). For oversized sports equipment, golf kits, or pet travel, please notify our desk beforehand on WhatsApp.
+                    </p>
+                </details>
+
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>How long is the crossing from Gateway to Mandwa (Alibaug)?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Powered by twin Yamaha 200HP 4-stroke outboards and cruising at 32–38 knots, the 14-kilometer crossing between Jetty No. 5 and Mandwa Jetty takes approximately <strong>18 to 20 minutes</strong> in typical sea conditions—saving over 3 hours compared to road traffic via the Mumbai-Pune/Goa highway.
+                    </p>
+                </details>
+
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>How does the Razorpay deposit and payment confirmation work?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        To lock in your requested time slot, boat, and skipper, a secure advance booking deposit of ₹2,000 is processed through Razorpay (UPI, Google Pay, Net Banking, or Credit/Debit Cards). Instant digital booking passes and boarding coordinates are issued immediately, and the remaining charter balance is payable at the jetty upon boarding.
+                    </p>
+                </details>
+
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>What safety equipment is provided onboard?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Passenger safety is our highest maritime priority. Every passenger is fitted with an Indian Coast Guard and ISO-certified life jacket before departure. Our vessel carries Garmin GPS chartplotters, VHF marine radios, twin-engine redundancy, first-aid medical kits, and is helmed by seasoned local mariners with over 15 years navigating Mumbai Harbour.
+                    </p>
+                </details>
+
+                <details class="bg-[#F8FAFC] rounded-2xl border border-slate-200/90 shadow-sm p-5 sm:p-6 group transition-all">
+                    <summary class="font-bold text-sm sm:text-base text-[#0B192C] cursor-pointer flex items-center justify-between list-none">
+                        <span>Can we arrange custom timings, return pickups, or sundowners?</span>
+                        <span class="text-slate-400 group-open:rotate-180 group-open:text-[#0284C7] transition-transform ml-2">▼</span>
+                    </summary>
+                    <p class="text-xs sm:text-sm text-slate-600 mt-3.5 leading-relaxed border-t border-slate-200/60 pt-3">
+                        Yes! Because our speedboat is 100% private charter, we depart on your custom schedule between 6:00 AM and 8:00 PM. We also arrange evening sunset cruises in Mumbai Harbour, Elephanta Island heritage day-trips, and late-afternoon return pickups from Mandwa back to Gateway.
+                    </p>
+                </details>
+            </div>
+
         </div>
 
-        <div class="space-y-3">
-            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group" open>
-                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
-                    <span>Where do we board the speedboat in Mumbai?</span>
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    All our speedboats depart directly from <strong>Jetty No. 5</strong>, located directly opposite the entrance of The Taj Mahal Palace Hotel, Apollo Bandar, Colaba.
-                </p>
-            </details>
-
-            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
-                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
-                    <span>How much luggage can we take to Mandwa / Alibaug?</span>
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    Standard speedboats accommodate 1 suitcase per passenger plus hand baggage. For extra luggage or golf bags, we recommend booking our 10-seater <em>Interceptor 28</em> or 12-seater <em>Gulfcraft 31</em>.
-                </p>
-            </details>
-
-            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
-                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
-                    <span>How does the Razorpay advance payment work?</span>
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    A nominal advance deposit (starting at ₹2,000) is paid securely via Razorpay to confirm the boat and skipper schedule. The balance is settled upon boarding at the jetty.
-                </p>
-            </details>
-
-            <details class="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] ring-1 ring-slate-900/5 p-5 group">
-                <summary class="font-bold text-sm text-[#0B192C] cursor-pointer flex items-center justify-between">
-                    <span>Can I chat on WhatsApp before making a reservation?</span>
-                    <span class="text-slate-400 group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p class="text-xs text-slate-600 mt-3 leading-relaxed">
-                    Yes! Our WhatsApp desk is open daily at <strong>+91 7506920614</strong>. Message us anytime for custom schedules, corporate charters, or celebration decoration setups.
-                </p>
-            </details>
-        </div>
-
-    </div>
-</section>
-
-<!-- ============================================== -->
-<!-- 7. CALL TO ACTION BANNER (DEEP MARITIME NAVY)  -->
-<!-- ============================================== -->
-<section class="py-16 sm:py-20 bg-gradient-to-r from-[#0B192C] via-[#0E2238] to-[#0B192C] text-white text-center relative overflow-hidden">
-    <!-- Subtle Ocean Wave Overlay -->
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-        <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,45 C25,25 50,65 75,35 C90,20 100,50 100,45 L100,100 L0,100 Z" fill="rgba(255,255,255,0.2)"></path>
-        </svg>
-    </div>
-
-    <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/10 text-sky-200 border border-white/15 backdrop-blur-sm">
-            <span>🌊 Arabian Sea Express Transfers</span>
-        </span>
-        <h2 class="text-3xl sm:text-5xl font-extrabold font-display text-white tracking-tight">
-            Ready for a 20-Minute Alibaug Ride?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Glide across Mumbai Harbour aboard a twin-engine speedboat. Reserve your vessel today or speak directly with our jetty desk on WhatsApp.
-        </p>
-        
-        <div class="flex flex-wrap items-center justify-center gap-3.5 pt-2">
-            <a href="/book" class="bg-white text-[#0B192C] hover:bg-slate-100 font-extrabold px-8 py-3.5 rounded-xl shadow-xl active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm">
-                Reserve Speedboat Now
-            </a>
-            <a href="https://wa.me/{{ whatsapp_phone }}?text=Hi%20Captain's%20Choice!%20I%20would%20like%20to%20book%20a%20speedboat%20to%20Mandwa." target="_blank" class="bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100 font-bold px-7 py-3.5 rounded-xl shadow-lg active:scale-[0.98] transition-all duration-200 text-xs sm:text-sm flex items-center gap-2">
-                <svg class="w-4 h-4 fill-[#047857]" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.761.784 2.791.784 3.182 0 5.768-2.587 5.768-5.768.001-3.182-2.585-5.768-5.768-5.768zm0 10.334c-.878 0-1.637-.253-2.348-.682l-.168-.102-1.742.457.465-1.698-.112-.178c-.469-.748-.718-1.464-.718-2.531 0-2.518 2.049-4.567 4.569-4.567 2.52 0 4.569 2.049 4.569 4.568 0 2.52-2.049 4.533-4.465 4.533z"/></svg>
-                <span>WhatsApp (+91 7506920614)</span>
-            </a>
-        </div>
     </div>
 </section>
 
