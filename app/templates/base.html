@@ -146,6 +146,32 @@
         .animate-vessel-float {
             animation: vesselFloat 5s ease-in-out infinite;
         }
+
+        /* Route Selector Pills (Quick Charter Quote) */
+        .route-pill {
+            transition: all 0.2s ease;
+        }
+        .route-pill.active {
+            background-color: #0B192C !important;
+            color: #ffffff !important;
+            border-color: #0B192C !important;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+        }
+        .route-pill.active:hover {
+            background-color: #0B192C !important;
+            color: #ffffff !important;
+            border-color: #0B192C !important;
+        }
+        .route-pill:not(.active) {
+            background-color: #ffffff !important;
+            color: #334155 !important;
+            border-color: #e2e8f0 !important;
+        }
+        .route-pill:not(.active):hover {
+            background-color: #f1f5f9 !important;
+            color: #0B192C !important;
+            border-color: #cbd5e1 !important;
+        }
     </style>
 
     {% block extra_head %}{% endblock %}
